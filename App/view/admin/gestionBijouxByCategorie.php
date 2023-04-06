@@ -24,7 +24,6 @@
   }
 
   .div_main {
-    width: 80%;
     margin-top: 100px;
   }
 
@@ -35,6 +34,7 @@
     line-height: 59px;
     text-align: center;
     margin-bottom: 10px;
+    text-transform: capitalize;
   }
 
   .table-cat {
@@ -44,7 +44,6 @@
 
   .table-cat th,
   .table-cat td {
-    width: 30%;
     padding: 10px;
     text-align: center;
     text-transform: capitalize;
@@ -54,9 +53,14 @@
     font-size: 12px;
   }
 
+  .img-admin img {
+    width: 40px;
+    height: 40px;
+  }
+
   .btn-admin {
     width: 70px;
-    height: 20px;
+    height: 30px;
     font-size: 10px;
     text-align: center;
     background: var(--color-secondaire);
@@ -64,6 +68,7 @@
     box-shadow: var(--box-shadow-principal);
     border-radius: 5px;
     color: var(--color-tertiaire);
+    text-transform: capitalize;
     cursor: pointer;
   }
 
@@ -110,6 +115,7 @@
     }
 
     .div_main {
+      width: 80%;
       margin-top: 160px;
     }
 
@@ -117,9 +123,14 @@
       font-size: 14px;
     }
 
+    .img-admin img {
+      width: 60px;
+      height: 60px;
+    }
+
     .btn-admin {
       width: 100px;
-      height: 30px;
+      height: 50px;
       font-size: 16px;
     }
 
@@ -140,28 +151,31 @@
   </section>
   <section class="section-admin">
     <div class="div_main">
-      <h2 class="form-title">Gestion Utilisateur</h2>
+      <?php
+      $nomCat = reset($bijoux);
+      ?>
+      <h2 class="form-title">Gestion <?= $nomCat['nom_categorie']; ?>s</h2>
       <table class="table-cat">
         <thead>
           <tr>
-            <th>Utilisateur</th>
-            <th>Role</th>
+            <th></th>
+            <th>Bijoux</th>
             <th>Modifier</th>
             <th>Supprimer</th>
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($tabUser as $user) : ?>
+          <?php foreach ($bijoux as $bijou) : ?>
             <tr>
-              <td><?= $user['nom_utilisateur'] ?></td>
-              <td><?= $user['role'] ?></td>
+              <td class="img-admin"><img src="App/src/img/<?= $bijou['image_bijoux'] ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet"> </td>
+              <td><?= $bijou['nom_bijoux'] ?></td>
               <td>
-                <form method="post" action="index.php?entite=admin&action=updateUser&id=<?= $user['id_utilisateur']; ?>">
+                <form method="post" action="index.php?entite=bijoux&action=update&id=<?= $bijou['id_bijoux']; ?>">
                   <button class="btn-admin btn-modifier">Modifier</button>
                 </form>
               </td>
               <td>
-                <form method="post" action="index.php?entite=user&action=delete&id=<?= $user['id_utilisateur']; ?>">
+                <form method="post" action="index.php?entite=bijoux&action=delete&id=<?= $bijou['id_bijoux']; ?>">
                   <button class="btn-admin btn-supprimer">Supprimer</button>
                 </form>
               </td>
@@ -169,7 +183,10 @@
           <?php endforeach ?>
         </tbody>
       </table>
-      <a href="index.php?entite=admin&action=home" class="retour">Retour</a>
+      <form class="form-btncreeCat" method="post" action="index.php?entite=bijoux&action=create">
+        <button class="btn-admin btn-creeCat">Créer <?= $nomCat['nom_categorie']; ?>s</button>
+      </form>
+      <a class="retour" href="index.php?entite=admin&action=bijoux">Retour</a>
     </div>
   </section>
 </header>

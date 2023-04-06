@@ -2,6 +2,7 @@
   .header-admin {
     background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
     width: 100vw;
+    height: auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 55%;

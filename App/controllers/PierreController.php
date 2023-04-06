@@ -30,13 +30,7 @@ class PierreController extends AppController
     } else {
       $model = new PierreCrud();
       $model->createPierre();
-      $tabPierre = $model->getAllPierre();
-      $view = 'admin/gestionPierre';
-      $paramView = [
-        'error' => '',
-        'tabPierre' => $tabPierre,
-      ];
-      $this->createView($view, $paramView);
+      header('Location: index.php?entite=pierre&action=list');
       exit();
     }
   }

@@ -1,8 +1,8 @@
 <style>
   .header-admin {
     background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
-    height: 150vh;
     width: 100vw;
+    height: auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 55%;
@@ -143,5 +143,4 @@
       <a href="index.php?entite=categorie&action=list" class="retour">Retour</a>
     </div>
   </section>
-  </form>
 </header>

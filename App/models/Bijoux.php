@@ -35,9 +35,7 @@ class Bijoux
     string $nomCategorie = '',
     string $nomMatiere = '',
     string $nomPierre = '',
-    string $nomTaille = '',
-
-
+    string $nomTaille = ''
   ) {
     $this->id = null;
     $this->nom = $nom;
@@ -49,9 +47,9 @@ class Bijoux
     $this->idPierre = $idPierre;
     $this->idTaille = $idTaille;
     $this->nomCategorie = $nomCategorie;
-    $this->nomPierre = $nomMatiere;
+    $this->nomMatiere = $nomMatiere;
     $this->nomPierre = $nomPierre;
-    $this->nomPierre = $nomTaille;
+    $this->nomTaille = $nomTaille;
   }
 
   public function getId()
@@ -218,37 +216,12 @@ class Bijoux
   }
 
   /**
-   * Get the value of nomPierre
-   */
-  public function getNomPierre()
-  {
-    return $this->nomPierre;
-  }
-
-  /**
-   * Set the value of nomPierre
-   *
-   * @return  self
-   */
-  public function setNomPierre($nomPierre)
-  {
-    $this->nomPierre = $nomPierre;
-
-    return $this;
-  }
-
-
-
-
-  /**
    * Get the value of nomCategorie
    */
   public function getNomCategorie()
   {
     return $this->nomCategorie;
   }
-
-
 
   /**
    * Set the value of nomCategorie
@@ -278,6 +251,26 @@ class Bijoux
   public function setNomMatiere($nomMatiere)
   {
     $this->nomMatiere = $nomMatiere;
+
+    return $this;
+  }
+
+  /**
+   * Get the value of nomPierre
+   */
+  public function getNomPierre()
+  {
+    return $this->nomPierre;
+  }
+
+  /**
+   * Set the value of nomPierre
+   *
+   * @return  self
+   */
+  public function setNomPierre($nomPierre)
+  {
+    $this->nomPierre = $nomPierre;
 
     return $this;
   }

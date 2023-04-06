@@ -33,11 +33,11 @@
               </div>
             </form> -->
     <div class="nav-menu">
-      <a class="active" href="index.php" aria-current="page">Accueil</a>
-      <a href="#">Bagues</a>
-      <a href="#">Bracelets</a>
-      <a href="#">Colliers</a>
-      <a href="#">Boucles d'oreilles</a>
+      <a href="index.php" aria-current="page">Accueil</a>
+      <a href="index.php?entite=bijoux&action=listBijouxByCategorie&id=1">Bagues</a>
+      <a href="index.php?entite=bijoux&action=listBijouxByCategorie&id=2">Bracelets</a>
+      <a href="index.php?entite=bijoux&action=listBijouxByCategorie&id=3">Colliers</a>
+      <a href="index.php?entite=bijoux&action=listBijouxByCategorie&id=4">Boucles d'oreilles</a>
       <span class="ligne"></span>
       <a href="#">Nos conseils</a>
       <span class="ligne"></span>

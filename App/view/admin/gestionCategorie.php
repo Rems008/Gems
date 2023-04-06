@@ -2,6 +2,7 @@
   .header-admin {
     background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
     width: 100vw;
+    height: auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 55%;
@@ -153,7 +154,7 @@
             <tr>
               <td><?= $cat['nom_categorie'] ?></td>
               <td>
-                <form method="post" action="index.php?entite=categorie&action=update&id=<?= $cat['id_categorie']; ?>">
+                <form method="post" action="index.php?entite=admin&action=updateCategorie&id=<?= $cat['id_categorie']; ?>">
                   <button class="btn-admin btn-modifier">Modifier</button>
                 </form>
               </td>
@@ -169,7 +170,7 @@
       <form class="form-btncreeCat" method="post" action="index.php?entite=admin&action=createCategorie">
         <button class="btn-admin btn-creeCat">Créer catégorie</button>
       </form>
-      <a href="index.php?entite=admin&action=home" class="retour">Retour</a>
+      <a class="retour" href="index.php?entite=admin&action=home">Retour</a>
     </div>
   </section>
 </header>

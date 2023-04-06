@@ -15,7 +15,6 @@ class AppController
 
   public function execute(string $action)
   {
-
     $this->$action();   // appel la méthode dont le nom est dans la variable $action
   }
 

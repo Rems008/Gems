@@ -44,21 +44,19 @@ class UserCrud
     return $bijou;
   }
 
-  public function getUserByEmail(string $email): User
+  public function getUserByEmail(string $email): ?User
   {
     $sql = 'SELECT * FROM utilisateur WHERE email_utilisateur=:email';
 
     $user_stat = $this->dao->getConnect()->prepare($sql);
     $user_stat->bindParam('email', $email);
     $user_stat->execute();
+
     if ($user_stat->rowCount() == 1) {
-      $user_stat->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Gems\App\models\User');
-      $user = $user_stat->fetch();
-      return $user;
+      $user_stat->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, User::class);
+      return  $user_stat->fetch();
     } else {
-      $user_stat = NULL;
-      $this->dao = NULL;
-      throw new Exception('Email incorrect');
+      return null;
     }
   }
 
@@ -183,6 +181,7 @@ class UserCrud
   public function deleteUser(int $idUser)
   {
     $sql = 'DELETE FROM utilisateur WHERE id_utilisateur=:id';
+
     $user_stmt = $this->dao->getConnect()->prepare($sql);
     $user_stmt->bindParam(':id', $idUser);
     $user_stmt->execute();

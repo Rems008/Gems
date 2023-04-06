@@ -7,6 +7,17 @@ use Gems\App\controllers\AppController;
 
 class UserController extends AppController
 {
+  public function list()
+  {
+    $model = new UserCrud();
+    $tabUser = $model->getAllUser();
+    $view = 'admin/gestionUser';
+    $paramView = [
+      'error' => '',
+      'tabUser' => $tabUser,
+    ];
+    $this->createView($view, $paramView);
+  }
   public function verif()
   {
     // vérification du formaulaire de login
@@ -34,10 +45,7 @@ class UserController extends AppController
     } else {
       $model = new UserCrud();
       $model->createNewUser();
-      // traitement des informations
-      $view = 'user/loginUser';
-      $paramView = ['error' => ''];
-      $this->createView($view, $paramView);
+      header('Location: index.php?entite=user&action=login');
       exit();
     }
   }
@@ -64,11 +72,13 @@ class UserController extends AppController
     exit();
   }
 
-  public function delete($id, $user)
+  public function delete()
   {
+    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $model = new UserCrud();
-    $model->deleteUser($id, $user);
-    header('Location: index.php');
+    $model->deleteUser($id);
+
+    header('Location: index.php?entite=user&action=list');
     exit();
   }
 }

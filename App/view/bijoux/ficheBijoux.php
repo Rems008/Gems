@@ -1,6 +1,24 @@
        <style>
          .header-listBijoux {
-           background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
+           width: 100vw;
+           height: auto;
+           background-size: cover;
+           background-repeat: no-repeat;
+           background-position: 55%;
+           background-position-y: 30px;
+         }
+
+         .nav-titre {
+           background: var(--color-tertiaire);
+         }
+
+         .page-title {
+           font-style: normal;
+           font-weight: 400;
+           font-size: 32px;
+           line-height: 59px;
+           text-align: center;
+           text-transform: uppercase;
          }
 
          .card {
@@ -8,14 +26,8 @@
            flex-wrap: wrap;
            flex-direction: row;
            justify-content: center;
-         }
+           margin-top: 130px;
 
-         .categorie-titre {
-           text-transform: uppercase;
-         }
-
-         .categorie-p {
-           margin-bottom: 10px;
          }
 
          .card-article {
@@ -28,7 +40,8 @@
          }
 
          img.card-img {
-           width: 60%;
+           width: 70%;
+           /* height: 100px; */
            margin-bottom: 15px;
          }
 
@@ -37,7 +50,7 @@
            color: var(--color-secondaire);
            cursor: default;
            font-size: 16px;
-           text-transform: uppercase;
+           text-transform: capitalize;
          }
 
          .card-p {
@@ -49,16 +62,15 @@
          }
 
          .form-btn {
-           width: 100%;
-           display: flex;
-           justify-content: center;
+           width: 50%;
          }
 
          .btn-voir {
-           width: 40%;
+           width: 50%;
            height: auto;
-           margin: 20px 0;
+           margin: 20px 20px 40px;
            padding: 5px;
+           align-items: center;
            font-size: 12px;
            letter-spacing: 1px;
            background: var(--color-secondaire);
@@ -84,7 +96,17 @@
 
          @media (min-width: 900px) {
            .header-listBijoux {
-             background-position-y: 100px;
+             background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
+             height: 90vh;
+             width: 100vw;
+             background-size: cover;
+             background-repeat: no-repeat;
+             background-position: 55%;
+             background-position-y: 50px;
+           }
+
+           .nav-container {
+             height: 105px;
            }
 
            .card-article {
@@ -100,6 +122,7 @@
              width: 50%;
              margin-bottom: 15px;
            }
+
          }
        </style>
        <header class="header-base header-listBijoux">
@@ -111,31 +134,24 @@
            </div>
            <?php include_once 'App/include/nav.php'; ?>
          </section>
-       </header>
-       <?php foreach ($tabByCat as $cat => $bijoux) : ?>
          <section class="article">
-           <div class="categorie">
-             <h2 class="categorie-titre">NOS <?= $cat; ?>s</h2>
-             <p class="categorie-p">
-               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quis
-               at accusantium ut voluptas temporibus a.
-             </p>
-           </div>
            <div class="card">
-             <?php foreach ($bijoux as $bijou) : ?>
-               <article class="card-article">
-                 <input type="hidden" name="id_bijoux" value="<?= $bijou['id_bijoux']; ?>">
-
-                 <img class="card-img" src="App/src/img/<?= $bijou['image_bijoux']; ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
-                 <h5 class="card-titre"><?= $bijou['nom_bijoux']; ?></h5>
-                 <p class="card-p"><?= $bijou['description']; ?>
-                 </p>
-                 <h3><?= $bijou['prix_bijoux']; ?> €</h3>
-                 <form class="form-btn" method="post" action="index.php?entite=bijoux&action=see&id=<?= $bijou['id_bijoux']; ?>">
-                   <button class="btn-voir">VOIR</button>
-                 </form>
-               </article>
-             <?php endforeach ?>
+             <!-- <?php var_dump($bijoux) ?> -->
+             <?php var_dump($bijoux->getNom()) ?>
+             <?php var_dump($bijoux->getPrix()) ?>
+             <?php var_dump($bijoux->getDescription()) ?>
+             <?php var_dump($bijoux->getImageName()) ?>
+             <input type="hidden" name="id_bijoux" value="<?= $bijoux->getId(); ?>">
+             <h2 class="page-title"><?= $bijoux->getNom(); ?></h2>
+             <img class="card-img" src="App/src/img/<?= $bijoux->getImageName(); ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
+             <article class="card-article">
+               <p class="card-p"><?= $bijoux->getDescription(); ?>
+               </p>
+               <h3><?= $bijoux->getPrix(); ?> €</h3>
+               <form class="form-btn" method="post" action="index.php?entite=bijoux&action=bijoux&id=">
+                 <button class="btn-voir">Acheter</button>
+               </form>
+             </article>
            </div>
          </section>
-       <?php endforeach ?>
+       </header>

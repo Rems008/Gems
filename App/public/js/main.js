@@ -40,3 +40,26 @@ menuBurger.addEventListener("click", (event) => {
 navMenu.addEventListener("mouseleave", () => {
   navMenu.classList.remove("mobile-menu");
 });
+
+// NAV ACTIVE
+
+const navLien = document.querySelectorAll("nav a");
+// Parcourt chaque élément <a> de la barre de navigation
+navLien.forEach((lien) => {
+  // Vérifie si l'attribut href correspond à la page actuelle
+  if (lien.href === window.location.href) {
+    lien.classList.add("active");
+  }
+});
+
+// BTN SUPPRIMER
+
+const btnSup = document.querySelectorAll(".btn-supprimer");
+
+btnSup.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
+    } else {
+    }
+  });
+});

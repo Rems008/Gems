@@ -29,13 +29,7 @@ class CategorieController extends AppController
     } else {
       $model = new CategorieCrud();
       $model->createCategorie();
-      $tabCat = $model->getAllCategorie();
-      $view = 'admin/gestionCategorie';
-      $paramView = [
-        'error' => '',
-        'tabCat' => $tabCat,
-      ];
-      $this->createView($view, $paramView);
+      header('Location: index.php?entite=categorie&action=list');
       exit();
     }
   }
@@ -46,7 +40,7 @@ class CategorieController extends AppController
     $model = new CategorieCrud();
     $cat = $model->getCategorieById($id);
 
-    $view = 'admin/ficheCategorie';
+    $view = 'bijoux/listCategorie';
     $paramView = ['categorie' => $cat, 'error' => ''];
     $this->createView($view, $paramView);
   }
@@ -54,15 +48,15 @@ class CategorieController extends AppController
   public function update($id, $cat)
   {
     $model = new CategorieCrud();
-    $model->updateCategorie($id, $cat);
-    $tabCat = $model->getAllCategorie();
-    $view = 'admin/listCategorie';
-    $paramView = [
-      'error' => '',
-      'tabCat' => $tabCat,
-    ];
-    $this->createView($view, $paramView);
-    // header('Location: index.php?entite=categorie&action=list');
+    $model->updateCategorieById($id, $cat);
+    // $tabCat = $model->getAllCategorie();
+    // $view = 'admin/gestionCategorie';
+    // $paramView = [
+    //   'error' => '',
+    //   'tabCat' => $tabCat,
+    // ];
+    // $this->createView($view, $paramView);
+    header('Location: index.php?entite=categorie&action=list');
     exit();
   }
 
@@ -70,28 +64,9 @@ class CategorieController extends AppController
   {
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $model = new CategorieCrud();
-    $categorie = $model->getCategorieById($id);
+    $model = $model->deleteCategorie($id);
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      $model->deleteCategorie($id);
-      header('Location: index.php?entite=categorie&action=list');
-      exit();
-    }
-
-    if (!$categorie) {
-      header('Location: index.php?entite=categorie&action=list');
-      exit();
-    }
+    header('Location: index.php?entite=categorie&action=list');
+    exit();
   }
-
-
-  // public function delete()
-  // {
-  //   $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-  //   $model = new CategorieCrud();
-  //   $model = $model->deleteCategorie($id);
-
-  //   header('Location: index.php?entite=categorie&action=list');
-  //   exit();
-  // }
 }

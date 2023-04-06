@@ -1,8 +1,8 @@
 <style>
   .header-admin {
     background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
-    height: 150vh;
     width: 100vw;
+    height: auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 55%;
@@ -21,7 +21,7 @@
     display: flex;
     justify-content: center;
     background: rgba(217, 217, 217, 0.85);
-    height: 150vh;
+    height: auto;
   }
 
   .div_main {
@@ -37,12 +37,19 @@
     margin-bottom: 10px;
   }
 
+  .form-admin {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
   .form-admin label {
     font-size: 14px;
     display: inline-block;
     width: 160px;
-    text-align: center;
-    padding-left: 30px;
     margin-bottom: 10px;
   }
 
@@ -86,7 +93,7 @@
   .btn-form-createUser {
     width: 143px;
     height: 47px;
-    margin: 10px 0 10px 28px;
+    margin: 10px 0 10px;
     font-size: 12px;
     text-align: center;
     align-items: center;
@@ -121,8 +128,6 @@
     }
   }
 </style>
-
-
 <header class="header-base header-admin">
   <section class="header">
     <div class="bandeau">
@@ -134,46 +139,28 @@
   </section>
   <section class="section-admin">
     <div class="div_main">
-      <h2 class="form-title">Créer un Bijou</h2>
-      <form class="form-admin" method="post" action="index.php?entite=bijoux&action=create" enctype="multipart/form-data">
-        <?php if ($error) : ?><!-- si erreur : test d'une variable d'erreur -->
-          <div class="error"><?= $error ?></div>
-        <?php endif ?>
+      <h2 class="form-title">Modifier Utilisateur</h2>
+      <form class="form-admin" method="post" action="index.php?entite=user&action=update" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?= $user['id_utilisateur']; ?>">
+        <label for="id-prenom"><span class="etoile-form">*</span>Prénom</label>
+        <input type="text" id="id-prenom" name="prenom" value="<?= $user['prenom_utilisateur']; ?>">
         <label for="id_nom"><span class="etoile-form">*</span>Nom</label>
-        <input type="text" id="id-nom" name="nom">
-        <label for="id-description"><span class="etoile-form">*</span>Description</label>
-        <input type="text" id="id-description" name="description">
-        <label for="id-prix"><span class="etoile-form">*</span>Prix</label>
-        <input type="string" id="id-prix" name="prix">
-        <label for="id-image"><span class="etoile-form">*</span>Image</label>
-        <input type="file" id="id-image" name="image">
-        <div class="div-selecteur">
-          <label for="id-categorie"><span class="etoile-form">*</span>Catégorie</label>
-          <select id="id-categorie" name="cat">
-            <?php foreach ($tabCat as $cat) : ?>
-              <option value="<?= $cat['id_categorie'] ?>"><?= $cat['nom_categorie'] ?></option>
-            <?php endforeach ?>
-          </select>
-          <label for="id-matiere"><span class="etoile-form">*</span>Matière</label>
-          <select id="id-matiere" name="matiere">
-            <?php foreach ($tabMatiere as $matiere) : ?>
-              <option value="<?= $matiere['id_matiere'] ?>"><?= $matiere['nom_matiere'] ?></option>
-            <?php endforeach ?>
-          </select>
-          <label for="id-pierre"><span class="etoile-form">*</span>Pierre</label>
-          <select id="id-pierre" name="pierre">
-            <?php foreach ($tabPierre as $pierre) : ?>
-              <option value="<?= $pierre['id_pierre']; ?>"><?= $pierre['nom_pierre'] ?></option>
-            <?php endforeach ?>
-          </select>
-          <label for="id-taille"><span class="etoile-form">*</span>Taille</label>
-          <select id="id-taille" name="taille">
-            <?php foreach ($tabTaille as $taille) : ?>
-              <option value="<?= $taille['id_taille'] ?>"><?= $taille['nombre_taille'] ?></option>
-            <?php endforeach ?>
-          </select>
-        </div>
-        <button class="btn-form-createUser">cretate bijoux</button>
+        <input type="text" id="id-nom" name="nom" value="<?= $user['nom_utilisateur']; ?>">
+        <label for="id-email"><span class="etoile-form">*</span>Email</label>
+        <input type="email" id="id-email" name="email" value="<?= $user['email_utilisateur']; ?>">
+        <label for="id-mdp"><span class="etoile-form">*</span>Mot de passe</label>
+        <input type="password" id="id-mdp" name="mdp" value="<?= $user['mot_de_passe']; ?>">
+        <label for="id-adresse"><span class="etoile-form">*</span>Adresse</label>
+        <input type="text" id="id-adresse" name="adresse" value="<?= $user['adresse_utilisateur']; ?>">
+        <label for="id-code-postal"><span class="etoile-form">*</span>Code postal</label>
+        <input type="text" id="id-code-postal" name="code_postal" value="<?= $user['code_postal']; ?>">
+        <label for="id-telephone"><span class="etoile-form">*</span>Numéro de téléphone</label>
+        <input type="text" id="id-telephone" name="telephone" value="<?= $user['telephone_utilisateur']; ?>">
+        <label for="id-role"><span class="etoile-form">*</span>Numéro de téléphone</label>
+        <input type="text" id="id-role" name="role" value="<?= $user['role']; ?>">
+        <button class="btn-form-createUser">Modifier Utilisateur</button>
+      </form>
+      <a href="index.php?entite=user&action=list" class="retour">Retour</a>
       </form>
     </div>
   </section>

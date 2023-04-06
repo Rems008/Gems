@@ -2,6 +2,7 @@
   .header-admin {
     background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
     width: 100vw;
+    height: auto;
     background-repeat: no-repeat;
     background-position: 55%;
     background-position-y: 50px;
@@ -59,6 +60,17 @@
   .btn-form-createUser:hover {
     color: var(--color-secondaire);
     background: var(--color-tertiaire);
+  }
+
+  .retour {
+    display: flex;
+    justify-content: center;
+    color: var(--color-principal);
+    margin: 10px;
+  }
+
+  .retour:hover {
+    color: var(--color-secondaire);
   }
 
   .error {
@@ -125,7 +137,7 @@
         <form method="post" action="index.php?entite=user&action=list">
           <button class="btn-form-createUser">Utilisateur</button>
         </form>
-        <a href="index.php" class="retour">Retour</a>
+        <a class="retour" href="index.php">Retour</a>
       </div>
     </div>
   </section>

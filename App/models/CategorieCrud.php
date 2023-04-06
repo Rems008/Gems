@@ -24,13 +24,8 @@ class CategorieCrud
     // $cat_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Categorie::class);
 
     $cat_stmt->execute();
-    $categories = $cat_stmt->fetchAll();
-
-
-    return $categories;
+    return $cat_stmt->fetchAll();
   }
-
-
 
   public function getCategorieById(int $idCat): Categorie
   {
@@ -39,8 +34,7 @@ class CategorieCrud
     $cat_stmt->bindParam(':id', $idCat, PDO::PARAM_INT);
     $cat_stmt->execute();
     $cat_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Categorie::class);
-    $categorie = $cat_stmt->fetch();
-    return $categorie;
+    return $cat_stmt->fetch();
   }
 
   public function setCategorie(Categorie $cat)
@@ -55,6 +49,7 @@ class CategorieCrud
   public function createCategorie()
   {
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+
     $cat = new Categorie($nom);
     $this->setCategorie($cat);
   }
@@ -69,17 +64,20 @@ class CategorieCrud
     $cat_stmt->execute();
   }
 
-  public function updateCategorie()
-  {
-    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
-    $cat = new Categorie($nom);
-    $this->updateCategorieById($cat, $id);
-  }
+  // public function updateCategorie()
+  // {
+  //   $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+  //   $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+
+  //   $cat = $this->getCategorieById($id);
+  //   $cat->setNomCategorie($nom);
+  //   $this->updateCategorieById($cat, $id);
+  // }
 
   public function deleteCategorie(int $idCat)
   {
     $sql = 'DELETE FROM categorie WHERE id_categorie=:id';
+
     $cat_stmt = $this->dao->getConnect()->prepare($sql);
     $cat_stmt->bindParam(':id', $idCat);
     $cat_stmt->execute();

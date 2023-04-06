@@ -30,20 +30,31 @@ a {
   cursor: pointer;
 }
 
-/* .header-base {
-  height: 100vh;
+/* .video {
+  height: 50rem;
+  object-fit: cover;
+  position: absolute;
+  left: -37.8rem;
+  top: 1.5rem;
+  bottom: 0;
+  z-index: -1;
+} */
+
+.header-base {
+  background-image: url(../../src/img/Image_Gems_Bijoux_Atelier_2.png);
   width: 100vw;
+  height: 100vh;
   background: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 55%;
   background-position-y: 30px;
-} */
+}
 
 .header-home {
   background-image: url(../../src/img/Image_Gems_Bijoux_Atelier_2.png);
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   /* background: fixed; */
   background-size: cover;
   background-repeat: no-repeat;
@@ -112,12 +123,12 @@ nav {
 .nav-menu {
   flex-direction: column;
   margin-top: 15px;
-  padding: 0 15px;
+  padding: 5px 15px;
   border-right: 1px solide var(--color-inherit);
   margin-left: -100%;
   transition: all 0.5s ease;
   backdrop-filter: blur(15px);
-  width: 35%;
+  width: 36%;
 }
 
 .nav-menu a {
@@ -158,7 +169,6 @@ nav {
 
 .nav-icon-left span,
 .nav-icon-right span {
-  /* padding: 0 15px; */
   margin: 5px;
   width: 20px;
   color: var(--color-principal);
@@ -166,8 +176,6 @@ nav {
 
 .nav-icon-left span:hover,
 .nav-icon-right span:hover {
-  /* padding: 0 15px; */
-
   color: var(--color-secondaire);
 }
 
@@ -264,7 +272,6 @@ img.card-img {
   height: auto;
   margin: 20px 20px 40px;
   padding: 5px;
-  margin: 10px;
   align-items: center;
   font-size: 12px;
   letter-spacing: 1px;
@@ -274,6 +281,7 @@ img.card-img {
   border: 1px solid var(--color-secondaire);
   box-shadow: var(--box-shadow-principal);
   color: var(--color-tertiaire);
+  text-transform: capitalize;
   cursor: pointer;
 }
 
@@ -330,6 +338,7 @@ img.card-img {
   border: var(--color-secondaire);
   box-shadow: var(--box-shadow-principal);
   color: var(--color-tertiaire);
+  text-transform: capitalize;
   cursor: pointer;
 }
 
@@ -456,6 +465,34 @@ footer a {
   width: 10px;
   color: var(--color-principal);
 } */
+
+/* PAGE ADMIN */
+
+/* HEADER ADMIN AND */
+
+.header-listBijouxByCategorie {
+  background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
+}
+
+.page-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 59px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.retour {
+  display: flex;
+  justify-content: center;
+  color: var(--color-principal);
+  margin: 10px;
+}
+
+.retour:hover {
+  color: var(--color-secondaire);
+}
 
 @media (min-width: 900px) {
   .header-home {

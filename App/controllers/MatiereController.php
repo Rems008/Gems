@@ -28,13 +28,7 @@ class MatiereController extends AppController
     } else {
       $model = new MatiereCrud();
       $model->createMatiere();
-      $tabMatiere = $model->getAllMatiere();
-      $view = 'admin/gestionMatiere';
-      $paramView = [
-        'error' => '',
-        'tabMatiere' => $tabMatiere,
-      ];
-      $this->createView($view, $paramView);
+      header('Location: index.php?entite=matiere&action=list');
       exit();
     }
   }

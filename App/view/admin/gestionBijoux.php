@@ -1,8 +1,8 @@
 <style>
   .header-admin {
     background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
-
     width: 100vw;
+    height: auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 55%;
@@ -113,22 +113,23 @@
         <form method="post" action="index.php?entite=bijoux&action=create">
           <button class="btn-form-createUser">Créer un Bijou</button>
         </form>
-        <form method="post" action="index.php?entite=admin&action=bagues">
+        <form method="post" action="index.php?entite=admin&action=listBijouxByCategorie&id=1">
           <button class="btn-form-createUser">Bagues</button>
         </form>
-        <form method="post" action="index.php?entite=admin&action=bracelets">
+        <form method="post" action="index.php?entite=admin&action=listBijouxByCategorie&id=2">
           <button class="btn-form-createUser">Bracelets</button>
         </form>
-        <form method="post" action="index.php?entite=admin&action=colliers">
+        <form method="post" action="index.php?entite=admin&action=listBijouxByCategorie&id=3">
           <button class="btn-form-createUser">Colliers</button>
         </form>
-        <form method="post" action="index.php?entite=admin&action=boucles">
+        <form method="post" action="index.php?entite=admin&action=listBijouxByCategorie&id=4">
           <button class="btn-form-createUser">Boucles d'oreilles</button>
         </form>
         <form method="post" action="index.php?entite=bijoux&action=list">
           <button class="btn-form-createUser">Tous les Bijoux</button>
         </form>
       </div>
+      <a class="retour" href="index.php?entite=admin&action=home">Retour</a>
     </div>
   </section>
   </form>

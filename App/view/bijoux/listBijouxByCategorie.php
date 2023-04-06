@@ -1,6 +1,21 @@
        <style>
-         .header-listBijoux {
+         .header-listBijouxByCategorie {
            background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
+           height: 100vh;
+           width: 100vw;
+           background-size: cover;
+           background-repeat: no-repeat;
+           background-position: 55%;
+           background-position-y: 30px;
+         }
+
+         .page-title {
+           font-style: normal;
+           font-weight: 400;
+           font-size: 32px;
+           line-height: 59px;
+           text-align: center;
+           text-transform: uppercase;
          }
 
          .card {
@@ -102,7 +117,7 @@
            }
          }
        </style>
-       <header class="header-base header-listBijoux">
+       <header class="header-base header-listBijouxByCategorie">
          <section class="header">
            <div class="bandeau">
              <h6 class="bandeau-text">
@@ -112,30 +127,34 @@
            <?php include_once 'App/include/nav.php'; ?>
          </section>
        </header>
-       <?php foreach ($tabByCat as $cat => $bijoux) : ?>
-         <section class="article">
-           <div class="categorie">
-             <h2 class="categorie-titre">NOS <?= $cat; ?>s</h2>
-             <p class="categorie-p">
-               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quis
-               at accusantium ut voluptas temporibus a.
-             </p>
-           </div>
-           <div class="card">
-             <?php foreach ($bijoux as $bijou) : ?>
-               <article class="card-article">
-                 <input type="hidden" name="id_bijoux" value="<?= $bijou['id_bijoux']; ?>">
 
-                 <img class="card-img" src="App/src/img/<?= $bijou['image_bijoux']; ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
-                 <h5 class="card-titre"><?= $bijou['nom_bijoux']; ?></h5>
-                 <p class="card-p"><?= $bijou['description']; ?>
-                 </p>
-                 <h3><?= $bijou['prix_bijoux']; ?> €</h3>
-                 <form class="form-btn" method="post" action="index.php?entite=bijoux&action=see&id=<?= $bijou['id_bijoux']; ?>">
-                   <button class="btn-voir">VOIR</button>
-                 </form>
-               </article>
-             <?php endforeach ?>
-           </div>
-         </section>
-       <?php endforeach ?>
+       <section class="article">
+         <div class="categorie">
+           <?php
+            $nomCat = reset($bijoux); //  fonction PHP qui permet de pointer sur le premier élément d'un tableau et de renvoyer sa valeur ici le nom de la catégorie.
+            ?>
+
+           <h2 class="page-title">NOS <?= $nomCat['nom_categorie']; ?>s</h2>
+           <p class="categorie-p">
+             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quis
+             at accusantium ut voluptas temporibus a.
+           </p>
+         </div>
+         <div class="card">
+           <?php foreach ($bijoux as $bijou) : ?>
+             <article class="card-article">
+               <img class="card-img" src="App/src/img/<?= $bijou['image_bijoux']; ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
+               <h5 class="card-titre"><?= $bijou['nom_bijoux']; ?><?php if (isset($bijoux['nom_bijoux'])) {
+                                                                    echo $bijoux['nom_bijoux'];
+                                                                  } ?>
+               </h5>
+               <p class="card-p"><?= $bijou['description']; ?>
+               </p>
+               <h3><?= $bijou['prix_bijoux']; ?> €</h3>
+               <form class="form-btn" method="post" action="index.php?entite=bijoux&action=see&id=<?= $bijou['id_bijoux']; ?>">
+                 <button class="btn-voir">VOIR</button>
+               </form>
+             </article>
+           <?php endforeach ?>
+         </div>
+       </section>

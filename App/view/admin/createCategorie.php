@@ -143,5 +143,4 @@
       <a href="index.php?entite=categorie&action=list" class="retour">Retour</a>
     </div>
   </section>
-  </form>
 </header>

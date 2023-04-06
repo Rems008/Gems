@@ -30,13 +30,7 @@ class TailleController extends AppController
     } else {
       $model = new TailleCrud();
       $model->createTaille();
-      $tabTaille = $model->getAllTaille();
-      $view = 'admin/gestionTaille';
-      $paramView = [
-        'error' => '',
-        'tabTaille' => $tabTaille
-      ];
-      $this->createView($view, $paramView);
+      header('Location: index.php?entite=taille&action=list');
       exit();
     }
   }

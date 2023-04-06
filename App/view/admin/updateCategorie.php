@@ -1,8 +1,8 @@
 <style>
   .header-admin {
     background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
-    height: 150vh;
     width: 100vw;
+    height: auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 55%;
@@ -21,7 +21,7 @@
     display: flex;
     justify-content: center;
     background: rgba(217, 217, 217, 0.85);
-    height: 150vh;
+    height: auto;
   }
 
   .div_main {
@@ -37,12 +37,19 @@
     margin-bottom: 10px;
   }
 
+  .form-admin {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
   .form-admin label {
     font-size: 14px;
     display: inline-block;
     width: 160px;
-    text-align: center;
-    padding-left: 30px;
     margin-bottom: 10px;
   }
 
@@ -86,7 +93,7 @@
   .btn-form-createUser {
     width: 143px;
     height: 47px;
-    margin: 10px 0 10px 28px;
+    margin: 10px 0 10px;
     font-size: 12px;
     text-align: center;
     align-items: center;
@@ -121,8 +128,6 @@
     }
   }
 </style>
-
-
 <header class="header-base header-admin">
   <section class="header">
     <div class="bandeau">
@@ -136,12 +141,13 @@
     <div class="div_main">
       <h2 class="form-title">Modifier Catégorie</h2>
       <form class="form-admin" method="post" action="index.php?entite=categorie&action=update" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?= $categorie['id_categorie']; ?>">
         <label for="id_nom"><span class="etoile-form">*</span>Nom Catégorie</label>
-        <input type="text" id="id-nom" name="nom">
+        <input type="text" id="id-nom" name="nom" value="<?= $categorie['nom_categorie']; ?>">
         <button class="btn-form-createUser">Modifier Catégorie</button>
       </form>
       <a href="index.php?entite=categorie&action=list" class="retour">Retour</a>
+      </form>
     </div>
   </section>
-  </form>
 </header>
