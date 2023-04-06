@@ -1,0 +1,565 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --font-family-principal: "Montserrat", sans-serif;
+  --font-family-secondaire: "Nunito Sans", sans-serif;
+  --font-family-tertiaire: "Roboto Slab", sans-serif;
+  --color-principal: #060000;
+  --color-secondaire: #8e4504;
+  --color-tertiaire: #ffffff;
+  --color-inherit: inherit;
+  --box-shadow-principal: 5px 5px 5px -2px rgba(0, 0, 0, 0.6);
+  --btn-border: 1px solid var(--color-secondaire);
+  --btn-border-radius: 5px;
+}
+
+body {
+  background-color: var(--color-tertiaire);
+  color: var(--color-principal);
+  font-family: var(--text-principal);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* .header-base {
+  height: 100vh;
+  width: 100vw;
+  background: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 55%;
+  background-position-y: 30px;
+} */
+
+.header-home {
+  background-image: url(../../src/img/Image_Gems_Bijoux_Atelier_2.png);
+  height: 100vh;
+  width: 100vw;
+  /* background: fixed; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 55%;
+  background-position-y: 30px;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+}
+
+.bandeau {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  background-color: var(--color-secondaire);
+}
+
+.bandeau-text {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 5px 0;
+  font-family: var(--font-family-tertiaire);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 8px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: var(--color-tertiaire);
+  cursor: default;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  background: var(--color-inherit);
+  z-index: 999;
+}
+
+.nav-container {
+  height: 20px;
+}
+
+.nav-titre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  transition: all 0.5s ease-in-out;
+  padding: 15px;
+}
+
+.titre {
+  font-family: var(--font-family-principal);
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin-left: 10px;
+  font-weight: 400;
+  color: var(--color-principal);
+  cursor: default;
+}
+
+.nav-menu {
+  flex-direction: column;
+  margin-top: 15px;
+  padding: 0 15px;
+  border-right: 1px solide var(--color-inherit);
+  margin-left: -100%;
+  transition: all 0.5s ease;
+  backdrop-filter: blur(15px);
+  width: 35%;
+}
+
+.nav-menu a {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-secondaire);
+  margin: 8px 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-principal);
+}
+
+.nav-menu a:hover {
+  color: var(--color-secondaire);
+}
+
+.nav-menu a.active {
+  color: var(--color-secondaire);
+}
+
+.ligne {
+  display: flex;
+  margin: 10px 0 10px 10px;
+  width: 65px;
+  height: 1px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-principal);
+}
+
+.nav-icon-left,
+.nav-icon-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-icon-left span,
+.nav-icon-right span {
+  /* padding: 0 15px; */
+  margin: 5px;
+  width: 20px;
+  color: var(--color-principal);
+}
+
+.nav-icon-left span:hover,
+.nav-icon-right span:hover {
+  /* padding: 0 15px; */
+
+  color: var(--color-secondaire);
+}
+
+.btn-header {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.btn-nos-bijoux {
+  width: 143px;
+  height: 47px;
+  margin: 20px;
+  font-size: 12px;
+  text-align: center;
+  align-items: center;
+  background: var(--color-secondaire);
+  border-radius: 5px;
+  border: 1px solid var(--color-secondaire);
+  box-shadow: var(--box-shadow-principal);
+  color: var(--color-tertiaire);
+  cursor: pointer;
+}
+
+.btn-nos-bijoux:hover {
+  color: var(--color-secondaire);
+  background-color: var(--color-tertiaire);
+}
+
+/* MAIN */
+
+main {
+  background-color: var(--color-tertiaire);
+}
+
+.article {
+  padding: 20px 10px;
+}
+
+.categorie {
+  text-align: center;
+}
+
+.categorie-titre {
+  font-family: var(--font-family-principal);
+  font-weight: 400;
+  cursor: default;
+}
+
+.categorie-p {
+  padding: 20px;
+  font-family: var(--font-family-secondaire);
+  color: var(--color-secondaire);
+  cursor: default;
+}
+
+.card {
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-article {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  align-items: center;
+}
+
+img.card-img {
+  width: 60%;
+  margin-bottom: 15px;
+}
+
+.card-titre {
+  font-family: var(--font-family-principal);
+  color: var(--color-secondaire);
+  cursor: default;
+}
+
+.card-p {
+  padding: 20px;
+  font-family: var(--font-family-secondaire);
+  font-size: 10px;
+  text-align: center;
+  cursor: default;
+}
+
+.btn-voir {
+  width: 50%;
+  height: auto;
+  margin: 20px 20px 40px;
+  padding: 5px;
+  margin: 10px;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 1px;
+  background: var(--color-secondaire);
+  border-radius: 5px;
+  border: var(--color-secondaire);
+  border: 1px solid var(--color-secondaire);
+  box-shadow: var(--box-shadow-principal);
+  color: var(--color-tertiaire);
+  cursor: pointer;
+}
+
+.btn-voir:hover {
+  color: var(--color-secondaire);
+  background-color: var(--color-tertiaire);
+}
+
+/* Banniere photo */
+
+.banniere-img-un {
+  width: 100%;
+  background: url(../../src/img/Image_Gems_Bijoux_Atelier_India.jpg);
+  height: 400px;
+  background-size: cover;
+}
+.banniere-img-deux {
+  width: 100%;
+  background: url(../../src/img/Image_Gems_Bijoux_Atelier_India_2.jpg);
+  height: 400px;
+  background-size: cover;
+}
+.banniere-img-trois {
+  width: 100%;
+  background: url(../../src/img/Image_Gems_Bijoux_Atelier_Celtique.jpg);
+  height: 400px;
+  background-size: cover;
+  background-position-x: center;
+}
+.banniere-img-quatre {
+  width: 100%;
+  background: url(../../src/img/Image_Gems_Bijoux_Atelier.jpg);
+  height: 400px;
+  background-size: cover;
+}
+
+.banniere-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.btn-collection {
+  width: 100px;
+  margin: 20px 40px 40px;
+  padding: 5px;
+  font-size: 12px;
+  line-height: 22px;
+  text-align: center;
+  background: var(--color-secondaire);
+  border-radius: 5px;
+  border: var(--color-secondaire);
+  box-shadow: var(--box-shadow-principal);
+  color: var(--color-tertiaire);
+  cursor: pointer;
+}
+
+.btn-collection:hover {
+  background-color: var(--color-tertiaire);
+  color: var(--color-principal);
+  border: 1px solid var(--color-secondaire);
+}
+
+/* FOOTER */
+
+footer {
+  width: 100%;
+  background: var(--color-secondaire);
+  padding: 30px;
+}
+
+footer a {
+  color: var(--color-principal);
+}
+
+.div-footer {
+  display: flex;
+  justify-items: center;
+  justify-content: space-around;
+}
+
+.div-col {
+  width: max-content;
+}
+
+.div-col > * {
+  display: block;
+  width: max-content;
+  margin: 10px;
+}
+
+.div-col > h3 {
+  margin-bottom: 20px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--color-tertiaire);
+  cursor: default;
+}
+
+.div-col > a {
+  font-size: 12px;
+  padding: 5px 0;
+}
+
+.div-col > a:hover {
+  color: var(--color-tertiaire);
+}
+
+.icon-reseau {
+  display: flex;
+  justify-content: center;
+}
+
+.social {
+  display: block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.fb,
+.insta {
+  cursor: pointer;
+}
+
+.fb:hover {
+  color: #3b5998;
+  background-color: var(--color-tertiaire);
+}
+.insta:hover {
+  background: #d6249f;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+  color: var(--color-tertiaire);
+}
+
+/* CSS AVEC LE JS */
+
+.nav-titre.scroll {
+  background-color: var(--color-tertiaire);
+}
+
+.mobile-menu {
+  margin-left: 0;
+}
+
+/* .nav-container {
+  height: 100px;
+  background: var(--color-tertiaire);
+}
+
+.recherche {
+  display: flex;
+  justify-content: center;
+}
+
+.recherche-loupe {
+  width: 180px;
+  margin-top: 25px;
+  border: 0px;
+}
+
+.recherche-icon-cross img {
+  margin-top: 25px;
+  padding: 0 15px;
+  width: 10px;
+  color: var(--color-principal);
+} */
+
+@media (min-width: 900px) {
+  .header-home {
+    background-position-y: 100px;
+  }
+
+  .bandeau-text {
+    font-size: 14px;
+  }
+
+  nav {
+    background: var(--color-tertiaire);
+    transition: all 0.5s ease;
+  }
+
+  .nav-container {
+    height: 90px;
+  }
+
+  .titre {
+    font-size: 30px;
+  }
+
+  .icon-burger span {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    margin-left: 0;
+    transition: none;
+    backdrop-filter: none;
+  }
+
+  .nav-menu a {
+    margin: 0 10px;
+    font-size: 16px;
+  }
+
+  .ligne {
+    display: none;
+  }
+
+  .btn-header {
+    height: 40vw;
+  }
+
+  .btn-nos-bijoux {
+    margin-left: 20vw;
+  }
+
+  /* MAIN */
+
+  .categorie-titre {
+    font-size: 30px;
+  }
+  .categorie-p {
+    font-size: 20px;
+  }
+
+  .card-titre {
+    font-size: 20px;
+  }
+
+  .card-p {
+    font-size: 16px;
+  }
+
+  .btn-voir {
+    font-size: 18px;
+  }
+
+  .banniere-span-un {
+    background-position-y: center;
+  }
+
+  .banniere-img-deux {
+    background-position-y: top;
+  }
+
+  .banniere-img-trois {
+    background-position-y: center;
+  }
+
+  /* FOOTER */
+
+  .div-col > h3 {
+    font-size: 22px;
+  }
+
+  .div-col > a {
+    font-size: 18px;
+  }
+
+  .social {
+    margin: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 35px;
+  }
+}

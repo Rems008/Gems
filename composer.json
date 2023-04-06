@@ -1,0 +1,15 @@
+{
+  "name": "gems/app",
+  "description": "e-commerce",
+  "autoload": {
+    "psr-4": {
+      "Gems\\App\\": "App/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Rémi VIVIEN"
+    }
+  ],
+  "require": {}
+}
