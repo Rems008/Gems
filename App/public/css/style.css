@@ -41,26 +41,24 @@ a {
 } */
 
 .header-base {
-  background-image: url(../../src/img/Image_Gems_Bijoux_Atelier_2.png);
+  background-image: url(../../../App/src/img/Image_Gems_Bijoux_Atelier_2.png);
   width: 100vw;
   height: 100vh;
-  background: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 55%;
   background-position-y: 30px;
 }
 
-.header-home {
+/* .header-home {
   background-image: url(../../src/img/Image_Gems_Bijoux_Atelier_2.png);
   width: 100vw;
   height: 100vh;
-  /* background: fixed; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 55%;
   background-position-y: 30px;
-}
+} */
 
 .header {
   position: fixed;
@@ -97,10 +95,6 @@ nav {
   z-index: 999;
 }
 
-.nav-container {
-  height: 20px;
-}
-
 .nav-titre {
   display: flex;
   justify-content: space-between;
@@ -114,10 +108,14 @@ nav {
   font-family: var(--font-family-principal);
   font-size: 24px;
   letter-spacing: 1px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   font-weight: 400;
   color: var(--color-principal);
   cursor: default;
+}
+
+.nav-container {
+  height: 20px;
 }
 
 .nav-menu {
@@ -213,6 +211,15 @@ main {
   background-color: var(--color-tertiaire);
 }
 
+.page-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 59px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .article {
   padding: 20px 10px;
 }
@@ -224,11 +231,13 @@ main {
 .categorie-titre {
   font-family: var(--font-family-principal);
   font-weight: 400;
+  text-transform: uppercase;
   cursor: default;
 }
 
 .categorie-p {
   padding: 20px;
+  margin-bottom: 10px;
   font-family: var(--font-family-secondaire);
   color: var(--color-secondaire);
   cursor: default;
@@ -236,16 +245,18 @@ main {
 
 .card {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .card-article {
+  width: 90%;
   display: flex;
   flex-direction: column;
   text-align: justify;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 img.card-img {
@@ -257,31 +268,44 @@ img.card-img {
   font-family: var(--font-family-principal);
   color: var(--color-secondaire);
   cursor: default;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.card-titre {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family: var(--font-family-principal);
+  color: var(--color-secondaire);
+  cursor: default;
 }
 
 .card-p {
   padding: 20px;
   font-family: var(--font-family-secondaire);
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
   cursor: default;
 }
 
+.form-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .btn-voir {
-  width: 50%;
+  width: 40%;
   height: auto;
-  margin: 20px 20px 40px;
+  margin: 20px 0;
   padding: 5px;
-  align-items: center;
   font-size: 12px;
   letter-spacing: 1px;
-  background: var(--color-secondaire);
   border-radius: 5px;
-  border: var(--color-secondaire);
+  background: var(--color-secondaire);
   border: 1px solid var(--color-secondaire);
   box-shadow: var(--box-shadow-principal);
   color: var(--color-tertiaire);
-  text-transform: capitalize;
   cursor: pointer;
 }
 
@@ -466,21 +490,188 @@ footer a {
   color: var(--color-principal);
 } */
 
-/* PAGE ADMIN */
+/* PAGE USER */
+/* PAGE LOGIN-USER */
 
-/* HEADER ADMIN AND */
-
-.header-listBijouxByCategorie {
-  background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
+.header-user {
+  height: auto;
 }
 
-.page-title {
+.header-user .nav-titre,
+.header-admin .nav-titre {
+  background: var(--color-tertiaire);
+}
+
+.section-user,
+.section-admin {
+  display: flex;
+  justify-content: center;
+  background: rgba(217, 217, 217, 0.85);
+}
+
+.div-section-user,
+.div-main-admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.form-title {
   font-style: normal;
   font-weight: 400;
   font-size: 32px;
   line-height: 59px;
   text-align: center;
-  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.form-user,
+.form-admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-user label,
+.form-admin label {
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.form-user input,
+.form-admin input {
+  display: block;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid var(--color-principal);
+  margin-bottom: 20px;
+  background: inherit;
+}
+
+.etoile-form {
+  color: var(--color-secondaire);
+}
+
+.lien-loginUser {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.lien-loginUser a {
+  text-decoration: none;
+  font-family: "Siemreap";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 46px;
+  text-align: center;
+  color: var(--color-principal);
+  cursor: pointer;
+}
+
+.lien-loginUser a:hover {
+  color: var(--color-secondaire);
+}
+
+.btn-form {
+  width: 143px;
+  height: 47px;
+  margin: 10px 0 20px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-secondaire);
+  border: var(--btn-border);
+  box-shadow: var(--box-shadow-principal);
+  border-radius: 5px;
+  color: var(--color-tertiaire);
+  cursor: pointer;
+}
+
+.btn-form:hover {
+  color: var(--color-secondaire);
+  background: var(--color-tertiaire);
+}
+
+.error {
+  font-size: 16px;
+  color: var(--color-secondaire);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* PAGE BIJOUX */
+/* HEADER */
+
+.header-listBijouxByCategorie {
+  background-image: url(../../../App/src/img/Image_Gems_Bijoux_Atelier_2.png);
+}
+
+.header-listBijoux {
+  background-image: url(../../../App/src/img/Image_Gems_Bijoux_Atelier_2.png);
+}
+
+.header-ficheBijoux {
+  background: var(--color-tertiaire);
+}
+
+/* PAGE FICHE-BIJOUX */
+.card-ficheBijoux {
+  margin-top: 130px;
+}
+
+/* PAGE ADMIN */
+.header-admin {
+  background-image: url(../../../App/src/img/Image_Gems_Bijoux_Atelier_2.png);
+  height: auto;
+}
+
+.section-admin {
+  display: flex;
+  justify-content: center;
+  background: rgba(217, 217, 217, 0.85);
+}
+
+.div-main-admin {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.main-gestion {
+  margin: 50px 0 70px;
+}
+
+.main-gestion form {
+  display: inline-block;
+}
+
+.btn-admin {
+  width: 110px;
+  height: 35px;
+  margin: 20px;
+  font-size: 12px;
+  text-align: center;
+  align-items: center;
+  background: var(--color-secondaire);
+  border: var(--btn-border);
+  box-shadow: var(--box-shadow-principal);
+  border-radius: 5px;
+  color: var(--color-tertiaire);
+  cursor: pointer;
+}
+
+.btn-admin:hover {
+  color: var(--color-secondaire);
+  background: var(--color-tertiaire);
 }
 
 .retour {
@@ -494,8 +685,93 @@ footer a {
   color: var(--color-secondaire);
 }
 
-@media (min-width: 900px) {
-  .header-home {
+/* PAGE ADMIN GESTION */
+.div-gestion-admin {
+  width: 100%;
+  margin-top: 100px;
+  align-items: center;
+}
+.table-cat {
+  border: 2px solid var(--color-secondaire);
+  margin: 10px;
+}
+
+.table-cat th,
+.table-cat td {
+  width: 30%;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 10px;
+}
+
+.table-cat tr {
+  font-size: 12px;
+}
+
+.img-admin img {
+  width: 40px;
+  height: 40px;
+}
+
+.btn-gestionAdmin {
+  width: 70px;
+  height: 20px;
+  font-size: 10px;
+  text-align: center;
+  background: var(--color-secondaire);
+  border: var(--btn-border);
+  box-shadow: var(--box-shadow-principal);
+  border-radius: 5px;
+  color: var(--color-tertiaire);
+  cursor: pointer;
+}
+
+.form-btncreeCat {
+  display: flex;
+  justify-content: right;
+}
+
+.btn-modifier {
+  background: #001f98;
+  border: #001f98;
+}
+
+.btn-supprimer {
+  background: red;
+  border: red;
+}
+
+.btn-creeCat {
+  width: 90px;
+  margin: 20px;
+}
+
+/* PAGE ADMIN UPDATE */
+.form-admin #id-image {
+  border: none;
+}
+
+.div-selecteur {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.div-selecteur label {
+  padding: 0;
+}
+
+.div-selecteur select {
+  width: 70%;
+  display: flex;
+  text-align: center;
+  margin-bottom: 10px;
+  background: inherit;
+  text-transform: capitalize;
+}
+
+@media (min-width: 920px) {
+  .header-base {
     background-position-y: 100px;
   }
 
@@ -567,6 +843,20 @@ footer a {
     font-size: 16px;
   }
 
+  .card-article {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  img.card-img {
+    width: 50%;
+    margin-bottom: 15px;
+  }
+
   .btn-voir {
     font-size: 18px;
   }
@@ -598,5 +888,43 @@ footer a {
     width: 50px;
     height: 50px;
     font-size: 35px;
+  }
+
+  /* PAGE USER */
+
+  .header-user .nav-menu {
+    backdrop-filter: none;
+  }
+
+  /* PAGE ADMIN */
+
+  .div-main-admin {
+    margin-top: 160px;
+  }
+
+  .main-gestion {
+    margin-top: 100px;
+    padding: 40px;
+  }
+
+  .btn-admin {
+    width: 143px;
+    height: 47px;
+  }
+
+  /* PAGE ADMIN GESTION */
+
+  .table-cat tr {
+    font-size: 14px;
+  }
+
+  .btn-gestionAdmin {
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .btn-creeCat {
+    width: 140px;
   }
 }

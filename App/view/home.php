@@ -6,9 +6,9 @@
           </h6>
         </div>
         <?php include_once 'App/include/nav.php'; ?>
-        <video class="video">
+        <!-- <video class="video">
           <source src="../../App/src/video/Gems_Bijoux_Atelier_Home.mp4" type="video/mp4" />
-        </video>
+        </video> -->
         <?php
         if (isset($_SESSION['nom'])) {
           // connecté

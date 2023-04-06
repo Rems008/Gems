@@ -1,5 +1,5 @@
    <style>
-     .header-user {
+     /* .header-user {
        background-image: url(App/src/img/Image_Gems_Bijoux_Atelier_2.png);
        height: 110vh;
        width: 100vw;
@@ -7,8 +7,8 @@
        background-repeat: no-repeat;
        background-position: 55%;
        background-position-y: 50px;
-     }
-
+     } */
+     /* 
      .nav-container {
        height: 20px;
      }
@@ -57,7 +57,7 @@
        color: var(--color-secondaire);
      }
 
-     .lien a {
+     .lien-loginUser a {
        text-decoration: none;
        font-family: 'Siemreap';
        font-style: normal;
@@ -77,7 +77,7 @@
      .btn-form-user {
        width: 143px;
        height: 47px;
-       margin: 10px 0 10px 0;
+       margin: 10px 0;
        font-size: 12px;
        text-align: center;
        align-items: center;
@@ -100,19 +100,18 @@
        text-align: center;
        margin-bottom: 10px;
      }
-
+*/
      @media (min-width: 900px) {
 
-       .nav-container {
+       /* .nav-container { 
          height: 105px;
        }
 
        .nav-menu {
          backdrop-filter: none;
-       }
+       } */
      }
    </style>
-
    <header class="header-base header-user">
      <section class="header">
        <div class="bandeau">
@@ -123,7 +122,7 @@
        <?php include_once 'App/include/nav.php'; ?>
      </section>
      <section class="section-user">
-       <div>
+       <div class="div-section-user">
          <h2 class="form-title">Mon Compte</h2>
          <form class="form-user" method="post" action="index.php?entite=user&action=verif">
            <label for="id-email"><span class="etoile-form">*</span>Email</label>
@@ -133,14 +132,14 @@
            <input type="email" id="id-email" name="email" autofocus>
            <label for="id-mdp"><span class="etoile-form">*</span>Mot de passe</label>
            <input type="password" id="id-mdp" name="mdp">
-           <div class="lien">
+           <div class="lien-loginUser">
              <a href="#">
                Mot de passe oublié ?
              </a>
              <a href="index.php?entite=user&action=create">
                INSCRIPTION
              </a>
-             <button class="btn-form-user">CONNEXION</button>
+             <button class="btn-form btn-loginUser">CONNEXION</button>
            </div>
          </form>
        </div>
