@@ -17,7 +17,7 @@ class AdminController extends AppController
 
   public function bijoux()
   {
-    $view = 'admin/gestionBijoux';
+    $view = 'admin/homeBijoux';
     $paramView = ['error'];
     $this->createView($view, $paramView);
   }

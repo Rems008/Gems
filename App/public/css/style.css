@@ -701,7 +701,6 @@ footer a {
   width: 30%;
   text-align: center;
   text-transform: capitalize;
-  padding: 10px;
 }
 
 .table-cat tr {
@@ -913,9 +912,16 @@ footer a {
   }
 
   /* PAGE ADMIN GESTION */
-
+  .table-cat {
+    margin: 20px 50px;
+  }
   .table-cat tr {
     font-size: 14px;
+  }
+
+  .table-cat th,
+  .table-cat td {
+    padding: 10px;
   }
 
   .btn-gestionAdmin {

@@ -26,7 +26,7 @@
         <form method="post" action="index.php?entite=admin&action=listBijouxByCategorie&id=4">
           <button class="btn-admin">Boucles d'oreilles</button>
         </form>
-        <form method="post" action="index.php?entite=bijoux&action=list">
+        <form method="post" action="index.php?entite=bijoux&action=listBijouxAdmin">
           <button class="btn-admin">Tous les Bijoux</button>
         </form>
       </div>

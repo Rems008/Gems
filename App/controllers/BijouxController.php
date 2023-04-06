@@ -23,7 +23,7 @@ class BijouxController extends AppController
     $this->createView($view, $paramView);
   }
 
-  public function listbijoux()
+  public function listBijoux()
   {
     $model = new bijouxCrud;
     $modelCat = new categorieCrud;
@@ -37,6 +37,27 @@ class BijouxController extends AppController
     }
 
     $view = 'bijoux/listBijoux';
+    $paramView = [
+      'error' => '',
+      'tabByCat' => $tabByCat
+    ];
+    $this->createView($view, $paramView);
+  }
+
+  public function listBijouxAdmin()
+  {
+    $model = new bijouxCrud;
+    $modelCat = new categorieCrud;
+
+    $categories = $modelCat->getAllCategorie();
+
+    $tabByCat = [];
+    foreach ($categories as $category) {
+      $bijoux = $model->getBijouxByIdCategorie($category['id_categorie']);
+      $tabByCat[$category['nom_categorie']] = $bijoux;
+    }
+
+    $view = 'admin/gestionAllBijoux';
     $paramView = [
       'error' => '',
       'tabByCat' => $tabByCat
@@ -81,7 +102,6 @@ class BijouxController extends AppController
     ];
     $this->createView($view, $paramView);
   }
-
 
   public function create()
   {
