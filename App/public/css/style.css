@@ -525,6 +525,7 @@ footer a {
   line-height: 59px;
   text-align: center;
   margin-bottom: 20px;
+  text-transform: capitalize;
 }
 
 .form-user,
@@ -622,11 +623,45 @@ footer a {
 
 .header-ficheBijoux {
   background: var(--color-tertiaire);
+  height: auto;
 }
 
 /* PAGE FICHE-BIJOUX */
+.header-ficheBijoux .nav-titre {
+  background-color: var(--color-tertiaire);
+}
+
 .card-ficheBijoux {
-  margin-top: 130px;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-ficheBijoux .page-title {
+  color: var(--color-secondaire);
+  margin-bottom: 20px;
+}
+
+.header-ficheBijoux .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-img-fiche {
+  width: 120px;
+  height: 120px;
+}
+
+.card-p-fiche {
+  color: var(--color-secondaire);
+  font-size: 18px;
+}
+
+.header-ficheBijoux .btn-voir {
+  width: 100px;
 }
 
 /* PAGE ADMIN */
@@ -743,6 +778,7 @@ footer a {
 .btn-creeCat {
   width: 90px;
   margin: 20px;
+  text-transform: capitalize;
 }
 
 /* PAGE ADMIN UPDATE */
@@ -893,6 +929,30 @@ footer a {
 
   .header-user .nav-menu {
     backdrop-filter: none;
+  }
+
+  /* PAGE BIJOUX */
+
+  .header-ficheBijoux .container {
+    width: 100%;
+    flex-direction: initial;
+    justify-content: center;
+  }
+
+  .header-ficheBijoux .container-left,
+  .header-ficheBijoux .container-right {
+    width: 47%;
+    height: 320px;
+    gap: 24px;
+  }
+
+  .card-img-fiche {
+    width: 320px;
+    height: 320px;
+  }
+
+  .header-ficheBijoux .btn-voir {
+    width: 120px;
   }
 
   /* PAGE ADMIN */

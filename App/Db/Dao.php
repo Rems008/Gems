@@ -19,6 +19,7 @@ class Dao
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
     try {
       $this->connect = new PDO($dsn, $username, $password);
+      $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $pdoException) {
       echo "Erreur de connexion à la base de données: " . $pdoException->getMessage();
     }

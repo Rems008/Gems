@@ -29,17 +29,23 @@ $tabTaille = $tailleCrud->getAllTaille();
 
 // Parcours des catégories et affichage de leurs noms
 foreach ($tabCat as $categorie) {
-  echo $categorie['nom_categorie'] . '<br>';
+  echo $categorie->getNomCategorie() . '<br>';
 }
 foreach ($tabMatiere as $matiere) {
-  echo $matiere['nom_matiere'] . '<br>';
+  echo $matiere->getNomMatiere() . '<br>';
 }
 foreach ($tabPierre as $pierre) {
-  echo $pierre['nom_pierre'] . '<br>';
+  echo $pierre->getNomPierre() . '<br>';
 }
 foreach ($tabTaille as $taille) {
-  echo $taille['nombre_taille'] . '<br>';
+  echo $taille->getNbr() . '<br>';
 }
 // foreach ($tabBijoux as $bijoux) {
 //   echo $bijoux->getNom() . '<br>';
 // }
+
+
+$matiereModel = new MatiereCrud();
+$matieres = $matiereModel->getAllMatiere();
+
+var_dump($matieres);

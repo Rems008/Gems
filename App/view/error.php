@@ -1,5 +1,5 @@
 <div>
 
-  <h2>Message : <?= $erreur; ?></h2>
+  <h2>Message : <?= $error; ?></h2>
 
 </div>

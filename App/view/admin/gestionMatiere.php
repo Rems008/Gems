@@ -21,14 +21,14 @@
         <tbody>
           <?php foreach ($tabMatiere as $matiere) : ?>
             <tr>
-              <td><?= $matiere['nom_matiere'] ?></td>
+              <td><?= $matiere->getNomMatiere() ?></td>
               <td>
-                <form method="post" action="index.php?entite=matiere&action=update&id=<?= $matiere['id_matiere']; ?>">
+                <form method="post" action="index.php?entite=matiere&action=update&id=<?= $matiere->getIdMatiere(); ?>">
                   <button class="btn-gestionAdmin btn-modifier">Modifier</button>
                 </form>
               </td>
               <td>
-                <form method="post" action="index.php?entite=matiere&action=delete&id=<?= $matiere['id_matiere']; ?>">
+                <form method="post" action="index.php?entite=matiere&action=delete&id=<?= $matiere->getIdMatiere(); ?>">
                   <button class="btn-gestionAdmin btn-supprimer">Supprimer</button>
                 </form>
               </td>

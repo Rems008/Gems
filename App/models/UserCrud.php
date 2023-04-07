@@ -8,9 +8,6 @@ use PDOException;
 use Gems\App\Db\Dao;
 use Gems\App\models\User;
 
-use Gems\App\models\Categorie;
-
-
 class UserCrud
 {
   private ?Dao $dao;
@@ -24,10 +21,8 @@ class UserCrud
   {
     $sql = 'SELECT * FROM utilisateur';
     $user_stmt = $this->dao->getConnect()->prepare($sql);
-    $user_stmt->setFetchMode(PDO::FETCH_ASSOC);
-    // $user_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Gems\App\models\Categorie', ['']);
-    // $user_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Categorie::class);
-
+    // $user_stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $user_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Categorie::class);
     $user_stmt->execute();
     $user = $user_stmt->fetchAll();
     return $user;
@@ -38,10 +33,9 @@ class UserCrud
     $sql = 'SELECT * FROM utilisateur WHERE id_utilisateur=:id';
     $user_stmt = $this->dao->getConnect()->prepare($sql);
     $user_stmt->bindParam(':id', $idUser);
+    $user_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Categorie::class);
     $user_stmt->execute();
-    $user_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Gems\App\models\User');
-    $bijou = $user_stmt->fetch();
-    return $bijou;
+    return $user_stmt->fetch();
   }
 
   public function getUserByEmail(string $email): ?User
@@ -70,9 +64,9 @@ class UserCrud
       $user = $this->getUserByEmail($email);
 
       if (password_verify($mdp, $user->getMdp())) {    // simulation de la valeur de mot de passe
-        $_SESSION['email'] = $user->getEmail();
+        $_SESSION['email_utilisateur'] = $user->getEmail();
         $_SESSION['role'] = $user->getRole();
-        $_SESSION['idUser'] = $user->getId();
+        $_SESSION['id_utilisateur'] = $user->getIdUser();
       } else {
         throw new Exception('Mot de passe incorrect !');
       }
@@ -88,7 +82,7 @@ class UserCrud
     $user_stmt = $pdo->prepare($sql);
 
     $param = [
-      ':nom' => $user->getNom(),
+      ':nom' => $user->getNomUser(),
       ':prenom' => $user->getPrenom(),
       ':email' => $user->getEmail(),
       ':mdp' => $user->getMdp(),
@@ -139,7 +133,7 @@ class UserCrud
 
     $user_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
-      ':nom' => $user->getNom(),
+      ':nom' => $user->getNomUser(),
       ':prenom' => $user->getPrenom(),
       ':email' => $user->getEmail(),
       ':mdp' => $user->getMdp(),

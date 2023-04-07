@@ -35,9 +35,10 @@
         </div>
         <div class="card">
           <article class="card-article">
-            <img class="card-img" src="App/src/img/<?= $bijou['image_bijoux']; ?>" alt="" />
-            <h5 class="card-titre"><?= $bijou['nom_bijoux']; ?></h5>
-            <p class="card-p"><?= $bijou['description']; ?>
+            <?php var_dump($bijoux) ?>
+            <img class="card-img" src="App/src/img/<?= $bijoux->getImageName(); ?>" alt="" />
+            <h5 class="card-titre"><?= $bijoux->getNomBijoux(); ?></h5>
+            <p class="card-p"><?= $bijoux->getDescription(); ?>
             </p>
             <button class="btn-voir">VOIR</button>
           </article>

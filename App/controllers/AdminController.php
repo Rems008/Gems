@@ -22,6 +22,13 @@ class AdminController extends AppController
     $this->createView($view, $paramView);
   }
 
+  public function createBijoux()
+  {
+    $view = 'admin/createBijoux';
+    $paramView = ['error'];
+    $this->createView($view, $paramView);
+  }
+
   public function listBijouxByCategorie()
   {
     // Récupérer l'identifiant de la catégorie depuis l'URL
@@ -29,7 +36,7 @@ class AdminController extends AppController
 
     // Récupérer les bijoux de la catégorie spécifiée
     $model = new bijouxCrud;
-    $bijoux = $model->getBijouxByCategorie($categorieId);
+    $bijoux = $model->getBijouxByIdCategorie($categorieId);
 
     // Passer les bijoux à la vue
     $view = 'admin/gestionBijouxByCategorie';

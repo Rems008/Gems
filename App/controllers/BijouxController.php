@@ -15,7 +15,7 @@ class BijouxController extends AppController
   {
     $model = new BijouxCrud();
     $tabBijoux = $model->getAllBijoux();
-    $view = 'bijoux/listBijoux';
+    $view = 'home';
     $paramView = [
       'error' => '',
       'tabBijoux' => $tabBijoux,
@@ -32,8 +32,8 @@ class BijouxController extends AppController
 
     $tabByCat = [];
     foreach ($categories as $category) {
-      $bijoux = $model->getBijouxByIdCategorie($category['id_categorie']);
-      $tabByCat[$category['nom_categorie']] = $bijoux;
+      $bijoux = $model->getBijouxByIdCategorie($category->getIdCategorie());
+      $tabByCat[$category->getNomCategorie()] = $bijoux;
     }
 
     $view = 'bijoux/listBijoux';
@@ -53,8 +53,8 @@ class BijouxController extends AppController
 
     $tabByCat = [];
     foreach ($categories as $category) {
-      $bijoux = $model->getBijouxByIdCategorie($category['id_categorie']);
-      $tabByCat[$category['nom_categorie']] = $bijoux;
+      $bijoux = $model->getBijouxByIdCategorie($category->getIdCategorie());
+      $tabByCat[$category->getNomCategorie()] = $bijoux;
     }
 
     $view = 'admin/gestionAllBijoux';
@@ -74,8 +74,8 @@ class BijouxController extends AppController
 
   //   $tabByCat = [];
   //   foreach ($categories as $category) {
-  //     $bijoux = $model->getBijouxByIdCategorie($category['id_categorie']);
-  //     $tabByCat[$category['nom_categorie']] = $bijoux;
+  //     $bijoux = $model->getBijouxByIdCategorie($category->getIdCategorie());
+  //     $tabByCat[$category->getNomCategorie()] = $bijoux;
   //   }
 
   //   $view = 'bijoux/listcategorie';
@@ -93,7 +93,7 @@ class BijouxController extends AppController
 
     // Récupérer les bijoux de la catégorie spécifiée
     $model = new bijouxCrud;
-    $bijoux = $model->getBijouxByCategorie($categorieId);
+    $bijoux = $model->getBijouxByIdCategorie($categorieId);
 
     // Passer les bijoux à la vue
     $view = 'bijoux/listBijouxByCategorie';
@@ -136,12 +136,12 @@ class BijouxController extends AppController
         $model = new BijouxCrud();
         $model->createBijoux();
       }
-      header('Location: index.php?entite=bijoux&action=list');
+      header('Location: index.php?entite=bijoux&action=listBijouxAdmin');
       exit();
     }
   }
 
-  public function see()
+  public function bijoux()
   {
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 

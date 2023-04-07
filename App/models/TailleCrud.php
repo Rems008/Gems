@@ -19,11 +19,10 @@ class TailleCrud
   {
     $sql = 'SELECT * FROM taille';
     $taille_stmt = $this->dao->getConnect()->prepare($sql);
-    $taille_stmt->setFetchMode(PDO::FETCH_ASSOC);
-    // $taille_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Gems\App\models\Taille', ['']);
+    // $taille_stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $taille_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Taille::class, ['']);
     $taille_stmt->execute();
-    $taille = $taille_stmt->fetchAll();
-    return $taille;
+    return $taille_stmt->fetchAll();
   }
 
   public function getTailleById(int $idTaille): Taille
@@ -31,10 +30,9 @@ class TailleCrud
     $sql = 'SELECT * FROM taille WHERE id_taille=:id';
     $taille_stmt = $this->dao->getConnect()->prepare($sql);
     $taille_stmt->bindParam(':id', $idTaille);
+    $taille_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Taille::class);
     $taille_stmt->execute();
-    $taille_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Gems\App\models\Taille');
-    $bijou = $taille_stmt->fetch();
-    return $bijou;
+    return $taille_stmt->fetch();
   }
 
   public function setTaille(Taille $taille)

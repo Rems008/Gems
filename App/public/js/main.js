@@ -59,7 +59,9 @@ const btnSup = document.querySelectorAll(".btn-supprimer");
 btnSup.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) {
+      window.location.href = btn.href;
     } else {
+      return;
     }
   });
 });

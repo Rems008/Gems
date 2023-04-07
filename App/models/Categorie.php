@@ -4,18 +4,18 @@ namespace Gems\App\models;
 
 class Categorie
 {
-  private ?int $idCategorie;
-  private string $nomCategorie;
+  private ?int $id_categorie;
+  private string $nom_categorie;
 
   public function __construct(string $nomCategorie = '')
   {
-    $this->idCategorie = NULL;
-    $this->nomCategorie = $nomCategorie;
+    $this->id_categorie = NULL;
+    $this->nom_categorie = $nomCategorie;
   }
 
   public function getIdCategorie()
   {
-    return $this->idCategorie;
+    return $this->id_categorie;
   }
 
   /**
@@ -23,7 +23,7 @@ class Categorie
    */
   public function getNomCategorie()
   {
-    return $this->nomCategorie;
+    return $this->nom_categorie;
   }
 
   /**
@@ -33,7 +33,7 @@ class Categorie
    */
   public function setNomCategorie($nomCategorie)
   {
-    $this->nomCategorie = $nomCategorie;
+    $this->nom_categorie = $nomCategorie;
 
     return $this;
   }

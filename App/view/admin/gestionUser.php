@@ -22,15 +22,15 @@
         <tbody>
           <?php foreach ($tabUser as $user) : ?>
             <tr>
-              <td><?= $user['nom_utilisateur'] ?></td>
-              <td><?= $user['role'] ?></td>
+              <td><?= $user->getNomUser() ?></td>
+              <td><?= $user->getRole() ?></td>
               <td>
-                <form method="post" action="index.php?entite=admin&action=updateUser&id=<?= $user['id_utilisateur']; ?>">
+                <form method="post" action="index.php?entite=admin&action=updateUser&id=<?= $user->getIdUser(); ?>">
                   <button class="btn-gestionAdmin btn-modifier">Modifier</button>
                 </form>
               </td>
               <td>
-                <form method="post" action="index.php?entite=user&action=delete&id=<?= $user['id_utilisateur']; ?>">
+                <form method="post" action="index.php?entite=user&action=delete&id=<?= $user->getIdUser(); ?>">
                   <button class="btn-gestionAdmin btn-supprimer">Supprimer</button>
                 </form>
               </td>

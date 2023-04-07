@@ -49,13 +49,13 @@ class CategorieController extends AppController
   {
     $model = new CategorieCrud();
     $model->updateCategorieById($id, $cat);
-    // $tabCat = $model->getAllCategorie();
-    // $view = 'admin/gestionCategorie';
-    // $paramView = [
-    //   'error' => '',
-    //   'tabCat' => $tabCat,
-    // ];
-    // $this->createView($view, $paramView);
+    $tabCat = $model->getAllCategorie();
+    $view = 'admin/gestionCategorie';
+    $paramView = [
+      'error' => '',
+      'tabCat' => $tabCat,
+    ];
+    $this->createView($view, $paramView);
     header('Location: index.php?entite=categorie&action=list');
     exit();
   }

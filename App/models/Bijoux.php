@@ -9,22 +9,22 @@ use Gems\App\models\Categorie;
 
 class Bijoux
 {
-  private ?int $id;
-  private string $nom;
+  private ?int $id_bijoux;
+  private string $nom_bijoux;
   private string $description;
-  private float $prix;
-  private string $imageName;
-  private int $idCategorie;
-  private int $idMatiere;
-  private int $idPierre;
-  private int $idTaille;
-  private string $nomCategorie;
-  private string $nomMatiere;
-  private string $nomPierre;
-  private string $nomTaille;
+  private float $prix_bijoux;
+  private string $image_bijoux;
+  private int $id_categorie;
+  private int $id_matiere;
+  private int $id_pierre;
+  private int $id_taille;
+  private string $nom_categorie;
+  private string $nom_matiere;
+  private string $nom_pierre;
+  private string $nombre_taille;
 
   public function __construct(
-    string $nom = '',
+    string $nomBijoux = '',
     string $description = '',
     float $prix = 0.0,
     string $imageName = '',
@@ -37,42 +37,42 @@ class Bijoux
     string $nomPierre = '',
     string $nomTaille = ''
   ) {
-    $this->id = null;
-    $this->nom = $nom;
+    $this->id_bijoux = null;
+    $this->nom_bijoux = $nomBijoux;
     $this->description = $description;
-    $this->prix = $prix;
-    $this->imageName = $imageName;
-    $this->idCategorie = $idCategorie;
-    $this->idMatiere = $idMatiere;
-    $this->idPierre = $idPierre;
-    $this->idTaille = $idTaille;
-    $this->nomCategorie = $nomCategorie;
-    $this->nomMatiere = $nomMatiere;
-    $this->nomPierre = $nomPierre;
-    $this->nomTaille = $nomTaille;
+    $this->prix_bijoux = $prix;
+    $this->image_bijoux = $imageName;
+    $this->id_categorie = $idCategorie;
+    $this->id_matiere = $idMatiere;
+    $this->id_pierre = $idPierre;
+    $this->id_taille = $idTaille;
+    $this->nom_categorie = $nomCategorie;
+    $this->nom_matiere = $nomMatiere;
+    $this->nom_pierre = $nomPierre;
+    $this->nombre_taille = $nomTaille;
   }
 
-  public function getId()
+  public function getIdBijoux()
   {
-    return $this->id;
+    return $this->id_bijoux;
   }
 
   /**
-   * Get the value of nom
+   * Get the value of nomBijoux
    */
-  public function getNom()
+  public function getNomBijoux()
   {
-    return $this->nom;
+    return $this->nom_bijoux;
   }
 
   /**
-   * Set the value of nom
+   * Set the value of nomBijoux
    *
    * @return  self
    */
-  public function setNom($nom)
+  public function setNomBijoux($nomBijoux)
   {
-    $this->nom = $nom;
+    $this->nom_bijoux = $nomBijoux;
 
     return $this;
   }
@@ -102,7 +102,7 @@ class Bijoux
    */
   public function getPrix()
   {
-    return $this->prix;
+    return $this->prix_bijoux;
   }
 
   /**
@@ -112,7 +112,7 @@ class Bijoux
    */
   public function setPrix($prix)
   {
-    $this->prix = $prix;
+    $this->prix_bijoux = $prix;
 
     return $this;
   }
@@ -122,7 +122,7 @@ class Bijoux
    */
   public function getImageName()
   {
-    return $this->imageName;
+    return $this->image_bijoux;
   }
 
   /**
@@ -132,14 +132,14 @@ class Bijoux
    */
   public function setImageName($imageName)
   {
-    $this->imageName = $imageName;
+    $this->image_bijoux = $imageName;
 
     return $this;
   }
 
   public function getIdCategorie(): Categorie
   {
-    return new Categorie($this->idCategorie, $this->nomCategorie);
+    return new Categorie($this->id_categorie, $this->nom_categorie);
   }
 
   /**
@@ -149,7 +149,7 @@ class Bijoux
    */
   public function setIdCategorie($idCategorie)
   {
-    $this->idCategorie = $idCategorie;
+    $this->id_categorie = $idCategorie;
 
     return $this;
   }
@@ -159,7 +159,7 @@ class Bijoux
    */
   public function getIdMatiere(): Matiere
   {
-    return new Matiere($this->idMatiere, $this->nomMatiere);
+    return new Matiere($this->id_matiere, $this->nom_matiere);
   }
 
   /**
@@ -169,7 +169,7 @@ class Bijoux
    */
   public function setIdMatiere($idMatiere)
   {
-    $this->idMatiere = $idMatiere;
+    $this->id_matiere = $idMatiere;
 
     return $this;
   }
@@ -179,7 +179,7 @@ class Bijoux
    */
   public function getIdPierre(): Pierre
   {
-    return new Pierre($this->idPierre, $this->nomPierre);
+    return new Pierre($this->id_pierre, $this->nom_pierre);
   }
 
 
@@ -190,7 +190,7 @@ class Bijoux
    */
   public function setIdPierre($idPierre)
   {
-    $this->idPierre = $idPierre;
+    $this->id_pierre = $idPierre;
 
     return $this;
   }
@@ -200,7 +200,7 @@ class Bijoux
    */
   public function getIdTaille(): Taille
   {
-    return new Taille($this->idTaille, $this->nomTaille);
+    return new Taille($this->id_taille, $this->nombre_taille);
   }
 
   /**
@@ -210,7 +210,7 @@ class Bijoux
    */
   public function setIdTaille($idTaille)
   {
-    $this->idTaille = $idTaille;
+    $this->id_taille = $idTaille;
 
     return $this;
   }
@@ -220,7 +220,7 @@ class Bijoux
    */
   public function getNomCategorie()
   {
-    return $this->nomCategorie;
+    return $this->nom_categorie;
   }
 
   /**
@@ -230,7 +230,7 @@ class Bijoux
    */
   public function setNomCategorie($nomCategorie)
   {
-    $this->nomCategorie = $nomCategorie;
+    $this->nom_categorie = $nomCategorie;
 
     return $this;
   }
@@ -240,7 +240,7 @@ class Bijoux
    */
   public function getNomMatiere()
   {
-    return $this->nomMatiere;
+    return $this->nom_matiere;
   }
 
   /**
@@ -250,7 +250,7 @@ class Bijoux
    */
   public function setNomMatiere($nomMatiere)
   {
-    $this->nomMatiere = $nomMatiere;
+    $this->nom_matiere = $nomMatiere;
 
     return $this;
   }
@@ -260,7 +260,7 @@ class Bijoux
    */
   public function getNomPierre()
   {
-    return $this->nomPierre;
+    return $this->nom_pierre;
   }
 
   /**
@@ -270,7 +270,7 @@ class Bijoux
    */
   public function setNomPierre($nomPierre)
   {
-    $this->nomPierre = $nomPierre;
+    $this->nom_pierre = $nomPierre;
 
     return $this;
   }
@@ -280,7 +280,7 @@ class Bijoux
    */
   public function getNomTaille()
   {
-    return $this->nomTaille;
+    return $this->nombre_taille;
   }
 
   /**
@@ -290,7 +290,7 @@ class Bijoux
    */
   public function setNomTaille($nomTaille)
   {
-    $this->nomTaille = $nomTaille;
+    $this->nombre_taille = $nomTaille;
 
     return $this;
   }

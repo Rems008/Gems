@@ -5,7 +5,7 @@
         <a href="#" class="icon-burger">
           <span class="burger material-symbols-outlined"> menu </span>
         </a>
-        <a href="index.php?entite=user&action=login" class="icon">
+        <a href="index.php?entite=user&action=verif" class="icon">
           <span class="material-symbols-outlined"> person </span>
         </a>
       </div>

@@ -9,22 +9,22 @@
        </section>
        <section class="article">
          <div class="card card-ficheBijoux">
-           <!-- <?php var_dump($bijoux) ?> -->
-           <?php var_dump($bijoux->getNom()) ?>
-           <?php var_dump($bijoux->getPrix()) ?>
-           <?php var_dump($bijoux->getDescription()) ?>
-           <?php var_dump($bijoux->getImageName()) ?>
-           <input type="hidden" name="id_bijoux" value="<?= $bijoux->getId(); ?>">
-           <h2 class="page-title"><?= $bijoux->getNom(); ?></h2>
-           <img class="card-img" src="App/src/img/<?= $bijoux->getImageName(); ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
-           <article class="card-article">
-             <p class="card-p"><?= $bijoux->getDescription(); ?>
-             </p>
-             <h3><?= $bijoux->getPrix(); ?> €</h3>
-             <form class="form-btn" method="post" action="index.php?entite=bijoux&action=bijoux&id=">
-               <button class="btn-voir">Acheter</button>
-             </form>
-           </article>
+           <input type="hidden" name="id_bijoux" value="<?= $bijoux->getIdBijoux(); ?>">
+           <h2 class="page-title"><?= $bijoux->getNomBijoux(); ?></h2>
+           <div class="container">
+             <div class="container-left">
+               <img class="card-img-fiche" src="App/src/img/<?= $bijoux->getImageName(); ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
+             </div>
+             <article class="card-article container-right">
+               <p class="card-p card-p-fiche"><?= $bijoux->getDescription(); ?>
+               </p>
+               <h3><?= $bijoux->getPrix(); ?> €</h3>
+               <form class="form-btn" method="post" action="index.php?entite=bijoux&action=bijoux&id=<?= $bijoux->getIdBijoux(); ?>">
+                 <button class="btn-voir">Acheter</button>
+               </form>
+             </article>
+           </div>
          </div>
+         <a href="index.php?entite=bijoux&action=listBijouxAdmin" class="retour">Retour</a>
        </section>
      </header>

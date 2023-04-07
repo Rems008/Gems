@@ -4,26 +4,26 @@ namespace Gems\App\models;
 
 class Matiere
 {
-  private ?int $id;
-  private string $nom;
+  private ?int $id_matiere;
+  private string $nom_matiere;
 
-  public function __construct(string $nom)
+  public function __construct(string $nomMatiere)
   {
-    $this->id = NULL;
-    $this->nom = $nom;
+    $this->id_matiere = NULL;
+    $this->nom_matiere = $nomMatiere;
   }
 
-  public function getId()
+  public function getIdMatiere()
   {
-    return $this->id;
+    return $this->id_matiere;
   }
 
   /**
    * Get the value of nom
    */
-  public function getNom()
+  public function getNomMatiere()
   {
-    return $this->nom;
+    return $this->nom_matiere;
   }
 
   /**
@@ -31,9 +31,9 @@ class Matiere
    *
    * @return  self
    */
-  public function setNom($nom)
+  public function setNomMatiere($nomMatiere)
   {
-    $this->nom = $nom;
+    $this->nom_matiere = $nomMatiere;
 
     return $this;
   }

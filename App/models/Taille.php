@@ -4,18 +4,18 @@ namespace Gems\App\models;
 
 class Taille
 {
-  private ?int $id;
-  private string $nbr;
+  private ?int $id_taille;
+  private string $nombre_taille;
 
   public function __construct(string $nbr)
   {
-    $this->id = NULL;
-    $this->nbr = $nbr;
+    $this->id_taille = NULL;
+    $this->nombre_taille = $nbr;
   }
 
-  public function getId()
+  public function getIdTaille()
   {
-    return $this->id;
+    return $this->id_taille;
   }
 
   /**
@@ -23,7 +23,7 @@ class Taille
    */
   public function getNbr()
   {
-    return $this->nbr;
+    return $this->nombre_taille;
   }
 
   /**
@@ -33,7 +33,7 @@ class Taille
    */
   public function setNbr($nbr)
   {
-    $this->nbr = $nbr;
+    $this->nombre_taille = $nbr;
 
     return $this;
   }

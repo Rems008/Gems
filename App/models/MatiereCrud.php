@@ -19,11 +19,10 @@ class MatiereCrud
   {
     $sql = 'SELECT * FROM matiere';
     $matiere_stmt = $this->dao->getConnect()->prepare($sql);
-    $matiere_stmt->setFetchMode(PDO::FETCH_ASSOC);
-    // $matiere_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Gems\App\models\Matiere', ['']);
+    // $matiere_stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $matiere_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Matiere::class, ['']);
     $matiere_stmt->execute();
-    $matiere = $matiere_stmt->fetchAll();
-    return $matiere;
+    return $matiere_stmt->fetchAll();
   }
 
   public function getMatiereById(int $idMatiere): Matiere
@@ -31,10 +30,9 @@ class MatiereCrud
     $sql = 'SELECT * FROM matiere WHERE id_matiere=:id';
     $matiere_stmt = $this->dao->getConnect()->prepare($sql);
     $matiere_stmt->bindParam(':id', $idMatiere);
+    $matiere_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Matiere::class);
     $matiere_stmt->execute();
-    $matiere_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Gems\App\models\Matiere');
-    $matiere = $matiere_stmt->fetch();
-    return $matiere;
+    return $matiere_stmt->fetch();
   }
 
   public function setMatiere(Matiere $matiere)
@@ -42,7 +40,7 @@ class MatiereCrud
     $sql = 'INSERT INTO matiere VALUES (NULL, :nom)';
     $matiere_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
-      ':nom' => $matiere->getNom(),
+      ':nom' => $matiere->getNomMatiere()(),
     ];
     $matiere_stmt->execute($param);
   }
@@ -62,7 +60,7 @@ class MatiereCrud
 
     $matiere_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
-      ':nom' => $matiere->getNom()
+      ':nom' => $matiere->getNomMatiere()()
     ];
     $matiere_stmt->execute($param);
   }

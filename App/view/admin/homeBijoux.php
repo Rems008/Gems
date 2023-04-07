@@ -11,7 +11,7 @@
     <div class="div-main-admin">
       <h2 class="form-title">Gestion Bijoux</h2>
       <div class="main-gestion">
-        <form method="post" action="index.php?entite=bijoux&action=create">
+        <form method="post" action="index.php?entite=admin&action=createBijoux">
           <button class="btn-admin">Créer un Bijou</button>
         </form>
         <form method="post" action="index.php?entite=admin&action=listBijouxByCategorie&id=1">

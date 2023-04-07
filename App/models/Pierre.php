@@ -4,26 +4,26 @@ namespace Gems\App\models;
 
 class Pierre
 {
-  private ?int $id;
-  private string $nom;
+  private ?int $id_pierre;
+  private string $nom_pierre;
 
-  public function __construct(string $nom)
+  public function __construct(string $nomPierre)
   {
-    $this->id = NULL;
-    $this->nom = $nom;
+    $this->id_pierre = NULL;
+    $this->nom_pierre = $nomPierre;
   }
 
-  public function getId()
+  public function getIdPierre()
   {
-    return $this->id;
+    return $this->id_pierre;
   }
 
   /**
    * Get the value of nom
    */
-  public function getNom()
+  public function getNomPierre()
   {
-    return $this->nom;
+    return $this->nom_pierre;
   }
 
   /**
@@ -31,9 +31,9 @@ class Pierre
    *
    * @return  self
    */
-  public function setNom($nom)
+  public function setNomPierre($nomPierre)
   {
-    $this->nom = $nom;
+    $this->nom_pierre = $nomPierre;
 
     return $this;
   }

@@ -13,7 +13,7 @@
            <?php
             $nomCat = reset($bijoux); //  fonction PHP qui permet de pointer sur le premier élément d'un tableau et de renvoyer sa valeur ici le nom de la catégorie.
             ?>
-           <h2 class="page-title">NOS <?= $nomCat['nom_categorie']; ?>s</h2>
+           <h2 class="page-title">NOS <?= $nomCategorie = $nomCat->getNomCategorie(); ?>s</h2>
            <p class="categorie-p">
              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quis
              at accusantium ut voluptas temporibus a.
@@ -22,15 +22,13 @@
          <div class="card">
            <?php foreach ($bijoux as $bijou) : ?>
              <article class="card-article">
-               <img class="card-img" src="App/src/img/<?= $bijou['image_bijoux']; ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
-               <h5 class="card-titre"><?= $bijou['nom_bijoux']; ?><?php if (isset($bijoux['nom_bijoux'])) {
-                                                                    echo $bijoux['nom_bijoux'];
-                                                                  } ?>
+               <img class="card-img" src="App/src/img/<?= $bijou->getImageName(); ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
+               <h5 class="card-titre"><?= $bijou->getNomBijoux(); ?>
                </h5>
-               <p class="card-p"><?= $bijou['description']; ?>
+               <p class="card-p"><?= $bijou->getDescription(); ?>
                </p>
-               <h3><?= $bijou['prix_bijoux']; ?> €</h3>
-               <form class="form-btn" method="post" action="index.php?entite=bijoux&action=see&id=<?= $bijou['id_bijoux']; ?>">
+               <h3><?= $bijou->getPrix(); ?> €</h3>
+               <form class="form-btn" method="post" action="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
                  <button class="btn-voir">VOIR</button>
                </form>
              </article>

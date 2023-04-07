@@ -21,14 +21,14 @@
         <tbody>
           <?php foreach ($tabCat as $cat) : ?>
             <tr>
-              <td><?= $cat['nom_categorie'] ?></td>
+              <td><?= $cat->getNomCategorie() ?></td>
               <td>
-                <form method="post" action="index.php?entite=admin&action=updateCategorie&id=<?= $cat['id_categorie']; ?>">
+                <form method="post" action="index.php?entite=admin&action=updateCategorie&id=<?= $cat->getIdCategorie(); ?>">
                   <button class="btn-gestionAdmin btn-modifier">Modifier</button>
                 </form>
               </td>
               <td>
-                <form method="post" action="index.php?entite=categorie&action=delete&id=<?= $cat['id_categorie']; ?>">
+                <form method="post" action="index.php?entite=categorie&action=delete&id=<?= $cat->getIdCategorie(); ?>">
                   <button class="btn-gestionAdmin btn-supprimer">Supprimer</button>
                 </form>
               </td>

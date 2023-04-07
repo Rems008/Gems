@@ -5,58 +5,58 @@ namespace Gems\App\models;
 class User
 {
   //Déclaration des définitions des propriétés de l'utilisateur en privée
-  private ?int $id;
-  private string $nom;
-  private string $prenom;
-  private string $email;
-  private string $mdp;
-  private string $adresse;
+  private ?int $id_utilisateur;
+  private string $nom_utilisateur;
+  private string $prenom_utilisateur;
+  private string $email_utilisateur;
+  private string $mot_de_passe;
+  private string $adresse_utilisateur;
   private int $code_postal;
-  private int $telephone;
+  private int $telephone_utilisateur;
   private string $role;
 
 
   // Fonction construct afin de pouvoir récupérer les propriétes
-  public function __construct(string $nom = '', string $prenom = '', string $email = '', string $mdp = '', string $adresse = '', int $code_postal, int $telephone, string $role = 'client')
+  public function __construct(string $nomUser = '', string $prenom = '', string $email = '', string $mdp = '', string $adresse = '', int $code_postal, int $telephone, string $role = 'client')
   {
-    $this->id = null;
-    $this->nom = $nom;
-    $this->prenom = $prenom;
-    $this->email = $email;
-    $this->setMdp($mdp);
-    $this->adresse = $adresse;
+    $this->id_utilisateur = null;
+    $this->nom_utilisateur = $nomUser;
+    $this->prenom_utilisateur = $prenom;
+    $this->email_utilisateur = $email;
+    $this->mot_de_passe = password_hash($mdp, PASSWORD_DEFAULT);
+    $this->adresse_utilisateur = $adresse;
     $this->code_postal = $code_postal;
-    $this->telephone = $telephone;
+    $this->telephone_utilisateur = $telephone;
     $this->role = $role;
   }
 
   //Les getteur et setteur
 
   /**
-   * Get the value of nom
+   * Get the value of nomUser
    */
-  public function getId(): ?int
+  public function getIdUser(): ?int
   {
-    return $this->id;
+    return $this->id_utilisateur;
   }
 
 
   /**
-   * Get the value of nom
+   * Get the value of nomUser
    */
-  public function getNom()
+  public function getNomUser()
   {
-    return $this->nom;
+    return $this->nom_utilisateur;
   }
 
   /**
-   * Set the value of nom
+   * Set the value of nomUser
    *
    * @return  self
    */
-  public function setNom($nom)
+  public function setNomUser($nomUser)
   {
-    $this->nom = $nom;
+    $this->nom_utilisateur = $nomUser;
 
     return $this;
   }
@@ -66,7 +66,7 @@ class User
    */
   public function getPrenom()
   {
-    return $this->prenom;
+    return $this->prenom_utilisateur;
   }
 
   /**
@@ -76,7 +76,7 @@ class User
    */
   public function setPrenom($prenom)
   {
-    $this->prenom = $prenom;
+    $this->prenom_utilisateur = $prenom;
 
     return $this;
   }
@@ -86,7 +86,7 @@ class User
    */
   public function getEmail()
   {
-    return $this->email;
+    return $this->email_utilisateur;
   }
 
   /**
@@ -100,7 +100,7 @@ class User
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       throw new \InvalidArgumentException("L'email n'est pas valide");
     }
-    $this->email = $email;
+    $this->email_utilisateur = $email;
 
     return $this;
   }
@@ -110,7 +110,7 @@ class User
    */
   public function getMdp()
   {
-    return $this->mdp;
+    return $this->mot_de_passe;
   }
 
   /**
@@ -120,7 +120,7 @@ class User
    */
   public function setMdp($mdp)
   {
-    $this->mdp = $mdp;
+    $this->mot_de_passe = $mdp;
 
     return $this;
   }
@@ -130,7 +130,7 @@ class User
    */
   public function getAdresse()
   {
-    return $this->adresse;
+    return $this->adresse_utilisateur;
   }
 
   /**
@@ -140,7 +140,7 @@ class User
    */
   public function setAdresse($adresse)
   {
-    $this->adresse = $adresse;
+    $this->adresse_utilisateur = $adresse;
 
     return $this;
   }
@@ -170,7 +170,7 @@ class User
    */
   public function getTelephone()
   {
-    return $this->telephone;
+    return $this->telephone_utilisateur;
   }
 
   /**
@@ -180,7 +180,7 @@ class User
    */
   public function setTelephone($telephone)
   {
-    $this->telephone = $telephone;
+    $this->telephone_utilisateur = $telephone;
 
     return $this;
   }

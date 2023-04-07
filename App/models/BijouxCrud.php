@@ -20,25 +20,21 @@ class BijouxCrud
     $sql = 'SELECT * FROM bijoux';
 
     $bijoux_stmt = $this->dao->getConnect()->prepare($sql);
-    $bijoux_stmt->setFetchMode(PDO::FETCH_ASSOC);
-    // $bijoux_stmt->setFetchMode(PDO::FETCH_CLASS, 'Gems\App\models\Bijoux');
-    // $bijoux_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Bijoux::class);
-    // $bijoux_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Bijoux');
+    // $bijoux_stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $bijoux_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Bijoux::class, ['']);
     $bijoux_stmt->execute();
     return $bijoux_stmt->fetchAll();
   }
 
-  public function getBijouxById(int $idBijoux): Bijoux
+  public function getBijouxById(int $idBijoux) //: Bijoux
   {
     $sql = 'SELECT * FROM bijoux WHERE id_bijoux=:id';
 
     $bijoux_stmt = $this->dao->getConnect()->prepare($sql);
     $bijoux_stmt->bindParam(':id', $idBijoux, PDO::PARAM_INT);
-    $bijoux_stmt->execute();
     $bijoux_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Bijoux::class);
+    $bijoux_stmt->execute();
     return $bijoux_stmt->fetch();
-
-    // return $bijoux_stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function getBijouxByIdCategorie(string $idCat)
@@ -47,20 +43,10 @@ class BijouxCrud
 
     $cat_stmt = $this->dao->getConnect()->prepare($sql);
     $cat_stmt->bindParam('idCat', $idCat);
+    $cat_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Bijoux::class, ['']);
     $cat_stmt->execute();
-
-    return $cat_stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $cat_stmt->fetchAll();
   }
-
-  public function getBijouxByCategorie($categorie)
-  {
-    $sql = "SELECT * FROM bijoux NATURAL JOIN categorie WHERE id_categorie = ?";
-
-    $stmt = $this->dao->getConnect()->prepare($sql);
-    $stmt->execute([$categorie]);
-    return $stmt->fetchAll();
-  }
-
 
   public function setBijoux(Bijoux $bijoux)
   {
@@ -68,13 +54,13 @@ class BijouxCrud
 
     $bijoux_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
-      ':nom' => $bijoux->getNom(),
+      ':nom' => $bijoux->getNomBijoux(),
       ':description' => $bijoux->getDescription(),
       ':prix' => $bijoux->getPrix(),
       ':image' => $bijoux->getImageName(),
       ':cat' => $bijoux->getIdCategorie(),
-      ':matiere' => $bijoux->getIdMatiere(),
-      ':pierre' => $bijoux->getIdPierre(),
+      ':matiere' => $bijoux->getIdMatiere()(),
+      ':pierre' => $bijoux->getIdPierre()(),
       ':taille' => $bijoux->getIdTaille(),
     ];
     $bijoux_stmt->execute($param);
@@ -102,13 +88,13 @@ class BijouxCrud
 
     $bijoux_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
-      ':nom' => $bijoux->getNom(),
+      ':nom' => $bijoux->getNomBijoux(),
       ':description' => $bijoux->getDescription(),
       ':prix' => $bijoux->getPrix(),
       ':img' => $bijoux->getImageName(),
       ':cat' => $bijoux->getIdCategorie(),
-      ':matiere' => $bijoux->getIdMatiere(),
-      ':pierre' => $bijoux->getIdPierre(),
+      ':matiere' => $bijoux->getIdMatiere()(),
+      ':pierre' => $bijoux->getIdPierre()(),
       ':taille' => $bijoux->getIdTaille(),
       ':id' => $idBijoux
     ];

@@ -11,9 +11,9 @@
     <div class="div-main-admin">
       <h2 class="form-title-admin">Modifier Catégorie</h2>
       <form class="form-admin" method="post" action="index.php?entite=categorie&action=update" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= $categorie['id_categorie']; ?>">
+        <input type="hidden" name="id" value="<?= $categorie->getIdCategorie(); ?>">
         <label for="id_nom"><span class="etoile-form">*</span>Nom Catégorie</label>
-        <input type="text" id="id-nom" name="nom" value="<?= $categorie['nom_categorie']; ?>">
+        <input type="text" id="id-nom" name="nom" value="<?= $categorie->getNomCategorie(); ?>">
         <button class="btn-admin">Modifier Catégorie</button>
       </form>
       <a href="index.php?entite=categorie&action=list" class="retour">Retour</a>

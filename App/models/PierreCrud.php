@@ -19,11 +19,10 @@ class PierreCrud
   {
     $sql = 'SELECT * FROM pierre';
     $pierre_stmt = $this->dao->getConnect()->prepare($sql);
-    $pierre_stmt->setFetchMode(PDO::FETCH_ASSOC);
-    // $pierre_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Gems\App\models\Pierre', ['']);
+    // $pierre_stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $pierre_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Pierre::class, ['']);
     $pierre_stmt->execute();
-    $pierre = $pierre_stmt->fetchAll();
-    return $pierre;
+    return $pierre_stmt->fetchAll();
   }
 
   public function getPierreById(int $idPierre): Pierre
@@ -31,10 +30,9 @@ class PierreCrud
     $sql = 'SELECT * FROM pierre WHERE id_pierre=:id';
     $pierre_stmt = $this->dao->getConnect()->prepare($sql);
     $pierre_stmt->bindParam(':id', $idPierre);
+    $pierre_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Pierre::class);
     $pierre_stmt->execute();
-    $pierre_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Gems\App\models\Pierre');
-    $bijou = $pierre_stmt->fetch();
-    return $bijou;
+    return $pierre_stmt->fetch();
   }
 
   public function setPierre(Pierre $pierre)
@@ -42,7 +40,7 @@ class PierreCrud
     $sql = 'INSERT INTO pierre VALUES (NULL, :nom)';
     $pierre_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
-      ':nom' => $pierre->getNom(),
+      ':nom' => $pierre->getNomPierre()(),
     ];
     $pierre_stmt->execute($param);
   }
@@ -62,7 +60,7 @@ class PierreCrud
 
     $pierre_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
-      ':nom' => $pierre->getNom()
+      ':nom' => $pierre->getNomPierre()()
     ];
     $pierre_stmt->execute($param);
   }
