@@ -25,6 +25,6 @@
              </article>
            </div>
          </div>
-         <a href="index.php?entite=bijoux&action=listBijouxAdmin" class="retour">Retour</a>
+         <a href="index.php?entite=bijoux&action=listBijoux" class="retour">Retour</a>
        </section>
      </header>

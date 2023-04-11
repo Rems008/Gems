@@ -2,6 +2,7 @@
 
 namespace Gems\App\controllers;
 
+use Gems\App\models\Taille;
 use Gems\App\models\TailleCrud;
 use Gems\App\controllers\AppController;
 
@@ -25,7 +26,7 @@ class TailleController extends AppController
   {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       $view = 'admin/createTaille';
-      $paramView = ['error' => ''];
+      $paramView = ['error'];
       $this->createView($view, $paramView);
     } else {
       $model = new TailleCrud();
@@ -38,19 +39,27 @@ class TailleController extends AppController
   public function taille()
   {
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
     $model = new TailleCrud();
     $taille = $model->getTailleById($id);
 
-    $view = 'admin/ficheTaille';
+    $view = 'admin/updateTaille';
     $paramView = ['taille' => $taille, 'error' => ''];
     $this->createView($view, $paramView);
   }
 
-  public function update($id, $taille)
+  public function update()
   {
+    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $taille = new Taille();
+    $taille->setNbr($nom);
+
     $model = new TailleCrud();
-    $model->updateTaille($id, $taille);
-    header('Location: index.php?entite=admin&action=list');
+    $model->updateTailleById($taille, $id);
+
+    header('Location: index.php?entite=taille&action=list');
     exit();
   }
 

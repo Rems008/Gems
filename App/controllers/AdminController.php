@@ -46,6 +46,13 @@ class AdminController extends AppController
     $this->createView($view, $paramView);
   }
 
+  public function updateBijoux()
+  {
+    $view = 'admin/updateBijoux';
+    $paramView = ['error'];
+    $this->createView($view, $paramView);
+  }
+
   public function categorie()
   {
     $view = 'admin/gestionCategorie';
@@ -81,6 +88,13 @@ class AdminController extends AppController
     $this->createView($view, $paramView);
   }
 
+  public function updateMatiere()
+  {
+    $view = 'admin/updateMatiere';
+    $paramView = ['error'];
+    $this->createView($view, $paramView);
+  }
+
   public function pierre()
   {
     $view = 'admin/gestionPierre';
@@ -95,6 +109,13 @@ class AdminController extends AppController
     $this->createView($view, $paramView);
   }
 
+  public function updatePierre()
+  {
+    $view = 'admin/updatePierre';
+    $paramView = ['error'];
+    $this->createView($view, $paramView);
+  }
+
   public function taille()
   {
     $view = 'admin/gestionTaille';
@@ -105,6 +126,13 @@ class AdminController extends AppController
   public function createTaille()
   {
     $view = 'admin/createTaille';
+    $paramView = ['error'];
+    $this->createView($view, $paramView);
+  }
+
+  public function updateTaille()
+  {
+    $view = 'admin/updateTaille';
     $paramView = ['error'];
     $this->createView($view, $paramView);
   }

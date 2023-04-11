@@ -2,6 +2,7 @@
 
 namespace Gems\App\controllers;
 
+use Gems\App\models\Categorie;
 use Gems\App\models\CategorieCrud;
 use Gems\App\controllers\AppController;
 
@@ -37,28 +38,30 @@ class CategorieController extends AppController
   public function categorie()
   {
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
     $model = new CategorieCrud();
     $cat = $model->getCategorieById($id);
 
-    $view = 'bijoux/listCategorie';
-    $paramView = ['categorie' => $cat, 'error' => ''];
+    $view = 'admin/updateCategorie';
+    $paramView = ['cat' => $cat, 'error' => ''];
     $this->createView($view, $paramView);
   }
 
-  public function update($id, $cat)
+  public function update()
   {
+    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $cat = new Categorie();
+    $cat->setNomCategorie($nom);
+
     $model = new CategorieCrud();
-    $model->updateCategorieById($id, $cat);
-    $tabCat = $model->getAllCategorie();
-    $view = 'admin/gestionCategorie';
-    $paramView = [
-      'error' => '',
-      'tabCat' => $tabCat,
-    ];
-    $this->createView($view, $paramView);
+    $model->updateCategorieById($cat, $id);
+
     header('Location: index.php?entite=categorie&action=list');
     exit();
   }
+
 
   public function delete()
   {

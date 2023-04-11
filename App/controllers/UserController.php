@@ -18,6 +18,7 @@ class UserController extends AppController
     ];
     $this->createView($view, $paramView);
   }
+
   public function verif()
   {
     // vérification du formaulaire de login

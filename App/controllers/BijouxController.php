@@ -2,6 +2,7 @@
 
 namespace Gems\App\controllers;
 
+use Gems\App\models\Bijoux;
 use Gems\App\models\BijouxCrud;
 use Gems\App\models\PierreCrud;
 use Gems\App\models\TailleCrud;
@@ -129,6 +130,7 @@ class BijouxController extends AppController
         'tabMatiere' => $tabMatiere,
         'tabTaille' => $tabTaille,
       ];
+
       $this->createView($view, $paramView);
     } else {
       $filename = 'App/src/img/' . $_FILES['image']['name'];
@@ -153,12 +155,26 @@ class BijouxController extends AppController
     $this->createView($view, $paramView);
   }
 
-  public function update($id, $bijoux)
+  public function update()
   {
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+    // $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
+    // $prix = filter_input(INPUT_POST, 'prix', FILTER_SANITIZE_SPECIAL_CHARS);
+    // $filename = $_FILES['image']['name'];
+    // $cat = filter_input(INPUT_POST, 'cat', FILTER_SANITIZE_SPECIAL_CHARS);
+    // $matiere = filter_input(INPUT_POST, 'matiere', FILTER_SANITIZE_SPECIAL_CHARS);
+    // $pierre = filter_input(INPUT_POST, 'pierre', FILTER_SANITIZE_SPECIAL_CHARS);
+    // $taille = filter_input(INPUT_POST, 'taille', FILTER_SANITIZE_SPECIAL_CHARS);
+
+
+
+    $bijoux = new Bijoux();
+    $bijoux->setNomBijoux($nom);
+
 
     $model = new BijouxCrud();
-    $model->updateBijoux($id, $bijoux);
+    $model->updateBijouxById($bijoux, $id);
 
     header('Location: index.php?entite=bijoux&action=list');
     exit();

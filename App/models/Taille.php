@@ -7,7 +7,7 @@ class Taille
   private ?int $id_taille;
   private string $nombre_taille;
 
-  public function __construct(string $nbr)
+  public function __construct(string $nbr = '')
   {
     $this->id_taille = NULL;
     $this->nombre_taille = $nbr;

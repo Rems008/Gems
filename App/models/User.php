@@ -120,8 +120,12 @@ class User
    */
   public function setMdp($mdp)
   {
-    $this->mot_de_passe = $mdp;
 
+    // Vérifier si le mot de passe contient au moins 6 caractères et une lettre majuscule
+    if (strlen($mdp) < 6 || !preg_match('/[A-Z]/', $mdp)) {
+      throw new \InvalidArgumentException("Le mot de passe doit contenir au moins 6 caractères dont une majuscule");
+    }
+    $this->mot_de_passe = password_hash($mdp, PASSWORD_DEFAULT);
     return $this;
   }
 
@@ -160,6 +164,10 @@ class User
    */
   public function setCodePostal($code_postal)
   {
+    // Vérifier si le code postal ne contient que des chiffres
+    if (!preg_match('/^\d+$/', $code_postal)) {
+      throw new \InvalidArgumentException('Le code postal doit être composé de chiffres uniquement');
+    }
     $this->code_postal = $code_postal;
 
     return $this;

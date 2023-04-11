@@ -22,7 +22,7 @@ class UserCrud
     $sql = 'SELECT * FROM utilisateur';
     $user_stmt = $this->dao->getConnect()->prepare($sql);
     // $user_stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $user_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Categorie::class);
+    $user_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, User::class);
     $user_stmt->execute();
     $user = $user_stmt->fetchAll();
     return $user;
@@ -33,7 +33,7 @@ class UserCrud
     $sql = 'SELECT * FROM utilisateur WHERE id_utilisateur=:id';
     $user_stmt = $this->dao->getConnect()->prepare($sql);
     $user_stmt->bindParam(':id', $idUser);
-    $user_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Categorie::class);
+    $user_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, User::class);
     $user_stmt->execute();
     return $user_stmt->fetch();
   }
@@ -56,22 +56,24 @@ class UserCrud
 
   public function verifUser(): void
   {
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_SPECIAL_CHARS);
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
     if ($email) {
-
       $user = $this->getUserByEmail($email);
-
-      if (password_verify($mdp, $user->getMdp())) {    // simulation de la valeur de mot de passe
-        $_SESSION['email_utilisateur'] = $user->getEmail();
-        $_SESSION['role'] = $user->getRole();
-        $_SESSION['id_utilisateur'] = $user->getIdUser();
+      if ($user) {
+        if (password_verify($mdp, $user->getMdp())) {    // simulation de la valeur de mot de passe
+          $_SESSION['email_utilisateur'] = $user->getEmail();
+          $_SESSION['role'] = $user->getRole();
+          $_SESSION['id_utilisateur'] = $user->getIdUser();
+        } else {
+          throw new Exception('Mot de passe incorrect !');
+        }
       } else {
-        throw new Exception('Mot de passe incorrect !');
+        throw new Exception("Email non trouvé !");
       }
     } else {
-      throw new Exception("l'identifiant doit être un mail valide");
+      throw new Exception("L'identifiant doit être un mail valide");
     }
   }
 
@@ -117,12 +119,9 @@ class UserCrud
       echo 'Tous les champs doivent être valides.' . $pdoException->getMessage();
     }
 
-
     $mdp = password_hash($mdp, PASSWORD_DEFAULT);
-
     // instancier un objet User avec les valeurs reçues
     $user = new User($nom, $prenom, $email, $mdp, $adresse, $code_postal, $telephone, $role);
-
     // passer l'objet User à la fonction setUser
     $this->setUser($this->dao->getConnect(), $user);
   }

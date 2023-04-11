@@ -23,7 +23,7 @@
             <tr>
               <td><?= $taille->getNbr() ?></td>
               <td>
-                <form method="post" action="index.php?entite=taille&action=update&id=<?= $taille->getIdTaille(); ?>">
+                <form method="post" action="index.php?entite=taille&action=taille&id=<?= $taille->getIdTaille(); ?>">
                   <button class="btn-gestionAdmin btn-modifier">Modifier</button>
                 </form>
               </td>

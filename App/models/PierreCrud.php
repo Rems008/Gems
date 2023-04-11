@@ -37,12 +37,11 @@ class PierreCrud
 
   public function setPierre(Pierre $pierre)
   {
+    $nomPierre = $pierre->getNomPierre();
     $sql = 'INSERT INTO pierre VALUES (NULL, :nom)';
     $pierre_stmt = $this->dao->getConnect()->prepare($sql);
-    $param = [
-      ':nom' => $pierre->getNomPierre()(),
-    ];
-    $pierre_stmt->execute($param);
+    $pierre_stmt->bindParam(':nom', $nomPierre, PDO::PARAM_STR);
+    $pierre_stmt->execute();
   }
 
   public function createPierre()
@@ -50,28 +49,17 @@ class PierreCrud
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
 
     $pierre = new Pierre($nom);
-
     $this->setPierre($pierre);
   }
 
-  public function updatePierreById(Pierre $pierre, int $idPierre)
+  public function updatePierreById(Pierre $pierre, int $id)
   {
-    $sql = 'UPDATE pierre SET nom_pierre=:nom WHERE id_pierre=' . $idPierre;
+    $sql = 'UPDATE pierre SET nom_pierre=:nom WHERE id_pierre=:id';
 
     $pierre_stmt = $this->dao->getConnect()->prepare($sql);
-    $param = [
-      ':nom' => $pierre->getNomPierre()()
-    ];
-    $pierre_stmt->execute($param);
-  }
-
-  public function updatePierre()
-  {
-    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
-    $pierre = new Pierre($nom);
-
-    $this->updatePierreById($pierre, $id);
+    $pierre_stmt->bindParam(':nom', $pierre->getNomPierre(), PDO::PARAM_STR);
+    $pierre_stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $pierre_stmt->execute();
   }
 
   public function deletePierre(int $idPierre)

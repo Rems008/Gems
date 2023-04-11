@@ -23,7 +23,7 @@
             <tr>
               <td><?= $cat->getNomCategorie() ?></td>
               <td>
-                <form method="post" action="index.php?entite=admin&action=updateCategorie&id=<?= $cat->getIdCategorie(); ?>">
+                <form method="post" action="index.php?entite=categorie&action=categorie&id=<?= $cat->getIdCategorie(); ?>">
                   <button class="btn-gestionAdmin btn-modifier">Modifier</button>
                 </form>
               </td>

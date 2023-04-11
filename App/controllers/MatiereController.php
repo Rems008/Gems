@@ -4,6 +4,7 @@ namespace Gems\App\controllers;
 
 use Gems\App\models\MatiereCrud;
 use Gems\App\controllers\AppController;
+use Gems\App\models\Matiere;
 
 class MatiereController extends AppController
 {
@@ -23,7 +24,7 @@ class MatiereController extends AppController
   {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       $view = 'admin/createMatiere';
-      $paramView = ['error' => ''];
+      $paramView = ['error'];
       $this->createView($view, $paramView);
     } else {
       $model = new MatiereCrud();
@@ -39,15 +40,22 @@ class MatiereController extends AppController
     $model = new MatiereCrud();
     $matiere = $model->getMatiereById($id);
 
-    $view = 'admin/ficheMatiere';
+    $view = 'admin/updateMatiere';
     $paramView = ['matiere' => $matiere, 'error' => ''];
     $this->createView($view, $paramView);
   }
 
-  public function update($id, $matiere)
+  public function update()
   {
+    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $matiere = new Matiere();
+    $matiere->setNomMatiere($nom);
+
     $model = new MatiereCrud();
-    $model->updateMatiere($id, $matiere);
+    $model->updateMatiereById($matiere, $id);
+
     header('Location: index.php?entite=matiere&action=list');
     exit();
   }

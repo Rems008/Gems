@@ -23,7 +23,7 @@
             <tr>
               <td><?= $pierre->getNomPierre() ?></td>
               <td>
-                <form method="post" action="index.php?entite=pierre&action=update&id=<?= $pierre->getIdPierre(); ?>">
+                <form method="post" action="index.php?entite=pierre&action=pierre&id=<?= $pierre->getIdPierre(); ?>">
                   <button class="btn-gestionAdmin btn-modifier">Modifier</button>
                 </form>
               </td>

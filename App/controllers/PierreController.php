@@ -2,6 +2,7 @@
 
 namespace Gems\App\controllers;
 
+use Gems\App\models\Pierre;
 use Gems\App\models\PierreCrud;
 use Gems\App\controllers\AppController;
 
@@ -41,15 +42,22 @@ class PierreController extends AppController
     $model = new PierreCrud();
     $pierre = $model->getPierreById($id);
 
-    $view = 'admin/fichePierre';
+    $view = 'admin/updatePierre';
     $paramView = ['pierre' => $pierre, 'error' => ''];
     $this->createView($view, $paramView);
   }
 
-  public function update($id, $pierre)
+  public function update()
   {
+    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $pierre = new Pierre();
+    $pierre->setNomPierre($nom);
+
     $model = new PierreCrud();
-    $model->updatePierre($id, $pierre);
+    $model->updatePierreById($pierre, $id);
+
     header('Location: index.php?entite=pierre&action=list');
     exit();
   }

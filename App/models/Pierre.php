@@ -7,7 +7,7 @@ class Pierre
   private ?int $id_pierre;
   private string $nom_pierre;
 
-  public function __construct(string $nomPierre)
+  public function __construct(string $nomPierre = '')
   {
     $this->id_pierre = NULL;
     $this->nom_pierre = $nomPierre;

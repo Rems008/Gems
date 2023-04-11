@@ -11,6 +11,9 @@
     <div class="div-section-user">
       <h2 class="form-title">Mon Compte</h2>
       <form class="form-user form-createUser" method="post" action="index.php?entite=user&action=create">
+        <div class="error"><?php if ($error) : ?>
+            <?= $error ?>
+          <?php endif ?></div>
         <label for="id-prenom"><span class="etoile-form">*</span>Prénom</label>
         <input type="text" id="id-prenom" name="prenom">
         <label for="id_nom"><span class="etoile-form">*</span>Nom</label>

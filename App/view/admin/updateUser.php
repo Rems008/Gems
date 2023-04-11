@@ -10,7 +10,7 @@
   <section class="section-admin">
     <div class="div-main-admin">
       <h2 class="form-title">Modifier Utilisateur</h2>
-      <form class="form-admin" method="post" action="index.php?entite=user&action=update" enctype="multipart/form-data">
+      <form class="form-admin" method="post" action="index.php?entite=user&action=update">
         <input type="hidden" name="id" value="<?= $user->getIdUser(); ?>">
         <label for="id-prenom"><span class="etoile-form">*</span>Prénom</label>
         <input type="text" id="id-prenom" name="prenom" value="<?= $user->getPrenom(); ?>">
@@ -31,7 +31,6 @@
         <button class="btn-admin">Modifier Utilisateur</button>
       </form>
       <a href="index.php?entite=user&action=list" class="retour">Retour</a>
-      </form>
     </div>
   </section>
 </header>

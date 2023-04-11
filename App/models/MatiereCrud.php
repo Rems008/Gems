@@ -40,7 +40,7 @@ class MatiereCrud
     $sql = 'INSERT INTO matiere VALUES (NULL, :nom)';
     $matiere_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
-      ':nom' => $matiere->getNomMatiere()(),
+      ':nom' => $matiere->getNomMatiere(),
     ];
     $matiere_stmt->execute($param);
   }
@@ -50,28 +50,17 @@ class MatiereCrud
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
 
     $matiere = new Matiere($nom);
-
     $this->setMatiere($matiere);
   }
 
-  public function updateMatiereById(Matiere $matiere, int $idMatiere)
+  public function updateMatiereById(Matiere $matiere, int $id)
   {
-    $sql = 'UPDATE matiere SET nom_matiere=:nom WHERE id_matiere=' . $idMatiere;
+    $sql = 'UPDATE matiere SET nom_matiere=:nom WHERE id_matiere=:id';
 
     $matiere_stmt = $this->dao->getConnect()->prepare($sql);
-    $param = [
-      ':nom' => $matiere->getNomMatiere()()
-    ];
-    $matiere_stmt->execute($param);
-  }
-
-  public function updateMatiere()
-  {
-    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
-    $matiere = new Matiere($nom);
-
-    $this->updateMatiereById($matiere, $id);
+    $matiere_stmt->bindParam(':nom', $matiere->getNomMatiere(), PDO::PARAM_STR);
+    $matiere_stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $matiere_stmt->execute();
   }
 
   public function deleteMatiere(int $idMatiere)

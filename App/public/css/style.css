@@ -259,6 +259,11 @@ main {
   margin-bottom: 20px;
 }
 
+.card-lien {
+  display: flex;
+  justify-content: center;
+}
+
 img.card-img {
   width: 60%;
   margin-bottom: 15px;
@@ -733,7 +738,7 @@ footer a {
 
 .table-cat th,
 .table-cat td {
-  width: 30%;
+  width: 10%;
   text-align: center;
   text-transform: capitalize;
 }
@@ -949,6 +954,7 @@ footer a {
   .card-img-fiche {
     width: 320px;
     height: 320px;
+    margin-left: 50px;
   }
 
   .header-ficheBijoux .btn-voir {
@@ -956,7 +962,7 @@ footer a {
   }
 
   /* PAGE ADMIN */
-
+  .div-section-user,
   .div-main-admin {
     margin-top: 160px;
   }

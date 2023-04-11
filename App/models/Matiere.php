@@ -7,7 +7,7 @@ class Matiere
   private ?int $id_matiere;
   private string $nom_matiere;
 
-  public function __construct(string $nomMatiere)
+  public function __construct(string $nomMatiere = '')
   {
     $this->id_matiere = NULL;
     $this->nom_matiere = $nomMatiere;

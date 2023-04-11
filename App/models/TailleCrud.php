@@ -17,7 +17,7 @@ class TailleCrud
 
   public function getAllTaille(): array
   {
-    $sql = 'SELECT * FROM taille';
+    $sql = 'SELECT * FROM taille ORDER BY nombre_taille ASC';
     $taille_stmt = $this->dao->getConnect()->prepare($sql);
     // $taille_stmt->setFetchMode(PDO::FETCH_ASSOC);
     $taille_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Taille::class, ['']);
@@ -29,7 +29,7 @@ class TailleCrud
   {
     $sql = 'SELECT * FROM taille WHERE id_taille=:id';
     $taille_stmt = $this->dao->getConnect()->prepare($sql);
-    $taille_stmt->bindParam(':id', $idTaille);
+    $taille_stmt->bindParam(':id', $idTaille, PDO::PARAM_INT);
     $taille_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Taille::class);
     $taille_stmt->execute();
     return $taille_stmt->fetch();
@@ -37,12 +37,11 @@ class TailleCrud
 
   public function setTaille(Taille $taille)
   {
-    $sql = 'INSERT INTO taille VALUES (NULL, :nbr)';
+    $nomTaille = $taille->getNbr();
+    $sql = 'INSERT INTO taille VALUES (NULL, :nom)';
     $taille_stmt = $this->dao->getConnect()->prepare($sql);
-    $param = [
-      ':nbr' => $taille->getNbr(),
-    ];
-    $taille_stmt->execute($param);
+    $taille_stmt->bindParam(':nom', $nomTaille, PDO::PARAM_STR);
+    $taille_stmt->execute();
   }
 
   public function createTaille()
@@ -50,28 +49,17 @@ class TailleCrud
     $nbr = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
 
     $taille = new Taille($nbr);
-
     $this->setTaille($taille);
   }
 
-  public function updateTailleById(Taille $taille, int $idTaille)
+  public function updateTailleById(Taille $taille, int $id)
   {
-    $sql = 'UPDATE taille SET nombre_taille=:nbr WHERE id_taille=' . $idTaille;
+    $sql = 'UPDATE taille SET nombre_taille=:nom WHERE id_taille=:id';
 
     $taille_stmt = $this->dao->getConnect()->prepare($sql);
-    $param = [
-      ':nbr' => $taille->getNbr()
-    ];
-    $taille_stmt->execute($param);
-  }
-
-  public function updateTaille()
-  {
-    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-    $nbr = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
-    $taille = new Taille($nbr);
-
-    $this->updateTailleById($taille, $id);
+    $taille_stmt->bindParam(':nom', $taille->getNbr(), PDO::PARAM_STR);
+    $taille_stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $taille_stmt->execute();
   }
 
   public function deleteTaille(int $idTaille)

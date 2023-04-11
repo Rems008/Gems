@@ -62,16 +62,6 @@ class CategorieCrud
     $cat_stmt->execute();
   }
 
-  public function updateCategorie()
-  {
-    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
-
-    $cat = $this->getCategorieById($id);
-    $cat->setNomCategorie($nom);
-    $this->updateCategorieById($cat, $id);
-  }
-
   public function deleteCategorie(int $idCat)
   {
     $sql = 'DELETE FROM categorie WHERE id_categorie=:id';

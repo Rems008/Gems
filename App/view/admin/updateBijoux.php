@@ -9,7 +9,7 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin">
-      <h2 class="form-title">Créer un Bijou</h2>
+      <h2 class="form-title">Modifier un Bijou</h2>
       <form class="form-admin" method="post" action="index.php?entite=bijoux&action=create" enctype="multipart/form-data">
         <label for="id_nom"><span class="etoile-form">*</span>Nom</label>
         <input type="text" id="id-nom" name="nom">
@@ -20,8 +20,7 @@
         <label for="id-image"><span class="etoile-form">*</span>Image</label>
         <input type="file" id="id-image" name="image">
         <div class="div-selecteur">
-          <?php var_dump($tabCat) ?>
-          <label for="id-categorie"><span class="etoile-form">*</span>Catégorie</label>
+          <?php var_dump($tabMatiere) ?> <label for="id-categorie"><span class="etoile-form">*</span>Catégorie</label>
           <select id="id-categorie" name="cat">
             <?php foreach ($tabCat as $cat) : ?>
               <option value="<?= $cat->getIdCategorie() ?>"><?= $cat->getNomCategorie() ?></option>
