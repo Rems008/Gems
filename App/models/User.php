@@ -17,13 +17,13 @@ class User
 
 
   // Fonction construct afin de pouvoir récupérer les propriétes
-  public function __construct(string $nomUser = '', string $prenom = '', string $email = '', string $mdp = '', string $adresse = '', int $code_postal, int $telephone, string $role = 'client')
+  public function __construct(string $nomUser = '', string $prenom = '', string $email = '', string $mdp = '', string $adresse = '', int $code_postal = 0, int $telephone = 0, string $role = 'client')
   {
     $this->id_utilisateur = null;
     $this->nom_utilisateur = $nomUser;
     $this->prenom_utilisateur = $prenom;
     $this->email_utilisateur = $email;
-    $this->mot_de_passe = password_hash($mdp, PASSWORD_DEFAULT);
+    $this->mot_de_passe = $mdp;
     $this->adresse_utilisateur = $adresse;
     $this->code_postal = $code_postal;
     $this->telephone_utilisateur = $telephone;

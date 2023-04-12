@@ -9,18 +9,19 @@
         <!-- <video class="video">
           <source src="../../App/src/video/Gems_Bijoux_Atelier_Home.mp4" type="video/mp4" />
         </video> -->
-        <?php
-        if (isset($_SESSION['nom'])) {
-          // connecté
-          echo '<span>Bonjour : ' . $_SESSION['nom'] . ' ' . $_SESSION['prenom'] . '</span><br>';
-          echo '<span>Déconnexion : <a href="index.php?entite=user&action=logout" class="btn btn-primary btn-sm">Déconnexion</a></span><br>';
-        }
-        ?>
+
       </section>
       <div class="btn-header">
         <form class="form_nos_bijoux" method="post" action="index.php?entite=bijoux&action=listBijoux">
           <button class="btn-nos-bijoux" name="nosBijoux">NOS BIJOUX</button>
         </form>
+        <!-- <?php
+              if (isset($_SESSION['role'])) {
+                // connecté
+                echo '<span>Bonjour : ' . $_SESSION['role'] . ' ' . $_SESSION['id_utilisateur'] . '</span><br>';
+                echo '<span>Déconnexion : <a href="index.php?entite=user&action=logout" class="btn btn-primary btn-sm">Déconnexion</a></span><br>';
+              }
+              ?> -->
       </div>
 
     </header>
@@ -34,11 +35,25 @@
           </p>
         </div>
         <div class="card">
-          <article class="card-article">
-            <?php var_dump($bijoux) ?>
-            <img class="card-img" src="App/src/img/<?= $bijoux->getImageName(); ?>" alt="" />
-            <h5 class="card-titre"><?= $bijoux->getNomBijoux(); ?></h5>
-            <p class="card-p"><?= $bijoux->getDescription(); ?>
+          <?php foreach ($bijoux as $bijou) : ?>
+            <article class="card-article">
+              <a class="card-lien" href="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
+                <img class="card-img" src="App/src/img/<?= $bijou->getImageName(); ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
+              </a>
+              <h5 class="card-titre"><?= $bijou->getNomBijoux(); ?>
+              </h5>
+              <p class="card-p"><?= $bijou->getDescription(); ?>
+              </p>
+              <h3><?= $bijou->getPrix(); ?> €</h3>
+              <form class="form-btn" method="post" action="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
+                <button class="btn-voir">VOIR</button>
+              </form>
+            </article>
+          <?php endforeach ?>
+          <!-- <article class="card-article">
+            <img class="card-img" src="App/src/img/" alt="" />
+            <h5 class="card-titre"></h5>
+            <p class="card-p">
             </p>
             <button class="btn-voir">VOIR</button>
           </article>
@@ -57,7 +72,7 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
             <button class="btn-voir">VOIR</button>
-          </article>
+          </article> -->
         </div>
       </section>
       <article class="banniere-img-un">

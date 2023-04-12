@@ -61,6 +61,7 @@ class UserCrud
 
     if ($email) {
       $user = $this->getUserByEmail($email);
+
       if ($user) {
         if (password_verify($mdp, $user->getMdp())) {    // simulation de la valeur de mot de passe
           $_SESSION['email_utilisateur'] = $user->getEmail();
@@ -126,9 +127,9 @@ class UserCrud
     $this->setUser($this->dao->getConnect(), $user);
   }
 
-  public function updateUserById(User $user, int $idUser)
+  public function updateUserById(User $user, int $id)
   {
-    $sql = 'UPDATE utilisateur SET nom_utilisateur = :nom, prenom_utilisateur = :prenom, email_utilisateur = :email, mot_de_passe = :mdp, adresse_utilisateur = :adresse, code_postal = :codePostal, telephone_utilisateur = :tel WHERE id_utilisateur=' . $idUser;
+    $sql = 'UPDATE utilisateur SET nom_utilisateur = :nom, prenom_utilisateur = :prenom, email_utilisateur = :email, mot_de_passe = :mdp, adresse_utilisateur = :adresse, code_postal = :codePostal, telephone_utilisateur = :tel WHERE id_utilisateur=:id';
 
     $user_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [

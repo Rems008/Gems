@@ -42,9 +42,9 @@
           <?php endforeach ?>
         </tbody>
       </table>
-      <form class="form-btncreeCat" method="post" action="index.php?entite=admin&action=createBijoux">
+      <a class="form-btncreeCat" href="index.php?entite=bijoux&action=create">
         <button class="btn-admin btn-creeCat">Créer Bijoux</button>
-      </form>
+      </a>
       <a class="retour" href="index.php?entite=admin&action=bijoux">Retour</a>
     </div>
   </section>

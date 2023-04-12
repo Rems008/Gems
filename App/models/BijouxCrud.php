@@ -26,7 +26,7 @@ class BijouxCrud
     return $bijoux_stmt->fetchAll();
   }
 
-  public function getBijouxById(int $idBijoux) //: Bijoux
+  public function getBijouxById(int $idBijoux): Bijoux
   {
     $sql = 'SELECT * FROM bijoux WHERE id_bijoux=:id';
 
@@ -48,6 +48,17 @@ class BijouxCrud
     return $cat_stmt->fetchAll();
   }
 
+  public function getBijouxByIdCategorieHome(string $idCat)
+  {
+    $sql = 'SELECT * FROM bijoux NATURAL JOIN categorie WHERE id_categorie = :idCat LIMIT 3;';
+
+    $cat_stmt = $this->dao->getConnect()->prepare($sql);
+    $cat_stmt->bindParam('idCat', $idCat);
+    $cat_stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Bijoux::class, ['']);
+    $cat_stmt->execute();
+    return $cat_stmt->fetchAll();
+  }
+
   public function setBijoux(Bijoux $bijoux)
   {
     $sql = 'INSERT INTO bijoux VALUES (NULL, :nom, :description, :prix, :image, :cat, :matiere, :pierre, :taille)';
@@ -59,8 +70,8 @@ class BijouxCrud
       ':prix' => $bijoux->getPrix(),
       ':image' => $bijoux->getImageName(),
       ':cat' => $bijoux->getIdCategorie(),
-      ':matiere' => $bijoux->getIdMatiere()(),
-      ':pierre' => $bijoux->getIdPierre()(),
+      ':matiere' => $bijoux->getIdMatiere(),
+      ':pierre' => $bijoux->getIdPierre(),
       ':taille' => $bijoux->getIdTaille(),
     ];
     $bijoux_stmt->execute($param);
@@ -78,6 +89,7 @@ class BijouxCrud
     $taille = filter_input(INPUT_POST, 'taille', FILTER_SANITIZE_SPECIAL_CHARS);
 
     $bijoux = new Bijoux($nom, $description, $prix, $filename, $cat, $matiere, $pierre, $taille);
+
 
     $this->setBijoux($bijoux);
   }

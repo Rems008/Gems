@@ -2,6 +2,9 @@
 
 namespace Gems\App\controllers;
 
+use Gems\App\models\BijouxCrud;
+use Gems\App\models\CategorieCrud;
+
 class AppController
 {
 
@@ -20,7 +23,24 @@ class AppController
 
   public function home()
   {
-    $this->createView('home', ['css' => '../../App/public/style']);
+    $model = new bijouxCrud;
+    $modelCat = new categorieCrud;
+
+    $categories = $modelCat->getAllCategorie();
+
+    $tabByCat = [];
+    foreach ($categories as $category) {
+      $bijoux = $model->getBijouxByIdCategorieHome($category->getIdCategorie());
+      $tabByCat[$category->getNomCategorie()] = $bijoux;
+    }
+
+    $view = 'home';
+    $paramView = [
+      'error' => '',
+      'tabByCat' => $tabByCat,
+      'css' => '../../App/public/style'
+    ];
+    $this->createView($view, $paramView);
   }
 
   public function error()

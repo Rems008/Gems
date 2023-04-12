@@ -66,6 +66,7 @@ class CategorieController extends AppController
   public function delete()
   {
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
     $model = new CategorieCrud();
     $model = $model->deleteCategorie($id);
 

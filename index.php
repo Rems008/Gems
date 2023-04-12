@@ -12,9 +12,10 @@ use Gems\App\controllers\TailleController;
 use Gems\App\controllers\MatiereController;
 use Gems\App\controllers\CategorieController;
 
-// if (!isset($_SESSION['role'])) {
-//   $_SESSION['role'] = 'ROLE_VISITEUR';
-// }
+if (!isset($_SESSION['role'])) {
+  $_SESSION['role'] = 'ROLE_VISITEUR';
+}
+// var_dump($_SESSION);
 
 $entite = filter_input(INPUT_GET, 'entite', FILTER_SANITIZE_SPECIAL_CHARS);
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS);

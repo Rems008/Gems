@@ -364,7 +364,7 @@ img.card-img {
   text-align: center;
   background: var(--color-secondaire);
   border-radius: 5px;
-  border: var(--color-secondaire);
+  border: 1px solid var(--color-secondaire);
   box-shadow: var(--box-shadow-principal);
   color: var(--color-tertiaire);
   text-transform: capitalize;
@@ -707,6 +707,7 @@ footer a {
   border-radius: 5px;
   color: var(--color-tertiaire);
   cursor: pointer;
+  text-transform: capitalize;
 }
 
 .btn-admin:hover {

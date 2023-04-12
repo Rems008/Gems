@@ -20,7 +20,6 @@
         <label for="id-image"><span class="etoile-form">*</span>Image</label>
         <input type="file" id="id-image" name="image">
         <div class="div-selecteur">
-          <?php var_dump($tabCat) ?>
           <label for="id-categorie"><span class="etoile-form">*</span>Catégorie</label>
           <select id="id-categorie" name="cat">
             <?php foreach ($tabCat as $cat) : ?>
@@ -29,6 +28,7 @@
           </select>
           <label for="id-matiere"><span class="etoile-form">*</span>Matière</label>
           <select id="id-matiere" name="matiere">
+
             <?php foreach ($tabMatiere as $matiere) : ?>
               <option value="<?= $matiere->getIdMatiere() ?>"><?= $matiere->getNomMatiere() ?></option>
             <?php endforeach ?>

@@ -25,7 +25,7 @@ class UserController extends AppController
     try {
       // appel de la fonction de vérification des données de connexion
       $model = new UserCrud();
-      $model->verifUser();    // leve des EXception
+      $model->verifUser();    // leve des Exception
       // on est logger
       header('Location: index.php');  // demande de redirection au navigateur
       exit();

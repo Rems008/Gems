@@ -2,11 +2,6 @@
 
 namespace Gems\App\models;
 
-use Gems\App\models\Pierre;
-use Gems\App\models\Taille;
-use Gems\App\models\Matiere;
-use Gems\App\models\Categorie;
-
 class Bijoux
 {
   private ?int $id_bijoux;
@@ -137,9 +132,9 @@ class Bijoux
     return $this;
   }
 
-  public function getIdCategorie(): Categorie
+  public function getIdCategorie()
   {
-    return new Categorie($this->id_categorie, $this->nom_categorie);
+    return $this->id_categorie;
   }
 
   /**
@@ -157,9 +152,9 @@ class Bijoux
   /**
    * Get the value of idMatiere
    */
-  public function getIdMatiere(): Matiere
+  public function getIdMatiere()
   {
-    return new Matiere($this->id_matiere, $this->nom_matiere);
+    return $this->id_matiere;
   }
 
   /**
@@ -177,9 +172,9 @@ class Bijoux
   /**
    * Get the value of idPierre
    */
-  public function getIdPierre(): Pierre
+  public function getIdPierre()
   {
-    return new Pierre($this->id_pierre, $this->nom_pierre);
+    return $this->id_pierre;
   }
 
 
@@ -198,9 +193,9 @@ class Bijoux
   /**
    * Get the value of idTaille
    */
-  public function getIdTaille(): Taille
+  public function getIdTaille()
   {
-    return new Taille($this->id_taille, $this->nombre_taille);
+    return $this->id_taille;
   }
 
   /**

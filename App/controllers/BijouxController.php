@@ -108,7 +108,6 @@ class BijouxController extends AppController
   {
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       // envoi du formulaire
-
       // Récupérer toutes les catégories
       $categorieModel = new CategorieCrud();
       $tabCat = $categorieModel->getAllCategorie();
@@ -176,7 +175,7 @@ class BijouxController extends AppController
     $model = new BijouxCrud();
     $model->updateBijouxById($bijoux, $id);
 
-    header('Location: index.php?entite=bijoux&action=list');
+    header('Location: index.php?entite=bijoux&action=listBijouxAdmin');
     exit();
   }
 
@@ -187,7 +186,7 @@ class BijouxController extends AppController
     $model = new BijouxCrud();
     $model = $model->deleteBijoux($id);
 
-    header('Location: index.php?entite=bijoux&action=list');
+    header('Location: index.php?entite=bijoux&action=listBijouxAdmin');
     exit();
   }
 }
