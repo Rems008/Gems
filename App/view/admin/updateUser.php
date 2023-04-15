@@ -14,7 +14,7 @@
         <input type="hidden" name="id" value="<?= $user->getIdUser(); ?>">
         <label for="id-prenom"><span class="etoile-form">*</span>Prénom</label>
         <input type="text" id="id-prenom" name="prenom" value="<?= $user->getPrenom(); ?>">
-        <label for="id_nom"><span class="etoile-form">*</span>Nom</label>
+        <label for="id-nom"><span class="etoile-form">*</span>Nom</label>
         <input type="text" id="id-nom" name="nom" value="<?= $user->getNomUser(); ?>">
         <label for="id-email"><span class="etoile-form">*</span>Email</label>
         <input type="email" id="id-email" name="email" value="<?= $user->getEmail(); ?>">
@@ -26,7 +26,7 @@
         <input type="text" id="id-code-postal" name="code_postal" value="<?= $user->getCodePostal(); ?>">
         <label for="id-telephone"><span class="etoile-form">*</span>Numéro de téléphone</label>
         <input type="text" id="id-telephone" name="telephone" value="<?= $user->getTelephone(); ?>">
-        <label for="id-role"><span class="etoile-form">*</span>Numéro de téléphone</label>
+        <label for="id-role"><span class="etoile-form">*</span>Role</label>
         <input type="text" id="id-role" name="role" value="<?= $user->getRole(); ?>">
         <button class="btn-admin">Modifier Utilisateur</button>
       </form>

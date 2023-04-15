@@ -11,7 +11,7 @@
     <div class="div-main-admin">
       <h2 class="form-title">Créer un Bijou</h2>
       <form class="form-admin" method="post" action="index.php?entite=bijoux&action=create" enctype="multipart/form-data">
-        <label for="id_nom"><span class="etoile-form">*</span>Nom</label>
+        <label for="id-nom"><span class="etoile-form">*</span>Nom</label>
         <input type="text" id="id-nom" name="nom">
         <label for="id-description"><span class="etoile-form">*</span>Description</label>
         <input type="text" id="id-description" name="description">

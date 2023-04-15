@@ -11,7 +11,7 @@
     <div class="div-main-admin">
       <h2 class="form-title">Créer Catégorie</h2>
       <form class="form-admin" method="post" action="index.php?entite=categorie&action=create" enctype="multipart/form-data">
-        <label for="id_nom"><span class="etoile-form">*</span>Nom Catégorie</label>
+        <label for="id-nom"><span class="etoile-form">*</span>Nom Catégorie</label>
         <input type="text" id="id-nom" name="nom">
         <button class="btn-admin">Créer Catégorie</button>
       </form>

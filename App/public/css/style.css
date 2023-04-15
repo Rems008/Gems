@@ -46,7 +46,7 @@ a {
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 55%;
+  background-position: 52%;
   background-position-y: 30px;
 }
 
@@ -99,34 +99,52 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 45px;
+  height: 55px;
   transition: all 0.5s ease-in-out;
   padding: 15px;
+  text-align: center;
+}
+
+.test {
+  display: flex;
+}
+
+.nav-connect {
+  position: absolute;
+  top: 60px;
+  left: 12px;
+  font-size: 12px;
+  padding: 10px;
+  z-index: 999;
+  cursor: default;
+}
+
+.nav-container-titre {
+  display: flex;
 }
 
 .titre {
   font-family: var(--font-family-principal);
   font-size: 24px;
   letter-spacing: 1px;
-  /* margin-left: 10px; */
+  margin-right: 10px;
   font-weight: 400;
   color: var(--color-principal);
   cursor: default;
 }
 
 .nav-container {
-  height: 20px;
+  height: 35px;
 }
 
 .nav-menu {
-  flex-direction: column;
-  margin-top: 15px;
+  width: 130px;
   padding: 5px 15px;
   border-right: 1px solide var(--color-inherit);
   margin-left: -100%;
   transition: all 0.5s ease;
   backdrop-filter: blur(15px);
-  width: 36%;
+  border-radius: 0 0 5px 0;
 }
 
 .nav-menu a {
@@ -188,7 +206,7 @@ nav {
 .btn-nos-bijoux {
   width: 143px;
   height: 47px;
-  margin: 20px;
+  margin-left: 20vw;
   font-size: 12px;
   text-align: center;
   align-items: center;
@@ -260,6 +278,8 @@ main {
 }
 
 .card-lien {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
 }
@@ -371,9 +391,10 @@ img.card-img {
   cursor: pointer;
 }
 
-.btn-collection:hover {
+.btn-collection:hover,
+.btn-creeCat:hover {
   background-color: var(--color-tertiaire);
-  color: var(--color-principal);
+  color: var(--color-secondaire);
   border: 1px solid var(--color-secondaire);
 }
 
@@ -464,7 +485,8 @@ footer a {
 
 /* CSS AVEC LE JS */
 
-.nav-titre.scroll {
+.nav-titre.scroll,
+.nav-menu.scroll {
   background-color: var(--color-tertiaire);
 }
 
@@ -698,7 +720,6 @@ footer a {
   width: 110px;
   height: 35px;
   margin: 20px;
-  font-size: 12px;
   text-align: center;
   align-items: center;
   background: var(--color-secondaire);
@@ -782,9 +803,18 @@ footer a {
 }
 
 .btn-creeCat {
-  width: 90px;
+  width: 100px;
   margin: 20px;
   text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  height: 35px;
+  align-items: center;
+  border-radius: 5px;
+  background: var(--color-secondaire);
+  border: var(--btn-border);
+  box-shadow: var(--box-shadow-principal);
+  color: var(--color-tertiaire);
 }
 
 /* PAGE ADMIN UPDATE */
@@ -803,12 +833,38 @@ footer a {
 }
 
 .div-selecteur select {
-  width: 70%;
+  width: 100%;
   display: flex;
   text-align: center;
   margin-bottom: 10px;
   background: inherit;
   text-transform: capitalize;
+}
+/* PAGE ADMIN UPDATE BIJOUX */
+
+.update-img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+/* PAGE ADMIN UPDATE USER */
+
+.table-cat .user-nom {
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.table-cat .user-email {
+  text-transform: lowercase;
+  font-size: 10px;
+}
+.table-cat .user-role {
+  text-transform: lowercase;
+  font-size: 8px;
+}
+
+.gestion-user .btn-gestionAdmin {
+  width: 50px;
 }
 
 @media (min-width: 920px) {
@@ -833,6 +889,12 @@ footer a {
     font-size: 30px;
   }
 
+  .nav-connect {
+    top: 40px;
+    left: 60px;
+    font-size: 14px;
+  }
+
   .icon-burger span {
     display: none;
   }
@@ -844,7 +906,7 @@ footer a {
     align-items: center;
     margin-top: 10px;
     width: 100%;
-    height: 50px;
+    /* height: 50px; */
     margin-left: 0;
     transition: none;
     backdrop-filter: none;
@@ -861,10 +923,6 @@ footer a {
 
   .btn-header {
     height: 40vw;
-  }
-
-  .btn-nos-bijoux {
-    margin-left: 20vw;
   }
 
   /* MAIN */
@@ -999,5 +1057,17 @@ footer a {
 
   .btn-creeCat {
     width: 140px;
+    font-size: 14px;
+  }
+  /* PAGE ADMIN UPDATE USER */
+
+  .table-cat .user-nom,
+  .table-cat .user-email,
+  .table-cat .user-role {
+    font-size: 14px;
+  }
+
+  .gestion-user .btn-gestionAdmin {
+    width: 100px;
   }
 }

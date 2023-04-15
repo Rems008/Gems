@@ -2,8 +2,12 @@
 
 namespace Gems\App\controllers;
 
-use Gems\App\controllers\AppController;
 use Gems\App\models\BijouxCrud;
+use Gems\App\models\PierreCrud;
+use Gems\App\models\TailleCrud;
+use Gems\App\models\MatiereCrud;
+use Gems\App\models\CategorieCrud;
+use Gems\App\controllers\AppController;
 
 
 class AdminController extends AppController
@@ -48,8 +52,26 @@ class AdminController extends AppController
 
   public function updateBijoux()
   {
+    $categorieModel = new CategorieCrud();
+    $tabCat = $categorieModel->getAllCategorie();
+
+    $matiereModel = new MatiereCrud();
+    $tabMatiere = $matiereModel->getAllMatiere();
+
+    $pierreModel = new PierreCrud();
+    $tabPierre = $pierreModel->getAllPierre();
+
+    $tailleModel = new TailleCrud();
+    $tabTaille = $tailleModel->getAllTaille();
+
     $view = 'admin/updateBijoux';
-    $paramView = ['error'];
+    $paramView = [
+      'error' => '',
+      'tabCat' => $tabCat,
+      'tabPierre' => $tabPierre,
+      'tabMatiere' => $tabMatiere,
+      'tabTaille' => $tabTaille,
+    ];
     $this->createView($view, $paramView);
   }
 
@@ -62,6 +84,7 @@ class AdminController extends AppController
 
   public function createCategorie()
   {
+
     $view = 'admin/createCategorie';
     $paramView = ['error'];
     $this->createView($view, $paramView);

@@ -154,23 +154,62 @@ class BijouxController extends AppController
     $this->createView($view, $paramView);
   }
 
+  public function bijouxUpdate()
+  {
+    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
+    // envoi du formulaire
+    // Récupérer toutes les catégories
+    $categorieModel = new CategorieCrud();
+    $tabCat = $categorieModel->getAllCategorie();
+
+    $matiereModel = new MatiereCrud();
+    $tabMatiere = $matiereModel->getAllMatiere();
+
+    $pierreModel = new PierreCrud();
+    $tabPierre = $pierreModel->getAllPierre();
+
+    $tailleModel = new TailleCrud();
+    $tabTaille = $tailleModel->getAllTaille();
+
+    $model = new BijouxCrud();
+    $bijoux = $model->getBijouxById($id);
+
+    $view = 'admin/updateBijoux';
+    $paramView = [
+      'bijoux' => $bijoux,
+      'error' => '',
+      'tabCat' => $tabCat,
+      'tabPierre' => $tabPierre,
+      'tabMatiere' => $tabMatiere,
+      'tabTaille' => $tabTaille,
+    ];
+    $this->createView($view, $paramView);
+  }
+
   public function update()
   {
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
-    // $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
-    // $prix = filter_input(INPUT_POST, 'prix', FILTER_SANITIZE_SPECIAL_CHARS);
-    // $filename = $_FILES['image']['name'];
-    // $cat = filter_input(INPUT_POST, 'cat', FILTER_SANITIZE_SPECIAL_CHARS);
-    // $matiere = filter_input(INPUT_POST, 'matiere', FILTER_SANITIZE_SPECIAL_CHARS);
-    // $pierre = filter_input(INPUT_POST, 'pierre', FILTER_SANITIZE_SPECIAL_CHARS);
-    // $taille = filter_input(INPUT_POST, 'taille', FILTER_SANITIZE_SPECIAL_CHARS);
+    $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
+    $prix = filter_input(INPUT_POST, 'prix', FILTER_SANITIZE_SPECIAL_CHARS);
+    $filename = $_FILES['image']['name'];
+    $cat = filter_input(INPUT_POST, 'cat', FILTER_SANITIZE_SPECIAL_CHARS);
+    $matiere = filter_input(INPUT_POST, 'matiere', FILTER_SANITIZE_SPECIAL_CHARS);
+    $pierre = filter_input(INPUT_POST, 'pierre', FILTER_SANITIZE_SPECIAL_CHARS);
+    $taille = filter_input(INPUT_POST, 'taille', FILTER_SANITIZE_SPECIAL_CHARS);
 
-
+    // $bijoux = new Bijoux($nom, $description, $prix, $filename, $cat, $matiere, $pierre, $taille);
 
     $bijoux = new Bijoux();
     $bijoux->setNomBijoux($nom);
-
+    $bijoux->setDescription($description);
+    $bijoux->setPrix($prix);
+    $bijoux->setImageName($filename);
+    $bijoux->setNomCategorie($cat);
+    $bijoux->setNomMatiere($matiere);
+    $bijoux->setNomPierre($pierre);
+    $bijoux->setNomTaille($taille);
 
     $model = new BijouxCrud();
     $model->updateBijouxById($bijoux, $id);

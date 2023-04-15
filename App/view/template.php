@@ -6,7 +6,7 @@
 
 
   <?php
-  include_once $vue . '.php';
+  include_once $view . '.php';
 
   include_once 'App/include/footer.php';
   ?>

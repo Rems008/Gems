@@ -67,6 +67,8 @@ class UserCrud
           $_SESSION['email_utilisateur'] = $user->getEmail();
           $_SESSION['role'] = $user->getRole();
           $_SESSION['id_utilisateur'] = $user->getIdUser();
+          $_SESSION['nom_utilisateur'] = $user->getNomUser();
+          $_SESSION['prenom_utilisateur'] = $user->getPrenom();
         } else {
           throw new Exception('Mot de passe incorrect !');
         }
@@ -94,7 +96,6 @@ class UserCrud
       ':telephone' => $user->getTelephone(),
       ':role' => $role,
     ];
-
     try {
       $user_stmt->execute($param);
       echo "Utilisateur inséré avec succès";
@@ -133,6 +134,7 @@ class UserCrud
 
     $user_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
+      ':id' => $id, PDO::PARAM_INT,
       ':nom' => $user->getNomUser(),
       ':prenom' => $user->getPrenom(),
       ':email' => $user->getEmail(),
@@ -144,33 +146,36 @@ class UserCrud
     $user_stmt->execute($param);
   }
 
-  public function updateUser()
-  {
-    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
-    $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_SPECIAL_CHARS);
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_SPECIAL_CHARS);
-    $adresse = filter_input(INPUT_POST, 'adresse', FILTER_SANITIZE_SPECIAL_CHARS);
-    $code_postal = filter_input(INPUT_POST, 'code_postal', FILTER_SANITIZE_SPECIAL_CHARS);
-    $telephone = filter_input(INPUT_POST, 'telephone', FILTER_SANITIZE_SPECIAL_CHARS);
+  // public function updateUser()
+  // {
+  //   $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+  //   $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+  //   $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_SPECIAL_CHARS);
+  //   $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+  //   $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_SPECIAL_CHARS);
+  //   $adresse = filter_input(INPUT_POST, 'adresse', FILTER_SANITIZE_SPECIAL_CHARS);
+  //   $code_postal = filter_input(INPUT_POST, 'code_postal', FILTER_SANITIZE_SPECIAL_CHARS);
+  //   $telephone = filter_input(INPUT_POST, 'telephone', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    // Vérifier que les champs de formulaire sont valides
-    try {
-      (!$nom || !$prenom || !$email || !$mdp || !$adresse || !$code_postal || !$telephone);
-    } catch (PDOException $pdoException) {
-      echo 'Tous les champs doivent être valides.' . $pdoException->getMessage();
-    }
+  //   // Vérifier que les champs de formulaire sont valides
+  //   try {
+  //     if (!$nom || !$prenom || !$email || !$mdp || !$adresse || !$code_postal || !$telephone) {
+  //       throw new Exception('Tous les champs doivent être valides.');
+  //     }
+  //   } catch (Exception $e) {
+  //     echo $e->getMessage();
+  //     return;
+  //   }
 
 
-    $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+  //   $mdp = password_hash($mdp, PASSWORD_DEFAULT);
 
-    // instancier un objet User avec les valeurs reçues
-    $user = new User($nom, $prenom, $email, $mdp, $adresse, $code_postal, $telephone);
+  //   // instancier un objet User avec les valeurs reçues
+  //   $user = new User($nom, $prenom, $email, $mdp, $adresse, $code_postal, $telephone);
 
-    // passer l'objet User à la fonction setUser
-    $this->updateUserById($user, $id);
-  }
+  //   // passer l'objet User à la fonction setUser
+  //   $this->updateUserById($user, $id);
+  // }
 
   public function deleteUser(int $idUser)
   {

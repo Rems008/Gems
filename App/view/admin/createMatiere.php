@@ -11,7 +11,7 @@
     <div class="div-main-admin">
       <h2 class="form-title">Créer Matière</h2>
       <form class="form-admin" method="post" action="index.php?entite=matiere&action=create" enctype="multipart/form-data">
-        <label for="id_nom"><span class="etoile-form">*</span>Nom Matière</label>
+        <label for="id-nom"><span class="etoile-form">*</span>Nom Matière</label>
         <input type="text" id="id-nom" name="nom">
         <button class="btn-admin">Créer Matière</button>
       </form>

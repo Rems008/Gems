@@ -2,6 +2,8 @@
 
 namespace Gems\App\controllers;
 
+use Exception;
+use Gems\App\models\User;
 use Gems\App\models\UserCrud;
 use Gems\App\controllers\AppController;
 
@@ -64,12 +66,55 @@ class UserController extends AppController
     exit();
   }
 
-  public function update($id, $user)
+
+  public function user()
   {
+    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
     $model = new UserCrud();
-    $model->updateUser($id, $user);
-    $paramView = ['error' => ''];
-    $this->createView('user/accountUser', $paramView);
+    $user = $model->getUserById($id);
+
+    $view = 'admin/updateUser';
+    $paramView = ['user' => $user, 'error' => ''];
+    $this->createView($view, $paramView);
+  }
+
+  public function update()
+  {
+    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
+    $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_SPECIAL_CHARS);
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_SPECIAL_CHARS);
+    $adresse = filter_input(INPUT_POST, 'adresse', FILTER_SANITIZE_SPECIAL_CHARS);
+    $code_postal = filter_input(INPUT_POST, 'code_postal', FILTER_SANITIZE_SPECIAL_CHARS);
+    $telephone = filter_input(INPUT_POST, 'telephone', FILTER_SANITIZE_SPECIAL_CHARS);
+    $role = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    // Vérifier que les champs de formulaire sont valides
+    try {
+      if (!$nom || !$prenom || !$email || !$mdp || !$adresse || !$code_postal || !$telephone || $role) {
+        throw new Exception('Tous les champs doivent être valides.');
+      }
+    } catch (Exception $e) {
+      echo $e->getMessage();
+      return;
+    }
+
+
+    $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+
+    // instancier un objet User avec les valeurs reçues
+    // $user = new User($nom, $prenom, $email, $mdp, $adresse, $code_postal, $telephone);
+
+    // passer l'objet User à la fonction setUser
+    // $user = new User();
+    // $user->setNomUser($nom);
+
+    $model = new UserCrud();
+    $model->updateUserById($id, $prenom, $email, $mdp, $adresse, $code_postal, $telephone, $role);
+
+    header('Location: index.php?entite=user&action=list');
     exit();
   }
 

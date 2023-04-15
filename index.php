@@ -13,7 +13,7 @@ use Gems\App\controllers\MatiereController;
 use Gems\App\controllers\CategorieController;
 
 if (!isset($_SESSION['role'])) {
-  $_SESSION['role'] = 'ROLE_VISITEUR';
+  $_SESSION['role'] = 'visiteur';
 }
 // var_dump($_SESSION);
 

@@ -28,7 +28,7 @@
                 <td><?= $cat; ?></td>
                 <td><?= $bijou->getNomBijoux() ?></td>
                 <td>
-                  <form method="post" action="index.php?entite=bijoux&action=update&id=<?= $bijou->getIdBijoux(); ?>">
+                  <form method="post" action="index.php?entite=bijoux&action=bijouxUpdate&id=<?= $bijou->getIdBijoux(); ?>">
                     <button class="btn-gestionAdmin btn-modifier">Modifier</button>
                   </form>
                 </td>
@@ -42,9 +42,7 @@
           <?php endforeach ?>
         </tbody>
       </table>
-      <a class="form-btncreeCat" href="index.php?entite=bijoux&action=create">
-        <button class="btn-admin btn-creeCat">Créer Bijoux</button>
-      </a>
+      <a class="btn-creeCat" href="index.php?entite=bijoux&action=create">Créer Bijoux</a>
       <a class="retour" href="index.php?entite=admin&action=bijoux">Retour</a>
     </div>
   </section>

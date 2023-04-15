@@ -18,12 +18,15 @@ setInterval("bandeauChangeInitial()", 12000);
 // NAV SCROLL
 
 const navScroll = document.querySelector(".nav-titre");
+const menuScroll = document.querySelector(".nav-menu");
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 300) {
     navScroll.classList.add("scroll");
+    menuScroll.classList.add("scroll");
   } else {
     navScroll.classList.remove("scroll");
+    menuScroll.classList.remove("scroll");
   }
 });
 

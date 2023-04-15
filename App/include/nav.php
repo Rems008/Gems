@@ -5,15 +5,26 @@
         <a href="#" class="icon-burger">
           <span class="burger material-symbols-outlined"> menu </span>
         </a>
-        <a href="index.php?entite=user&action=verif" class="icon">
-          <span class="material-symbols-outlined"> person </span>
-        </a>
+        <?php
+        if ($_SESSION['role'] === 'visiteur') : ?>
+          <a href="index.php?entite=user&action=verif" class="icon">
+            <span class="material-symbols-outlined">
+              person_off
+            </span>
+          </a>
+        <?php else : ?>
+          <a href="index.php?entite=user&action=logout" class="icon">
+            <span class="material-symbols-outlined"> person </span>
+          </a>
+        <?php endif; ?>
       </div>
-      <h1 class="titre">GEMS</h1>
+      <div class="nav-container-titre">
+        <h1 class="titre">GEMS</h1>
+      </div>
       <div class="nav-icon-right">
-        <a href="#" class="icon">
+        <!-- <a href="#" class="icon">
           <span class="material-symbols-outlined"> search </span>
-        </a>
+        </a> -->
         <a href="#" class="icon">
           <span class="material-symbols-outlined"> local_mall </span>
         </a>
@@ -44,7 +55,14 @@
       <a href="#">Notre histoire</a>
       <span class="ligne"></span>
       <a href="#">Nous contacter</a>
-      <a href="index.php?entite=admin&action=home">Admin</a>
+      <?php if ($_SESSION['role'] === 'admin') : ?>
+        <a href="index.php?entite=admin&action=home">Admin</a>
+      <?php elseif ($_SESSION['role'] === 'client') : ?>
+        <a href="index.php?entite=user&action=account">Mon Compte</a>
+      <?php endif; ?>
     </div>
   </div>
 </nav>
+<?php if ($_SESSION['role'] === 'client' | $_SESSION['role'] === 'admin') : ?>
+  <h6 class="nav-connect">Bonjour : <?= $_SESSION['prenom_utilisateur']; ?></h6>
+<?php endif; ?>

@@ -8,7 +8,7 @@ use Gems\App\models\CategorieCrud;
 class AppController
 {
 
-  public function createView(string $vue, array $params)
+  public function createView(string $view, array $params)
   {
 
     extract($params); // creation des variables nécessaires à la vue
@@ -30,7 +30,7 @@ class AppController
 
     $tabByCat = [];
     foreach ($categories as $category) {
-      $bijoux = $model->getBijouxByIdCategorieHome($category->getIdCategorie());
+      $bijoux = $model->getBijouxByNomBagueHome($category->getIdCategorie());
       $tabByCat[$category->getNomCategorie()] = $bijoux;
     }
 

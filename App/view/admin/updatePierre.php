@@ -12,7 +12,7 @@
       <h2 class="form-title">Modifier Pierre</h2>
       <form class="form-admin" method="post" action="index.php?entite=pierre&action=update">
         <input type="hidden" name="id" value="<?= $pierre->getIdPierre(); ?>">
-        <label for="id_nom"><span class="etoile-form">*</span>Nom Pierre</label>
+        <label for="id-nom"><span class="etoile-form">*</span>Nom Pierre</label>
         <input type="text" id="id-nom" name="nom" value="<?= $pierre->getNomPierre(); ?>">
         <button class="btn-admin">Modifier Pierre</button>
       </form>

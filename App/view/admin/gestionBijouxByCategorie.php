@@ -28,7 +28,7 @@
               <td class="img-admin"><img src="App/src/img/<?= $bijou->getImageName() ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet"> </td>
               <td><?= $bijou->getNomBijoux() ?></td>
               <td>
-                <form method="post" action="index.php?entite=admin&action=updateBijoux&id=<?= $bijou->getIdBijoux(); ?>">
+                <form method="post" action="index.php?entite=bijoux&action=bijouxUpdate&id=<?= $bijou->getIdBijoux(); ?>">
                   <button class="btn-gestionAdmin btn-modifier">Modifier</button>
                 </form>
               </td>
@@ -41,9 +41,7 @@
           <?php endforeach ?>
         </tbody>
       </table>
-      <a class="form-btncreeCat" href="index.php?entite=bijoux&action=create">
-        <button class="btn-admin btn-creeCat">Créer <?= $nomCat->getNomCategorie(); ?>s</button>
-      </a>
+      <a class="btn-creeCat" href="index.php?entite=bijoux&action=create">Créer <?= $nomCat->getNomCategorie(); ?>s</a>
       <a class="retour" href="index.php?entite=admin&action=bijoux">Retour</a>
     </div>
   </section>

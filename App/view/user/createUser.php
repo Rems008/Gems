@@ -16,7 +16,7 @@
           <?php endif ?></div>
         <label for="id-prenom"><span class="etoile-form">*</span>Prénom</label>
         <input type="text" id="id-prenom" name="prenom">
-        <label for="id_nom"><span class="etoile-form">*</span>Nom</label>
+        <label for="id-nom"><span class="etoile-form">*</span>Nom</label>
         <input type="text" id="id-nom" name="nom">
         <label for="id-email"><span class="etoile-form">*</span>Email</label>
         <input type="email" id="id-email" name="email">

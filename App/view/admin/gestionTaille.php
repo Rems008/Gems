@@ -36,9 +36,7 @@
           <?php endforeach ?>
         </tbody>
       </table>
-      <form class="form-btncreeCat" method="post" action="index.php?entite=admin&action=createTaille">
-        <button class="btn-admin btn-creeCat">Créer Taille</button>
-      </form>
+      <a href="index.php?entite=admin&action=createTaille" class="btn-creeCat">Créer Taille</a>
       <a href="index.php?entite=admin&action=home" class="retour">Retour</a>
     </div>
   </section>
