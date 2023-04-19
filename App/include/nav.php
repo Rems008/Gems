@@ -7,7 +7,7 @@
         </a>
         <?php
         if ($_SESSION['role'] === 'visiteur') : ?>
-          <a href="index.php?entite=user&action=verif" class="icon">
+          <a href="index.php?entite=user&action=login" class="icon">
             <span class="material-symbols-outlined">
               person_off
             </span>

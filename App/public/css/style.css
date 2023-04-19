@@ -403,7 +403,6 @@ img.card-img {
 footer {
   width: 100%;
   background: var(--color-secondaire);
-  padding: 30px;
 }
 
 footer a {
@@ -462,6 +461,7 @@ footer a {
 
 .fb,
 .insta {
+  color: var(--color-tertiaire);
   cursor: pointer;
 }
 
@@ -481,6 +481,21 @@ footer a {
   );
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
   color: var(--color-tertiaire);
+}
+
+.pied-page {
+  width: 100%;
+  padding: 5px;
+  font-size: 8px;
+  display: flex;
+  justify-content: center;
+  color: var(--color-tertiaire);
+  background: var(--color-principal);
+}
+
+.pied-page div {
+  display: flex;
+  justify-content: center;
 }
 
 /* CSS AVEC LE JS */
@@ -641,11 +656,15 @@ footer a {
 /* HEADER */
 
 .header-listBijouxByCategorie {
-  background-image: url(../../../App/src/img/Image_Gems_Bijoux_Atelier_2.png);
+  /* background-image: url(../../../App/src/img/Image_Gems_Bijoux_Atelier_2.png); */
+  background-image: none;
+  height: 20vh;
 }
 
 .header-listBijoux {
-  background-image: url(../../../App/src/img/Image_Gems_Bijoux_Atelier_2.png);
+  /* background-image: url(../../../App/src/img/Image_Gems_Bijoux_Atelier_2.png); */
+  background-image: none;
+  height: 20vh;
 }
 
 .header-ficheBijoux {
@@ -653,10 +672,13 @@ footer a {
   height: auto;
 }
 
-/* PAGE FICHE-BIJOUX */
+.header-listBijouxByCategorie .nav-titre,
+.header-listBijoux .nav-titre,
 .header-ficheBijoux .nav-titre {
   background-color: var(--color-tertiaire);
 }
+
+/* PAGE FICHE-BIJOUX */
 
 .card-ficheBijoux {
   margin-top: 100px;
@@ -698,6 +720,7 @@ footer a {
 }
 
 .section-admin {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   background: rgba(217, 217, 217, 0.85);
@@ -1005,9 +1028,9 @@ footer a {
 
   .header-ficheBijoux .container-left,
   .header-ficheBijoux .container-right {
-    width: 47%;
     height: 320px;
-    gap: 24px;
+    display: flex;
+    gap: 50px;
   }
 
   .card-img-fiche {

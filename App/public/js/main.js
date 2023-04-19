@@ -3,7 +3,7 @@
 const bandeauText = document.querySelector(".bandeau-text");
 
 function bandeauChange() {
-  bandeauText.innerHTML = "RÈGLEMENT 3 FOIS SANS FRAIS DÉS 300 €";
+  bandeauText.innerHTML = "RÈGLEMENT 3 FOIS SANS FRAIS DÈS 300 €";
 }
 setInterval("bandeauChange()", 7000);
 

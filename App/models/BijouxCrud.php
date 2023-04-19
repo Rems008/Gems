@@ -48,7 +48,7 @@ class BijouxCrud
     return $cat_stmt->fetchAll();
   }
 
-  public function getBijouxByNomBagueHome(string $idCat)
+  public function getBijouxByNomBagueHome(string $bague)
   {
     $sql = 'SELECT * FROM bijoux NATURAL JOIN categorie WHERE nom_categorie = :bague LIMIT 3';
 
@@ -100,15 +100,15 @@ class BijouxCrud
 
     $bijoux_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
-      ':id' => $id, PDO::PARAM_INT,
+      // ':id' => $id,
       ':nom' => $bijoux->getNomBijoux(),
       ':description' => $bijoux->getDescription(),
       ':prix' => $bijoux->getPrix(),
       ':img' => $bijoux->getImageName(),
       ':cat' => $bijoux->getIdCategorie(),
-      ':matiere' => $bijoux->getIdMatiere()(),
-      ':pierre' => $bijoux->getIdPierre()(),
-      ':taille' => $bijoux->getIdTaille(),
+      ':matiere' => $bijoux->getIdMatiere(),
+      ':pierre' => $bijoux->getIdPierre(),
+      ':taille' => $bijoux->getIdTaille()
     ];
     $bijoux_stmt->execute($param);
   }

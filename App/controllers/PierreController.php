@@ -9,8 +9,24 @@ use Gems\App\controllers\AppController;
 
 class PierreController extends AppController
 {
+  private function verifRole()
+  {
+    // Vérification de l'authentification et du rôle
+    if (
+      !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin'
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   public function list()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $model = new PierreCrud();
     $tabPierre = $model->getAllPierre();
     $view = 'admin/gestionPierre';
@@ -24,6 +40,11 @@ class PierreController extends AppController
 
   public function create()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       $view = 'admin/createPierre';
       $paramView = ['error' => ''];
@@ -38,6 +59,11 @@ class PierreController extends AppController
 
   public function pierre()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $model = new PierreCrud();
     $pierre = $model->getPierreById($id);
@@ -49,6 +75,11 @@ class PierreController extends AppController
 
   public function update()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -64,6 +95,11 @@ class PierreController extends AppController
 
   public function delete()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $model = new PierreCrud();
     $model = $model->deletePierre($id);

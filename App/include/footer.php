@@ -1,5 +1,5 @@
 <footer>
-  <div class="div-footer">
+  <section class="div-footer">
     <div class="div-col">
       <h3>A propos</h3>
       <a href="#">La marque</a>
@@ -18,13 +18,16 @@
       <a href="#">Mail</a>
       <a href="#">Téléphone</a>
     </div>
-  </div>
+  </section>
   <div class="icon-reseau">
     <a class="social fb" href="#">
-      <ion-icon name="logo-facebook"></ion-icon>
+      <i class="fa-brands fa-facebook"></i>
     </a>
     <a class="social insta" href="#">
-      <ion-icon name="logo-instagram"></ion-icon>
+      <i class="fa-brands fa-instagram"></i>
     </a>
   </div>
+  <section class="pied-page">
+    <div>&copy GEMS réalisation Rémi VIVIEN 2023 </div>
+  </section>
 </footer>

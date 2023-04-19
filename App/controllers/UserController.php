@@ -9,8 +9,24 @@ use Gems\App\controllers\AppController;
 
 class UserController extends AppController
 {
+  private function verifRole()
+  {
+    // Vérification de l'authentification et du rôle
+    if (
+      !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin'
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   public function list()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $model = new UserCrud();
     $tabUser = $model->getAllUser();
     $view = 'admin/gestionUser';
@@ -33,8 +49,9 @@ class UserController extends AppController
       exit();
     } catch (\Exception $err) {
       // erreur d'authentification
+      $view = 'user/loginUser';
       $paramView = ['error' => $err->getMessage()];
-      $this->createView('user/loginUser', $paramView);
+      $this->createView($view, $paramView);
     }
   }
 
@@ -55,8 +72,9 @@ class UserController extends AppController
 
   public function login()
   {
+    $view = 'user/loginUser';
     $paramView = ['error' => ''];
-    $this->createView('user/loginUser', $paramView);
+    $this->createView($view, $paramView);
   }
 
   public function logout()
@@ -69,6 +87,11 @@ class UserController extends AppController
 
   public function user()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
     $model = new UserCrud();
@@ -81,38 +104,21 @@ class UserController extends AppController
 
   public function update()
   {
-    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-    $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
-    $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_SPECIAL_CHARS);
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $mdp = filter_input(INPUT_POST, 'mdp', FILTER_SANITIZE_SPECIAL_CHARS);
-    $adresse = filter_input(INPUT_POST, 'adresse', FILTER_SANITIZE_SPECIAL_CHARS);
-    $code_postal = filter_input(INPUT_POST, 'code_postal', FILTER_SANITIZE_SPECIAL_CHARS);
-    $telephone = filter_input(INPUT_POST, 'telephone', FILTER_SANITIZE_SPECIAL_CHARS);
-    $role = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_SPECIAL_CHARS);
-
-    // Vérifier que les champs de formulaire sont valides
-    try {
-      if (!$nom || !$prenom || !$email || !$mdp || !$adresse || !$code_postal || !$telephone || $role) {
-        throw new Exception('Tous les champs doivent être valides.');
-      }
-    } catch (Exception $e) {
-      echo $e->getMessage();
-      return;
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
     }
-
-
-    $mdp = password_hash($mdp, PASSWORD_DEFAULT);
-
-    // instancier un objet User avec les valeurs reçues
-    // $user = new User($nom, $prenom, $email, $mdp, $adresse, $code_postal, $telephone);
-
-    // passer l'objet User à la fonction setUser
-    // $user = new User();
-    // $user->setNomUser($nom);
-
-    $model = new UserCrud();
-    $model->updateUserById($id, $prenom, $email, $mdp, $adresse, $code_postal, $telephone, $role);
+    // Vérifier que les champs de formulaire sont valides
+    try { {
+        $model = new UserCrud();
+        $model->updateUser();
+      }
+    } catch (\Exception $error) {
+      echo $error->getMessage();
+      $view = 'admin/updateUser';
+      $paramView = ['error' => $error->getMessage()];
+      $this->createView($view, $paramView);
+    }
 
     header('Location: index.php?entite=user&action=list');
     exit();
@@ -120,6 +126,11 @@ class UserController extends AppController
 
   public function delete()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $model = new UserCrud();
     $model->deleteUser($id);

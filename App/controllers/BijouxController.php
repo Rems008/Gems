@@ -45,8 +45,25 @@ class BijouxController extends AppController
     $this->createView($view, $paramView);
   }
 
+  private function verifRole()
+  {
+    // Vérification de l'authentification et du rôle
+    if (
+      !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin'
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   public function listBijouxAdmin()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $model = new bijouxCrud;
     $modelCat = new categorieCrud;
 
@@ -90,11 +107,11 @@ class BijouxController extends AppController
   public function listBijouxByCategorie()
   {
     // Récupérer l'identifiant de la catégorie depuis l'URL
-    $categorieId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $IdCategorie = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     // Récupérer les bijoux de la catégorie spécifiée
     $model = new bijouxCrud;
-    $bijoux = $model->getBijouxByIdCategorie($categorieId);
+    $bijoux = $model->getBijouxByIdCategorie($IdCategorie);
 
     // Passer les bijoux à la vue
     $view = 'bijoux/listBijouxByCategorie';
@@ -106,6 +123,12 @@ class BijouxController extends AppController
 
   public function create()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       // envoi du formulaire
       // Récupérer toutes les catégories
@@ -156,6 +179,12 @@ class BijouxController extends AppController
 
   public function bijouxUpdate()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
     // envoi du formulaire
@@ -189,6 +218,12 @@ class BijouxController extends AppController
 
   public function update()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
     $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -201,15 +236,12 @@ class BijouxController extends AppController
 
     // $bijoux = new Bijoux($nom, $description, $prix, $filename, $cat, $matiere, $pierre, $taille);
 
-    $bijoux = new Bijoux();
-    $bijoux->setNomBijoux($nom);
-    $bijoux->setDescription($description);
-    $bijoux->setPrix($prix);
-    $bijoux->setImageName($filename);
-    $bijoux->setNomCategorie($cat);
-    $bijoux->setNomMatiere($matiere);
-    $bijoux->setNomPierre($pierre);
-    $bijoux->setNomTaille($taille);
+    if ($_FILES['image']['error'] == 0) {
+      move_uploaded_file($_FILES['image']['tmp_name'], 'App/src/img/');
+      $filename = $_FILES['image']['name'];
+    }
+
+    $bijoux = new Bijoux($nom, $description, $prix, $filename, $cat, $matiere, $pierre, $taille);
 
     $model = new BijouxCrud();
     $model->updateBijouxById($bijoux, $id);

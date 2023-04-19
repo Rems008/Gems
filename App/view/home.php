@@ -18,32 +18,31 @@
       </div>
     </header>
     <main>
-      <?php foreach ($tabByCat as $cat => $bijoux) : ?>
-        <section class="article">
-          <div class="categorie">
-            <h2 class="categorie-titre">NOS <?= $cat; ?>s</h2>
-            <p class="categorie-p">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quis
-              at accusantium ut voluptas temporibus a.
-            </p>
-          </div>
-          <div class="card">
-            <?php foreach ($bijoux as $bijou) : ?>
-              <article class="card-article">
-                <a class="card-lien" href="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
-                  <img class="card-img" src="App/src/img/<?= $bijou->getImageName(); ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
-                </a>
-                <h5 class="card-titre"><?= $bijou->getNomBijoux(); ?>
-                </h5>
-                <p class="card-p"><?= $bijou->getDescription(); ?>
-                </p>
-                <h3><?= $bijou->getPrix(); ?> €</h3>
-                <form class="form-btn" method="post" action="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
-                  <button class="btn-voir">VOIR</button>
-                </form>
-              </article>
-            <?php endforeach ?>
-            <!-- <article class="card-article">
+      <section class="article">
+        <div class="categorie">
+          <h2 class="categorie-titre">NOS Bagues</h2>
+          <p class="categorie-p">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quis
+            at accusantium ut voluptas temporibus a.
+          </p>
+        </div>
+        <div class="card">
+          <?php foreach ($bijoux as $bijou) : ?>
+            <article class="card-article">
+              <a class="card-lien" href="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
+                <img class="card-img" src="App/src/img/<?= $bijou->getImageName(); ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
+              </a>
+              <h5 class="card-titre"><?= $bijou->getNomBijoux(); ?>
+              </h5>
+              <p class="card-p"><?= $bijou->getDescription(); ?>
+              </p>
+              <h3><?= $bijou->getPrix(); ?> €</h3>
+              <form class="form-btn" method="post" action="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
+                <button class="btn-voir">VOIR</button>
+              </form>
+            </article>
+          <?php endforeach ?>
+          <!-- <article class="card-article">
             <img class="card-img" src="App/src/img/" alt="" />
             <h5 class="card-titre"></h5>
             <p class="card-p">
@@ -66,9 +65,8 @@
             </p>
             <button class="btn-voir">VOIR</button>
           </article> -->
-          </div>
-        </section>
-      <?php endforeach ?>
+        </div>
+      </section>
       <article class="banniere-img-un">
         <div class="banniere-img">
           <button class="btn-collection">INDIA</button>

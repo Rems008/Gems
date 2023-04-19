@@ -8,8 +8,24 @@ use Gems\App\models\Matiere;
 
 class MatiereController extends AppController
 {
+  private function verifRole()
+  {
+    // Vérification de l'authentification et du rôle
+    if (
+      !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin'
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   public function list()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $model = new MatiereCrud();
     $tabMatiere = $model->getAllMatiere();
     $view = 'admin/gestionMatiere';
@@ -22,6 +38,11 @@ class MatiereController extends AppController
 
   public function create()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       $view = 'admin/createMatiere';
       $paramView = ['error'];
@@ -36,6 +57,11 @@ class MatiereController extends AppController
 
   public function matiere()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $model = new MatiereCrud();
     $matiere = $model->getMatiereById($id);
@@ -47,6 +73,11 @@ class MatiereController extends AppController
 
   public function update()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -62,6 +93,11 @@ class MatiereController extends AppController
 
   public function delete()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $model = new MatiereCrud();
     $model = $model->deleteMatiere($id);

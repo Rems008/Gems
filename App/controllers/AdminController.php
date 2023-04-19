@@ -12,8 +12,23 @@ use Gems\App\controllers\AppController;
 
 class AdminController extends AppController
 {
+  private function verifRole()
+  {
+    // Vérification de l'authentification et du rôle
+    if (
+      !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin'
+    ) {
+      return false;
+    }
+    return true;
+  }
   public function home()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/homeAdmin';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -21,6 +36,11 @@ class AdminController extends AppController
 
   public function bijoux()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/homeBijoux';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -28,6 +48,11 @@ class AdminController extends AppController
 
   public function createBijoux()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/createBijoux';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -35,6 +60,11 @@ class AdminController extends AppController
 
   public function listBijouxByCategorie()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     // Récupérer l'identifiant de la catégorie depuis l'URL
     $categorieId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
@@ -52,6 +82,11 @@ class AdminController extends AppController
 
   public function updateBijoux()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $categorieModel = new CategorieCrud();
     $tabCat = $categorieModel->getAllCategorie();
 
@@ -77,6 +112,11 @@ class AdminController extends AppController
 
   public function categorie()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/gestionCategorie';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -84,7 +124,11 @@ class AdminController extends AppController
 
   public function createCategorie()
   {
-
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/createCategorie';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -92,6 +136,11 @@ class AdminController extends AppController
 
   public function updateCategorie()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/updateCategorie';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -99,6 +148,11 @@ class AdminController extends AppController
 
   public function matiere()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/gestionMatiere';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -106,6 +160,11 @@ class AdminController extends AppController
 
   public function createMatiere()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/createMatiere';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -113,6 +172,11 @@ class AdminController extends AppController
 
   public function updateMatiere()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/updateMatiere';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -120,6 +184,11 @@ class AdminController extends AppController
 
   public function pierre()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/gestionPierre';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -127,6 +196,11 @@ class AdminController extends AppController
 
   public function createPierre()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/createPierre';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -134,6 +208,11 @@ class AdminController extends AppController
 
   public function updatePierre()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/updatePierre';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -141,6 +220,11 @@ class AdminController extends AppController
 
   public function taille()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/gestionTaille';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -148,6 +232,11 @@ class AdminController extends AppController
 
   public function createTaille()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/createTaille';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -155,6 +244,11 @@ class AdminController extends AppController
 
   public function updateTaille()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/updateTaille';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -162,6 +256,11 @@ class AdminController extends AppController
 
   public function user()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/gestionUser';
     $paramView = ['error'];
     $this->createView($view, $paramView);
@@ -169,7 +268,19 @@ class AdminController extends AppController
 
   public function updateUser()
   {
+    // Vérification de l'authentification et du rôle
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
     $view = 'admin/updateUser';
+    $paramView = ['error'];
+    $this->createView($view, $paramView);
+  }
+
+  public function nonAutorise()
+  {
+    $view = 'user/nonAutorise';
     $paramView = ['error'];
     $this->createView($view, $paramView);
   }

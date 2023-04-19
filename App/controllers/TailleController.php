@@ -9,8 +9,24 @@ use Gems\App\controllers\AppController;
 
 class TailleController extends AppController
 {
+  private function verifRole()
+  {
+    // Vérification de l'authentification et du rôle
+    if (
+      !isset($_SESSION['role']) || $_SESSION['role'] !== 'admin'
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   public function list()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $model = new TailleCrud();
     $tabTaille = $model->getAllTaille();
     $view = 'admin/gestionTaille';
@@ -24,6 +40,11 @@ class TailleController extends AppController
 
   public function create()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       $view = 'admin/createTaille';
       $paramView = ['error'];
@@ -38,6 +59,11 @@ class TailleController extends AppController
 
   public function taille()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
     $model = new TailleCrud();
@@ -50,6 +76,11 @@ class TailleController extends AppController
 
   public function update()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -65,6 +96,11 @@ class TailleController extends AppController
 
   public function delete()
   {
+    if (!$this->verifRole()) {
+      header('Location: index.php?entite=admin&action=nonAutorise');
+      exit();
+    }
+
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $model = new TailleCrud();
     $model = $model->deleteTaille($id);
