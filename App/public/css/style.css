@@ -325,10 +325,11 @@ img.card-img {
   margin: 20px 0;
   padding: 5px;
   font-size: 12px;
-  letter-spacing: 1px;
-  border-radius: 5px;
+  display: flex;
+  justify-content: center;
   background: var(--color-secondaire);
   border: 1px solid var(--color-secondaire);
+  border-radius: var(--btn-border-radius);
   box-shadow: var(--box-shadow-principal);
   color: var(--color-tertiaire);
   cursor: pointer;
@@ -600,6 +601,15 @@ footer a {
   color: var(--color-secondaire);
 }
 
+.icon-mdp {
+  display: flex;
+}
+
+.icon-mdp span {
+  margin: 0 10px 0;
+  cursor: pointer;
+}
+
 .lien-loginUser {
   display: flex;
   flex-direction: column;
@@ -737,6 +747,11 @@ footer a {
 
 .main-gestion form {
   display: inline-block;
+}
+
+#id-description {
+  background: none;
+  margin-bottom: 10px;
 }
 
 .btn-admin {

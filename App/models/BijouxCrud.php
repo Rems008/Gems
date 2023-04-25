@@ -94,13 +94,13 @@ class BijouxCrud
     $this->setBijoux($bijoux);
   }
 
-  public function updateBijouxById(Bijoux $bijoux, int $id)
+  public function updateBijouxById(Bijoux $bijoux, int $id_bijoux)
   {
-    $sql = 'UPDATE bijoux SET nom_bijoux=:nom,description=:description, prix_bijoux=:prix,image_bijoux=:img, id_categorie=:cat, id_matiere=:matiere, id_pierre=:pierre, id_taille=:taille WHERE id_bijoux=:id';
+    $sql = 'UPDATE bijoux SET nom_bijoux=:nom,description=:description, prix_bijoux=:prix,image_bijoux=:img, id_categorie=:cat, id_matiere=:matiere, id_pierre=:pierre, id_taille=:taille WHERE id_bijoux=' . $id_bijoux;
 
     $bijoux_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
-      // ':id' => $id,
+      // ':id' => $bijoux->getIdBijoux(),
       ':nom' => $bijoux->getNomBijoux(),
       ':description' => $bijoux->getDescription(),
       ':prix' => $bijoux->getPrix(),

@@ -8,18 +8,18 @@
            <?php include_once 'App/include/nav.php'; ?>
          </section>
        </header>
-       <section class="article">
-         <div class="categorie">
+       <main class="article">
+         <section class="categorie">
            <?php
             $nomCat = reset($bijoux); //  fonction PHP qui permet de pointer sur le premier élément d'un tableau et de renvoyer sa valeur ici le nom de la catégorie.
             ?>
-           <h2 class="page-title">NOS <?= $nomCategorie = $nomCat->getNomCategorie(); ?>s</h2>
+           <h1 class="page-title">NOS <?= $nomCategorie = $nomCat->getNomCategorie(); ?>s</h1>
            <p class="categorie-p">
              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quis
              at accusantium ut voluptas temporibus a.
            </p>
-         </div>
-         <div class="card">
+         </section>
+         <section class="card">
            <?php foreach ($bijoux as $bijou) : ?>
              <article class="card-article">
                <a class="card-lien" href="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
@@ -35,5 +35,5 @@
                </form>
              </article>
            <?php endforeach ?>
-         </div>
-       </section>
+         </section>
+       </main>

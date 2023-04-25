@@ -57,16 +57,25 @@ class UserController extends AppController
 
   public function create()
   {
+    $error = null;
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       // envoi du formulaire
       $view = 'user/createUser';
-      $paramView = ['error' => ''];
+      $paramView = ['error' => $error];
       $this->createView($view, $paramView);
+      var_dump($paramView);
     } else {
-      $model = new UserCrud();
-      $model->createNewUser();
-      header('Location: index.php?entite=user&action=login');
-      exit();
+      try {
+        $model = new UserCrud();
+        $model->createNewUser();
+        header('Location: index.php?entite=user&action=login');
+        exit();
+      } catch (Exception $e) {
+        $error = $e->getMessage();
+        $view = 'user/createUser';
+        $paramView = ['error' => $error];
+        $this->createView($view, $paramView);
+      }
     }
   }
 

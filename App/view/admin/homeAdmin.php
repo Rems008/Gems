@@ -9,7 +9,7 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin">
-      <h2 class="form-title">Bienvenue <?= $_SESSION['prenom_utilisateur']; ?></h2>
+      <h1 class="form-title">Bienvenue <?= $_SESSION['prenom_utilisateur']; ?></h1>
       <div class="main-gestion">
         <form method="post" action="index.php?entite=admin&action=bijoux">
           <button class="btn-admin">Bijoux</button>
@@ -33,5 +33,4 @@
       <a class="retour" href="index.php">Retour</a>
     </div>
   </section>
-  </form>
 </header>

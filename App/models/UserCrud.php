@@ -117,17 +117,21 @@ class UserCrud
 
     // Vérifier que les champs de formulaire sont valides
     try {
-      (!$nom || !$prenom || !$email || !$mdp || !$adresse || !$code_postal || !$telephone);
-    } catch (PDOException $pdoException) {
-      echo 'Tous les champs doivent être valides.' . $pdoException->getMessage();
-    }
+      if (!$nom || !$prenom || !$email || !$mdp || !$adresse || !$code_postal || !$telephone) {
+        throw new Exception('Tous les champs doivent être valides.');
+      }
 
-    $mdp = password_hash($mdp, PASSWORD_DEFAULT);
-    // instancier un objet User avec les valeurs reçues
-    $user = new User($nom, $prenom, $email, $mdp, $adresse, $code_postal, $telephone, $role);
-    // passer l'objet User à la fonction setUser
-    $this->setUser($this->dao->getConnect(), $user);
+      $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+      // instancier un objet User avec les valeurs reçues
+      $user = new User($nom, $prenom, $email, $mdp, $adresse, $code_postal, $telephone, $role);
+      // passer l'objet User à la fonction setUser
+      $this->setUser($this->dao->getConnect(), $user);
+    } catch (Exception $error) {
+      throw new Exception('Erreur : ' . $error->getMessage());
+      exit();
+    }
   }
+
 
   public function updateUserById(User $user, int $id)
   {
@@ -135,7 +139,7 @@ class UserCrud
 
     $user_stmt = $this->dao->getConnect()->prepare($sql);
     $param = [
-      ':id' => $id, PDO::PARAM_INT,
+      ':id' => $user->getIdUser(),
       ':nom' => $user->getNomUser(),
       ':prenom' => $user->getPrenom(),
       ':email' => $user->getEmail(),

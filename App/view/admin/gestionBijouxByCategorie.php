@@ -12,7 +12,7 @@
       <?php
       $nomCat = reset($bijoux);
       ?>
-      <h2 class="form-title">Gestion <?= $nomCat->getNomCategorie(); ?>s</h2>
+      <h1 class="form-title">Gestion <?= $nomCat->getNomCategorie(); ?>s</h1>
       <table class="table-cat">
         <thead>
           <tr>
@@ -25,7 +25,7 @@
         <tbody>
           <?php foreach ($bijoux as $bijou) : ?>
             <tr>
-              <td class="img-admin"><img src="App/src/img/<?= $bijou->getImageName() ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet"> </td>
+              <td class="img-admin"><a href=" index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>"><img src="App/src/img/<?= $bijou->getImageName() ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet"> </a></td>
               <td><?= $bijou->getNomBijoux() ?></td>
               <td>
                 <form method="post" action="index.php?entite=bijoux&action=bijouxUpdate&id=<?= $bijou->getIdBijoux(); ?>">

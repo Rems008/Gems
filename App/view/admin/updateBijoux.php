@@ -9,13 +9,16 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin">
-      <h2 class="form-title">Modifier un Bijou</h2>
+      <h1 class="form-title">Modifier un Bijou</h1>
+      <div class="error"><?php if ($error) : ?>
+          <?= $error ?>
+        <?php endif ?></div>
       <form class="form-admin" method="post" action="index.php?entite=bijoux&action=update" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $bijoux->getIdBijoux(); ?>">
         <label for="id-nom"><span class="etoile-form">*</span>Nom</label>
         <input type="text" id="id-nom" name="nom" value="<?= $bijoux->getNomBijoux(); ?>">
         <label for=" id-description"><span class="etoile-form">*</span>Description</label>
-        <input type="text" id="id-description" name="description" value="<?= $bijoux->getDescription(); ?>">
+        <textarea name="description" id="id-description" cols="25" rows="8" placeholder="<?= $bijoux->getDescription(); ?>"></textarea>
         <label for=" id-prix"><span class="etoile-form">*</span>Prix</label>
         <input type="string" id="id-prix" name="prix" value="<?= $bijoux->getPrix(); ?>">
         <label for="id-image"><span class="etoile-form">*</span>Image</label>
@@ -48,7 +51,8 @@
             <?php endforeach ?>
           </select>
         </div>
-        <button class="btn-admin">modifiée bijou</button>
+        <button class="btn-admin">
+          modifier bijou</button>
       </form>
       <a href="index.php?entite=admin&action=bijoux" class="retour">Retour</a>
     </div>

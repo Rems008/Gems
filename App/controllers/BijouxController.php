@@ -224,7 +224,7 @@ class BijouxController extends AppController
       exit();
     }
 
-    $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    $id_bijoux = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_SPECIAL_CHARS);
     $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
     $prix = filter_input(INPUT_POST, 'prix', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -244,7 +244,7 @@ class BijouxController extends AppController
     $bijoux = new Bijoux($nom, $description, $prix, $filename, $cat, $matiere, $pierre, $taille);
 
     $model = new BijouxCrud();
-    $model->updateBijouxById($bijoux, $id);
+    $model->updateBijouxById($bijoux, $id_bijoux);
 
     header('Location: index.php?entite=bijoux&action=listBijouxAdmin');
     exit();

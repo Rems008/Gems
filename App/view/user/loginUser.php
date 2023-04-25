@@ -10,7 +10,7 @@
      </section>
      <section class="section-user">
        <div class="div-section-user">
-         <h2 class="form-title">Mon Compte</h2>
+         <h1 class="form-title">Mon Compte GEMS</h1>
          <form class="form-user" method="post" action="index.php?entite=user&action=verif">
            <label for="id-email"><span class="etoile-form">*</span>Email</label>
            <div class="error"><?php if ($error) : ?>
@@ -18,7 +18,9 @@
              <?php endif ?></div>
            <input type="email" id="id-email" name="email" autofocus>
            <label for="id-mdp"><span class="etoile-form">*</span>Mot de passe</label>
-           <input type="password" id="id-mdp" name="mdp">
+           <div class="icon-mdp">
+             <input type="password" id="id-mdp" name="mdp">
+           </div>
            <div class="lien-loginUser">
              <a href="#">
                Mot de passe oublié ?

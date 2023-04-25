@@ -12,3 +12,4 @@
       <h1>Vous n'avez pas les droits d’accès!</h1>
     </div>
   </section>
+</header>

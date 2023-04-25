@@ -9,7 +9,7 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin">
-      <h2 class="form-title">Gestion Bijoux</h2>
+      <h1 class="form-title">Gestion Bijoux</h1>
       <div class="main-gestion">
         <a href="index.php?entite=bijoux&action=create">
           <button class="btn-admin">Créer un Bijou</button>
@@ -33,5 +33,4 @@
       <a class="retour" href="index.php?entite=admin&action=home">Retour</a>
     </div>
   </section>
-  </form>
 </header>

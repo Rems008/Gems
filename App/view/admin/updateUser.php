@@ -9,7 +9,7 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin">
-      <h2 class="form-title">Modifier Utilisateur</h2>
+      <h1 class="form-title">Modifier Utilisateur</h1>
       <form class="form-admin" method="post" action="index.php?entite=user&action=update">
         <input type="hidden" name="id" value="<?= $user->getIdUser(); ?>">
         <div class="error"><?php if ($error) : ?>

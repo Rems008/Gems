@@ -274,14 +274,14 @@ class AdminController extends AppController
       exit();
     }
     $view = 'admin/updateUser';
-    $paramView = ['error'];
+    $paramView = ['error' => ''];
     $this->createView($view, $paramView);
   }
 
   public function nonAutorise()
   {
     $view = 'user/nonAutorise';
-    $paramView = ['error'];
+    $paramView = ['error' => ''];
     $this->createView($view, $paramView);
   }
 }

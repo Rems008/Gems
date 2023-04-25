@@ -9,7 +9,7 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin">
-      <h2 class="form-title">Créer Taille</h2>
+      <h1 class="form-title">Créer Taille</h1>
       <form class="form-admin" method="post" action="index.php?entite=taille&action=create" enctype="multipart/form-data">
         <label for="id-nom"><span class="etoile-form">*</span>Taille</label>
         <input type="text" id="id-nom" name="nom">

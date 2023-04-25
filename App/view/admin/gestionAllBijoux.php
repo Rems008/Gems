@@ -9,7 +9,7 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin div-gestion-admin">
-      <h2 class="form-title">Gestion Bijoux</h2>
+      <h1 class="form-title">Gestion Bijoux</h1>
       <table class="table-cat">
         <thead>
           <tr>
@@ -24,7 +24,7 @@
           <?php foreach ($tabByCat as $cat => $bijoux) : ?>
             <?php foreach ($bijoux as $bijou) : ?>
               <tr>
-                <td class="img-admin"><img src="App/src/img/<?= $bijou->getImageName() ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet"></td>
+                <td class="img-admin"><a href=" index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>"><img src="App/src/img/<?= $bijou->getImageName() ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet"> </a></td>
                 <td><?= $cat; ?></td>
                 <td><?= $bijou->getNomBijoux() ?></td>
                 <td>

@@ -9,7 +9,7 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin div-gestion-admin">
-      <h2 class="form-title">Gestion Utilisateur</h2>
+      <h1 class="form-title">Gestion Utilisateur</h1>
       <table class="table-cat">
         <thead>
           <tr>

@@ -46,6 +46,6 @@ class AppController
   public function error()
   {
     global $except;
-    $this->createView('error', ['erreur' => $except->getMessage()]);
+    $this->createView('error', ['error' => $except->getMessage()]);
   }
 }

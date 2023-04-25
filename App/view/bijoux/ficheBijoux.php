@@ -7,10 +7,10 @@
          </div>
          <?php include_once 'App/include/nav.php'; ?>
        </section>
-       <section class="article">
-         <div class="card card-ficheBijoux">
+       <main class="article">
+         <section class="card card-ficheBijoux">
            <input type="hidden" name="id_bijoux" value="<?= $bijoux->getIdBijoux(); ?>">
-           <h2 class="page-title"><?= $bijoux->getNomBijoux(); ?></h2>
+           <h1 class="page-title"><?= $bijoux->getNomBijoux(); ?></h1>
            <div class="container">
              <div class="container-left">
                <img class="card-img-fiche" src="app/src/img/<?= $bijoux->getImageName(); ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
@@ -24,7 +24,7 @@
                </form>
              </article>
            </div>
-         </div>
+         </section>
          <a href="index.php?entite=bijoux&action=listBijoux" class="retour">Retour</a>
-       </section>
+       </main>
      </header>

@@ -9,12 +9,12 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin">
-      <h2 class="form-title">Créer un Bijou</h2>
+      <h1 class="form-title">Créer un Bijou</h1>
       <form class="form-admin" method="post" action="index.php?entite=bijoux&action=create" enctype="multipart/form-data">
         <label for="id-nom"><span class="etoile-form">*</span>Nom</label>
         <input type="text" id="id-nom" name="nom">
         <label for="id-description"><span class="etoile-form">*</span>Description</label>
-        <input type="text" id="id-description" name="description">
+        <textarea name="description" id="id-description" cols="25" rows="8"></textarea>
         <label for="id-prix"><span class="etoile-form">*</span>Prix</label>
         <input type="string" id="id-prix" name="prix">
         <label for="id-image"><span class="etoile-form">*</span>Image</label>
