@@ -40,7 +40,7 @@
           <?php endforeach ?> -->
           <article class="card-article">
             <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_Roma_3.jpeg" alt="" />
-            <h5 class="card-titre">ROMA</h5>
+            <h5 class="card-titre">BAGUE ROMA</h5>
             <p class="card-p">
               La bague Roma est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
@@ -49,7 +49,7 @@
           </article>
           <article class="card-article">
             <img class="card-img" src="app/src/img/Image_Gems_Bijoux_Atelier_Roma.jpg" alt="" />
-            <h5 class="card-titre">NAPOLI</h5>
+            <h5 class="card-titre">BAGUE NAPOLI</h5>
             <p class="card-p">
               La bague Napoli est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
@@ -58,7 +58,7 @@
           </article>
           <article class="card-article">
             <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_Roma_2.webp" alt="" />
-            <h5 class="card-titre">FIRENZE</h5>
+            <h5 class="card-titre">BAGUE FIRENZE</h5>
             <p class="card-p">
               La bague Firenze est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
@@ -82,7 +82,15 @@
         <div class="card">
           <article class="card-article">
             <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
-            <h5 class="card-titre">ROMA</h5>
+            <h5 class="card-titre">BRACELETS ROMA</h5>
+            <p class="card-p">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+            <button class="btn-voir">VOIR</button>
+          </article>
+          <article class="card-article">
+            <img class="card-img" src="../../App/src/img/Image_Gems_Bijoux_Atelier_bracelet_4.jpg" alt="" />
+            <h5 class="card-titre">BRACELETS NAPOLI</h5>
             <p class="card-p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
@@ -90,15 +98,7 @@
           </article>
           <article class="card-article">
             <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
-            <h5 class="card-titre">ROMA</h5>
-            <p class="card-p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <button class="btn-voir">VOIR</button>
-          </article>
-          <article class="card-article">
-            <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
-            <h5 class="card-titre">ROMA</h5>
+            <h5 class="card-titre">BRACELETS FIRENZE</h5>
             <p class="card-p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
@@ -122,7 +122,7 @@
         <div class="card">
           <article class="card-article">
             <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
-            <h5 class="card-titre">ROMA</h5>
+            <h5 class="card-titre">COLLIER ROMA</h5>
             <p class="card-p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
@@ -130,7 +130,7 @@
           </article>
           <article class="card-article">
             <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
-            <h5 class="card-titre">ROMA</h5>
+            <h5 class="card-titre">COLLIER NAPOLI</h5>
             <p class="card-p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
@@ -138,7 +138,7 @@
           </article>
           <article class="card-article">
             <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
-            <h5 class="card-titre">ROMA</h5>
+            <h5 class="card-titre">COLLIER FIRENZE</h5>
             <p class="card-p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
@@ -162,7 +162,7 @@
         <div class="card">
           <article class="card-article">
             <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
-            <h5 class="card-titre">ROMA</h5>
+            <h5 class="card-titre">BOUCLE D'OREILLE ROMA</h5>
             <p class="card-p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
@@ -170,7 +170,7 @@
           </article>
           <article class="card-article">
             <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
-            <h5 class="card-titre">ROMA</h5>
+            <h5 class="card-titre">BOUCLE D'OREILLE NAPOLI</h5>
             <p class="card-p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
@@ -178,7 +178,7 @@
           </article>
           <article class="card-article">
             <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
-            <h5 class="card-titre">ROMA</h5>
+            <h5 class="card-titre">BOUCLE D'OREILLE FIRENZE</h5>
             <p class="card-p">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
