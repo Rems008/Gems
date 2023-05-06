@@ -284,4 +284,8 @@ class AdminController extends AppController
     $paramView = ['error' => ''];
     $this->createView($view, $paramView);
   }
+
+  public function account()
+  {
+  }
 }

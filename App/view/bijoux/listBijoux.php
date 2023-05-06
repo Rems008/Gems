@@ -18,21 +18,21 @@
              </p>
            </section>
            <section class="card">
-             <?php foreach ($bijoux as $bijou) : ?>Q
-             <article class="card-article">
-               <input type="hidden" name="id_bijoux" value="<?= $bijou->getIdBijoux(); ?>">
-               <a class="card-lien" href="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
-                 <img class="card-img" src="App/src/img/<?= $bijou->getImageName(); ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
-               </a>
-               <h5 class="card-titre"><?= $bijou->getNomBijoux(); ?></h5>
-               <p class="card-p"><?= $bijou->getDescription(); ?>
-               </p>
-               <h3><?= $bijou->getPrix(); ?> €</h3>
-               <form class="form-btn" method="post" action="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
-                 <button class="btn-voir">VOIR</button>
-               </form>
-             </article>
-           <?php endforeach ?>
+             <?php foreach ($bijoux as $bijou) : ?>
+               <article class="card-article">
+                 <input type="hidden" name="id_bijoux" value="<?= $bijou->getIdBijoux(); ?>">
+                 <a class="card-lien" href="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
+                   <img class="card-img" src="App/src/img/<?= $bijou->getImageName(); ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
+                 </a>
+                 <h5 class="card-titre"><?= $bijou->getNomBijoux(); ?></h5>
+                 <p class="card-p"><?= $bijou->getDescription(); ?>
+                 </p>
+                 <h3><?= $bijou->getPrix(); ?> €</h3>
+                 <form class="form-btn" method="post" action="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
+                   <button class="btn-voir">VOIR</button>
+                 </form>
+               </article>
+             <?php endforeach ?>
            </section>
          </main>
        <?php endforeach ?>

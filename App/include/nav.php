@@ -54,7 +54,7 @@
       <span class="ligne"></span>
       <a href="#">Notre histoire</a>
       <span class="ligne"></span>
-      <a href="#">Nous contacter</a>
+      <a href="index.php?entite=user&action=contact">Nous contacter</a>
       <?php if ($_SESSION['role'] === 'admin') : ?>
         <a href="index.php?entite=admin&action=home">Admin</a>
       <?php elseif ($_SESSION['role'] === 'client') : ?>

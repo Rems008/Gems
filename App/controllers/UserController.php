@@ -147,4 +147,11 @@ class UserController extends AppController
     header('Location: index.php?entite=user&action=list');
     exit();
   }
+
+  public function contact()
+  {
+    $view = 'user/contact';
+    $paramView = [''];
+    $this->createView($view, $paramView);
+  }
 }

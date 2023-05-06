@@ -36,9 +36,10 @@ class BijouxController extends AppController
       $bijoux = $model->getBijouxByIdCategorie($category->getIdCategorie());
       $tabByCat[$category->getNomCategorie()] = $bijoux;
     }
-
+    $navColor = 'red';
     $view = 'bijoux/listBijoux';
     $paramView = [
+      $navColor,
       'error' => '',
       'tabByCat' => $tabByCat
     ];

@@ -14,9 +14,9 @@
     </div>
     <div class="div-col">
       <h3>Contacter</h3>
-      <a href="#">Nous Contacter</a>
-      <a href="#">Mail</a>
-      <a href="#">Téléphone</a>
+      <a href="index.php?entite=user&action=contact">Nous Contacter</a>
+      <a href="index.php?entite=user&action=contact#email" title="gems@gems.com">Mail</a>
+      <a href="index.php?entite=user&action=contact#tel" title="01.20.11.29.89">Téléphone</a>
     </div>
   </section>
   <div class="icon-reseau">
@@ -28,6 +28,6 @@
     </a>
   </div>
   <section class="pied-page">
-    <div>&copy GEMS réalisation Rémi VIVIEN 2023 </div>
+    <a>&copy GEMS réalisation Rémi VIVIEN 2023 </a>
   </section>
 </footer>
