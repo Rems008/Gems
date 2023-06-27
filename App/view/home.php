@@ -44,6 +44,7 @@
             <p class="card-p">
               La bague Roma est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
+            <h3>599 €</h3>
             <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=23">VOIR</a>
           </article>
           </article>
@@ -53,6 +54,7 @@
             <p class="card-p">
               La bague Napoli est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
+            <h3>445 €</h3>
             <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=25">VOIR</a>
           </article>
           </article>
@@ -62,6 +64,7 @@
             <p class="card-p">
               La bague Firenze est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
+            <h3>379 €</h3>
             <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=26">VOIR</a>
           </article>
         </div>
