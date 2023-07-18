@@ -34,12 +34,12 @@
               </p>
               <h3><?= $bijou->getPrix(); ?> €</h3>
               <form class="form-btn" method="post" action="index.php?entite=bijoux&action=bijoux&id=<?= $bijou->getIdBijoux(); ?>">
-                <button class="btn-voir">VOIR</button>
-              </form>
+      <h3>445 €</h3>
+            <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=25">VOIR</a>              </form>
             </article>
           <?php endforeach ?> -->
           <article class="card-article">
-            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_Roma_3.jpeg" alt="" />
+            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_Roma_3.jpeg" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">BAGUE ROMA</h5>
             <p class="card-p">
               La bague Roma est la création ultime de GEMS, c'est le bijou favori de notre atelier!
@@ -49,7 +49,7 @@
           </article>
           </article>
           <article class="card-article">
-            <img class="card-img" src="app/src/img/Image_Gems_Bijoux_Atelier_Roma.jpg" alt="" />
+            <img class="card-img" src="app/src/img/Image_Gems_Bijoux_Atelier_Roma.jpg" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">BAGUE NAPOLI</h5>
             <p class="card-p">
               La bague Napoli est la création ultime de GEMS, c'est le bijou favori de notre atelier!
@@ -59,7 +59,7 @@
           </article>
           </article>
           <article class="card-article">
-            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_Roma_2.webp" alt="" />
+            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_Roma_2.webp" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">BAGUE FIRENZE</h5>
             <p class="card-p">
               La bague Firenze est la création ultime de GEMS, c'est le bijou favori de notre atelier!
@@ -84,28 +84,31 @@
         </div>
         <div class="card">
           <article class="card-article">
-            <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
+            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_bracelet.webp" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">BRACELETS ROMA</h5>
             <p class="card-p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Le bracelet Roma est la création ultime de GEMS, c'est le bijou favori de notre atelier
             </p>
-            <button class="btn-voir">VOIR</button>
+            <h3>350 €</h3>
+            <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=29">VOIR</a>
           </article>
           <article class="card-article">
-            <img class="card-img" src="../../App/src/img/Image_Gems_Bijoux_Atelier_bracelet_4.jpg" alt="" />
+            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_bracelet_4.jpg" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">BRACELETS NAPOLI</h5>
             <p class="card-p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Le bracelet Napolie est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
-            <button class="btn-voir">VOIR</button>
+            <h3>680 €</h3>
+            <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=36">VOIR</a>
           </article>
           <article class="card-article">
-            <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
+            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_Roma_2.webp" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">BRACELETS FIRENZE</h5>
             <p class="card-p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Le bracelet Firenze est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
-            <button class="btn-voir">VOIR</button>
+            <h3>678 €</h3>
+            <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=37">VOIR</a>
           </article>
         </div>
       </section>
@@ -124,28 +127,33 @@
         </div>
         <div class="card">
           <article class="card-article">
-            <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
+            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_collier.webp" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">COLLIER ROMA</h5>
             <p class="card-p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Le collier Roma est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
-            <button class="btn-voir">VOIR</button>
+            <h3>766 €</h3>
+            <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=28">VOIR</a>
           </article>
           <article class="card-article">
-            <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
+            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_collier_3.jpg" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">COLLIER NAPOLI</h5>
             <p class="card-p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Le collier Napoli est la création ultime de GEMS, c'est le bijou favori de notre atelier!
+
             </p>
-            <button class="btn-voir">VOIR</button>
+            <h3>960 €</h3>
+            <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=30">VOIR</a>
           </article>
           <article class="card-article">
-            <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
+            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_collier_2.webp" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">COLLIER FIRENZE</h5>
             <p class="card-p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Le collier Firenze est la création ultime de GEMS, c'est le bijou favori de notre atelier!
+
             </p>
-            <button class="btn-voir">VOIR</button>
+            <h3>789 €</h3>
+            <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=32">VOIR</a>
           </article>
         </div>
       </section>
@@ -164,28 +172,31 @@
         </div>
         <div class="card">
           <article class="card-article">
-            <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
+            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_boucle-doreille_1.jpg" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">BOUCLE D'OREILLE ROMA</h5>
             <p class="card-p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Les boucles d'oreilles Roma est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
-            <button class="btn-voir">VOIR</button>
+            <h3>1290 €</h3>
+            <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=33">VOIR</a>
           </article>
           <article class="card-article">
-            <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
+            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_boucle-doreille_2.jpg" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">BOUCLE D'OREILLE NAPOLI</h5>
             <p class="card-p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Les boucles d'oreilles Napolie est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
-            <button class="btn-voir">VOIR</button>
+            <h3>985 €</h3>
+            <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=34">VOIR</a>
           </article>
           <article class="card-article">
-            <img class="card-img" src="./public/Img/Image_Gems_Bijoux_Atelier_Roma.jpeg" alt="" />
+            <img class="card-img" src="App/src/img/Image_Gems_Bijoux_Atelier_boucle-doreille_3.jpg" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />
             <h5 class="card-titre">BOUCLE D'OREILLE FIRENZE</h5>
             <p class="card-p">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Les boucles d'oreilles Firenze est la création ultime de GEMS, c'est le bijou favori de notre atelier!
             </p>
-            <button class="btn-voir">VOIR</button>
+            <h3>895 €</h3>
+            <a class="btn-voir" href="index.php?entite=bijoux&action=bijoux&id=35">VOIR</a>
           </article>
         </div>
       </section>
