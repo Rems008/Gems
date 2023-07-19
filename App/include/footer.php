@@ -28,6 +28,6 @@
     </a>
   </div>
   <section class="pied-page">
-    <a>&copy GEMS réalisation Rémi VIVIEN 2023 </a>
+    <a href="https://remivivien.fr/">&copy GEMS réalisation Rémi VIVIEN 2023 </a>
   </section>
 </footer>
