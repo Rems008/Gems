@@ -11,7 +11,7 @@
        <?php foreach ($tabByCat as $cat => $bijoux) : ?>
          <main class="article">
            <section class="categorie">
-             <h1 class="categorie-titre">NOS <?= $cat; ?>s</h1>
+             <h2 class="categorie-titre">NOS <?= $cat; ?>s</h2>
              <p class="categorie-p">
                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quis
                at accusantium ut voluptas temporibus a.

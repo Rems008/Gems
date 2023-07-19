@@ -12,7 +12,7 @@
       <?php
       $nomCat = reset($bijoux);
       ?>
-      <h1 class="form-title">Gestion <?= $nomCat->getNomCategorie(); ?>s</h1>
+      <h2 class="form-title">Gestion <?= $nomCat->getNomCategorie(); ?>s</h2>
       <table class="table-cat">
         <thead>
           <tr>

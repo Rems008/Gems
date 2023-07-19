@@ -9,7 +9,7 @@
   </section>
   <section class="section-user">
     <div class="div-section-user">
-      <h1 class="form-title">Mon Compte GEMS</h1>
+      <h2 class="form-title">Mon Compte GEMS</h2>
       <form class="form-user form-createUser" method="post" action="index.php?entite=user&action=create">
         <div class="error"><?php if ($error) : ?>
             <?= $error ?>

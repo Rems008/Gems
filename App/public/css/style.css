@@ -363,7 +363,8 @@ main {
 }
 
 img.card-img {
-  width: 60%;
+  width: 180px;
+  height: 180px;
   margin-bottom: 15px;
   cursor: pointer;
 }
@@ -403,7 +404,7 @@ img.card-img {
 }
 
 .btn-voir {
-  width: 40%;
+  width: 125px;
   height: auto;
   margin: 20px 0;
   padding: 5px;
@@ -527,7 +528,7 @@ footer a {
   width: max-content;
 }
 
-.div-col > h3 {
+.div-col > h4 {
   font-size: 14px;
   letter-spacing: 2px;
   line-height: 2;
@@ -1290,7 +1291,8 @@ footer a {
   }
 
   img.card-img {
-    width: 50%;
+    width: 200px;
+    height: 200px;
     margin-bottom: 15px;
   }
 
@@ -1312,7 +1314,7 @@ footer a {
 
   /* FOOTER */
 
-  .div-col > h3 {
+  .div-col > h4 {
     font-size: 22px;
     padding: 10px 0;
   }
@@ -1435,6 +1437,22 @@ footer a {
 
   .btn-ajouter {
     width: 160px;
+  }
+
+  /* PAGE FAQ */
+
+  .div-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .lien-remerciement {
+    color: var(--color-principal);
+  }
+
+  .lien-remerciement:hover {
+    color: var(--color-secondaire);
   }
 
   /* PAGE ADMIN */

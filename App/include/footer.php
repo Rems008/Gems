@@ -1,19 +1,19 @@
 <footer>
   <section class="div-footer">
     <div class="div-col">
-      <h3>A propos</h3>
+      <h4>A propos</h4>
       <a href="#">La marque</a>
       <a href="#">Guide des tailles</a>
       <a href="#">Guide des pierres</a>
     </div>
     <div class="div-col">
-      <h3>Plus</h3>
+      <h4>Plus</h4>
       <a href="#">Echanges et retours</a>
       <a href="#">Conseils d'entretien</a>
-      <a href="#">FAQ</a>
+      <a href="index.php?entite=user&action=faq">FAQ</a>
     </div>
     <div class="div-col">
-      <h3>Contacter</h3>
+      <h4>Contacter</h4>
       <a href="index.php?entite=user&action=contact">Nous Contacter</a>
       <a href="index.php?entite=user&action=contact#email" title="gems@gems.com">Mail</a>
       <a href="index.php?entite=user&action=contact#tel" title="01.20.11.29.89">Téléphone</a>

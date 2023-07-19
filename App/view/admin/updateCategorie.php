@@ -9,7 +9,7 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin">
-      <h1 class="form-title">Modifier Catégorie</h1>
+      <h2 class="form-title">Modifier Catégorie</h2>
       <form class="form-admin" method="post" action="index.php?entite=categorie&action=update">
         <input type="hidden" name="id" value="<?= $cat->getIdCategorie(); ?>">
         <label for="id-nom"><span class="etoile-form">*</span>Nom Catégorie</label>

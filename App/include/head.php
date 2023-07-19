@@ -5,6 +5,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="bijoux, GEMS, bague, collier, boucle d'oreille, bracelet, atelier, créateur, création">
+  <meta name="description" content="Découvrez notre collection de bijoux GEMS faits à la main par nos créateurs talentueux. Choisissez parmi une variété de bagues, colliers, boucles d'oreilles et bracelets uniques. Visitez notre atelier pour en apprendre davantage sur notre processus de création.">
+  <meta name="subject" content="Bijoux GEMS faits à la main">
+  <meta name="author" content="Nom de votre entreprise">
+  <meta name="robots" content="index, follow">
+  <meta name="revisit-after" content="7 days">
+  <meta name="language" content="French">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Balises OpenGraph pour les réseaux sociaux -->
+  <meta property="og:title" content="Bijoux GEMS faits à la main">
+  <meta property="og:description" content="Découvrez notre collection de bijoux GEMS faits à la main par nos créateurs talentueux. Choisissez parmi une variété de bagues, colliers, boucles d'oreilles et bracelets uniques. Visitez notre atelier pour en apprendre davantage sur notre processus de création.">
+  <meta property="og:type" content="website">
+  <!-- Balises Twitter pour les cartes Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bijoux GEMS faits à la main">
+  <meta name="twitter:description" content="Découvrez notre collection de bijoux GEMS faits à la main par nos créateurs talentueux. Choisissez parmi une variété de bagues, colliers, boucles d'oreilles et bracelets uniques. Visitez notre atelier pour en apprendre davantage sur notre processus de création.">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" href="App/public/css/style.css" />

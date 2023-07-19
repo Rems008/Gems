@@ -154,4 +154,11 @@ class UserController extends AppController
     $paramView = [''];
     $this->createView($view, $paramView);
   }
+
+  public function faq()
+  {
+    $view = 'user/faq';
+    $paramView = [''];
+    $this->createView($view, $paramView);
+  }
 }

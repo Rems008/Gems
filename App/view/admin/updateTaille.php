@@ -9,7 +9,7 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin">
-      <h1 class="form-title">Modifier Taille</h1>
+      <h2 class="form-title">Modifier Taille</h2>
       <form class="form-admin" method="post" action="index.php?entite=taille&action=update">
         <input type="hidden" name="id" value="<?= $taille->getIdTaille(); ?>">
         <label for="id-nom"><span class="etoile-form">*</span>Taille</label>

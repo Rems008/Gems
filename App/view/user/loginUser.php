@@ -10,7 +10,7 @@
      </section>
      <section class="section-user">
        <div class="div-section-user">
-         <h1 class="form-title">Mon Compte GEMS</h1>
+         <h2 class="form-title">Mon Compte GEMS</h2>
          <form class="form-user" method="post" action="index.php?entite=user&action=verif">
            <label for="id-email"><span class="etoile-form">*</span>Email</label>
            <div class="error"><?php if ($error) : ?>

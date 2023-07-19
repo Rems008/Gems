@@ -11,7 +11,7 @@
               <main class="article">
                 <section class="card card-ficheBijoux">
                   <input type="hidden" name="id_bijoux" value="<?= $bijoux->getIdBijoux(); ?>">
-                  <h1 class="page-title"><?= $bijoux->getNomBijoux(); ?></h1>
+                  <h2 class="page-title"><?= $bijoux->getNomBijoux(); ?></h2>
                   <div class="container">
                     <div class="container-left">
                       <img class="card-img-fiche" src="app/src/img/<?= $bijoux->getImageName(); ?>" alt="bijoux_gems_bague_collier_boucle_d_oreille_bracelet" />

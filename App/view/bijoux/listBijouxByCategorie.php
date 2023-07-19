@@ -13,7 +13,7 @@
            <?php
             $nomCat = reset($bijoux); //  fonction PHP qui permet de pointer sur le premier élément d'un tableau et de renvoyer sa valeur ici le nom de la catégorie.
             ?>
-           <h1 class="page-title">NOS <?= $nomCategorie = $nomCat->getNomCategorie(); ?>s</h1>
+           <h2 class="page-title">NOS <?= $nomCategorie = $nomCat->getNomCategorie(); ?>s</h2>
            <p class="categorie-p">
              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae quis
              at accusantium ut voluptas temporibus a.

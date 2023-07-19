@@ -9,7 +9,7 @@
   </section>
   <section class="section-admin">
     <div class="div-main-admin">
-      <h1 class="form-title">Modifier un Bijou</h1>
+      <h2 class="form-title">Modifier un Bijou</h2>
       <div class="error"><?php if ($error) : ?>
           <?= $error ?>
         <?php endif ?></div>
