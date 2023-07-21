@@ -13,7 +13,7 @@ class AppController
 
     extract($params); // creation des variables nécessaires à la vue
 
-    include 'app/view/template.php';
+    include 'App/view/template.php';
   }
 
   public function execute(string $action)

@@ -23,7 +23,7 @@
         <input type="string" id="id-prix" name="prix" value="<?= $bijoux->getPrix(); ?>">
         <label for="id-image"><span class="etoile-form">*</span>Image</label>
         <input type="file" id="id-image" name="image" value="<?= $bijoux->getImageName(); ?>">
-        <img class="update-img" src="app/src/img/<?= $bijoux->getImageName(); ?>" alt="<?= $bijoux->getImageName(); ?>">
+        <img class="update-img" src="App/src/img/<?= $bijoux->getImageName(); ?>" alt="<?= $bijoux->getImageName(); ?>">
         <div class="div-selecteur">
           <label for="id-categorie"><span class="etoile-form">*</span>Catégorie</label>
 

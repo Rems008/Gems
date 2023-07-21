@@ -16,6 +16,11 @@ class Dao
     $username = 'root';
     $password = '';
 
+    // $host = 'remivizremivivi.mysql.db';
+    // $dbname = 'remivizremivivi';
+    // $username = 'remivizremivivi';
+    // $password = 'Rootroot008';
+
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
     try {
       $this->connect = new PDO($dsn, $username, $password);

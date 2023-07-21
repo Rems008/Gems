@@ -1,21 +1,21 @@
 <?php
-session_start();
+// session_start();
 require_once "vendor/autoload.php";
 
 
-use Gems\App\controllers\AppController;
 use Gems\App\controllers\UserController;
 use Gems\App\controllers\AdminController;
 use Gems\App\controllers\BijouxController;
 use Gems\App\controllers\PierreController;
 use Gems\App\controllers\TailleController;
+use Gems\App\controllers\AppController;
 use Gems\App\controllers\MatiereController;
 use Gems\App\controllers\CategorieController;
 
 if (!isset($_SESSION['role'])) {
   $_SESSION['role'] = 'visiteur';
 }
-// var_dump($_SESSION);
+
 
 $entite = filter_input(INPUT_GET, 'entite', FILTER_SANITIZE_SPECIAL_CHARS);
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_SPECIAL_CHARS);
